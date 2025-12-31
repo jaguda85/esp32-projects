@@ -6,7 +6,7 @@ images:
   - "/esp32-projects/images/projects/trener/photo1.jpg"
   - "/esp32-projects/images/projects/trener/photo2.jpg"
   - "/esp32-projects/images/projects/trener/photo3.jpg"
-  - "/esp32-projects/images/projects/trener/photo4.jpg
+  - "/esp32-projects/images/projects/trener/photo4.jpg"
 date: 2024-01-20
 tags: ["zuzel", "trenażer", "sprzęgło"]
 components:
@@ -26,7 +26,7 @@ Szczegółowy opis projektu...
 - Pin 2 → Komponent B
 
 ## Kod programu
-
+Pobierz plik: [trener.ino](/code/trener/trener.ino)
 ```cpp
 // Twój kod .ino tutaj
 
