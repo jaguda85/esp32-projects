@@ -18,7 +18,7 @@ const getDifficultyClass = (difficulty: string) => {
 // DODAJ TĘ FUNKCJĘ - tworzy poprawne URLe z base
 const getProjectUrl = (slug: string) => {
   const base = import.meta.env.BASE_URL || '/';
-  return `${base}projects/${slug}`.replace(/\/+/g, '/');
+  return `${base}/projects/${slug}`.replace(/\/+/g, '/');
 };
 ---
 
