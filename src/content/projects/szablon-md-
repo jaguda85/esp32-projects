@@ -1,0 +1,42 @@
+---
+title: "Nazwa projektu"
+description: "Krótki opis projektu (1-2 zdania)"
+mainImage: "/images/projects/nazwa-projektu/main.jpg"
+images:
+  - "/images/projects/nazwa-projektu/photo1.jpg"
+  - "/images/projects/nazwa-projektu/photo2.jpg"
+date: 2024-01-20
+tags: ["Tag1", "Tag2", "Tag3"]
+components:
+  - "ESP32"
+  - "Komponent 1"
+  - "Komponent 2"
+difficulty: "Łatwy"  # lub "Średni" lub "Trudny"
+---
+
+## Opis projektu
+
+Szczegółowy opis projektu...
+
+## Schemat połączeń
+
+- Pin 1 → Komponent A
+- Pin 2 → Komponent B
+
+## Kod programu
+
+```cpp
+// Twój kod .ino tutaj
+
+void setup() {
+  // setup code
+}
+
+void loop() {
+  // main code
+}
+```
+
+## Podsumowanie
+
+Co nauczyłem się w tym projekcie...

@@ -1,16 +1,68 @@
 ---
+import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
 
+// Pobierz wszystkie projekty i posortuj po dacie
+const projects = (await getCollection('projects')).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
+
+const getDifficultyClass = (difficulty: string) => {
+  const map: Record<string, string> = {
+    'Łatwy': 'difficulty-easy',
+    'Średni': 'difficulty-medium',
+    'Trudny': 'difficulty-hard'
+  };
+  return map[difficulty] || 'difficulty-medium';
+};
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout title="Moje projekty ESP32">
+  <h1 style="text-align: center; color: var(--secondary); margin-bottom: 10px; font-weight: 700;">
+    Wszystkie projekty
+  </h1>
+  <p style="text-align: center; color: var(--text-light); margin-bottom: 40px;">
+    Odkryj moje projekty z ESP32 i elektroniką
+  </p>
+  
+  <div class="project-grid">
+    {projects.map((project) => (
+      <a href={`/projects/${project.slug}`} class="project-card">
+        <img 
+          src={project.data.mainImage} 
+          alt={project.data.title}
+          loading="lazy"
+        />
+        <div class="project-card-content">
+          <h2>{project.data.title}</h2>
+          <p>{project.data.description}</p>
+          
+          {project.data.difficulty && (
+            <p class={`difficulty-badge ${getDifficultyClass(project.data.difficulty)}`} style="margin: 12px 0;">
+              {project.data.difficulty}
+            </p>
+          )}
+          
+          {project.data.tags && (
+            <div class="tags">
+              {project.data.tags.map((tag) => (
+                <span class="tag">{tag}</span>
+              ))}
+            </div>
+          )}
+        </div>
+      </a>
+    ))}
+  </div>
+  
+  {projects.length === 0 && (
+    <div style="text-align: center; padding: 80px 20px; background: var(--card-bg); border-radius: 12px; border: 1px solid var(--border);">
+      <p style="color: var(--text-light); font-size: 1.1rem; margin-bottom: 10px;">
+        Nie dodano jeszcze żadnych projektów.
+      </p>
+      <p style="color: var(--text-light);">
+        Dodaj swój pierwszy projekt w katalogu <code>src/content/projects/</code>
+      </p>
+    </div>
+  )}
+</Layout>
