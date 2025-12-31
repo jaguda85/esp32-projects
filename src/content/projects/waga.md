@@ -1,10 +1,10 @@
 ---
 title: "waga"
 description: "Waga z OLED do 1kg"
-mainImage: "/images/projects/waga/main.jpg"
+mainImage: "/esp32-projects/images/projects/waga/main.jpg"
 images:
-  - "/images/projects/waga/photo1.jpg"
-  - "/images/projects/waga/photo2.jpg"
+  - "/esp32-projects/images/projects/waga/photo1.jpg"
+  - "/esp32-projects/images/projects/waga/photo2.jpg"
 date: 2024-01-20
 tags: ["Tag1", "Tag2", "Tag3"]
 components:

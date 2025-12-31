@@ -1,10 +1,10 @@
 ---
 title: "ZEGAR MAX"
 description: "Zegar z wyświetlaczem MAX7219"
-mainImage: "/images/projects/zegarmax/main.jpg"
+mainImage: "/esp32-projects/images/projects/zegarmax/main.jpg"
 images:
-  - "/images/projects/zegarmax/photo1.jpg"
-  - "/images/projects/zegarmax/photo2.jpg"
+  - "/esp32-projects/images/projects/zegarmax/photo1.jpg"
+  - "/esp32-projects/images/projects/zegarmax/photo2.jpg"
 date: 2024-01-15
 tags: ["LED", "Podstawy", "GPIO"]
 components:
