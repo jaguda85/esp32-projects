@@ -29,10 +29,13 @@ const getDifficultyClass = (difficulty: string) => {
   };
   return map[difficulty] || 'difficulty-medium';
 };
+
+// DODAJ - poprawny URL do strony głównej
+const homeUrl = import.meta.env.BASE_URL || '/';
 ---
 
 <Layout title={project.data.title} description={project.data.description}>
-  <a href="/" class="back-button">← Powrót do listy projektów</a>
+  <a href={homeUrl} class="back-button">← Powrót do listy projektów</a>
   
   <article class="project-detail">
     <h1>{project.data.title}</h1>

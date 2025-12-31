@@ -1,0 +1,18 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const homeUrl = import.meta.env.BASE_URL || '/';
+---
+
+<Layout title="Strona nie znaleziona - 404">
+  <div style="text-align: center; padding: 80px 20px;">
+    <h1 style="font-size: 4rem; color: var(--secondary); margin-bottom: 20px;">404</h1>
+    <h2 style="color: var(--text); margin-bottom: 30px;">Strona nie została znaleziona</h2>
+    <p style="color: var(--text-light); margin-bottom: 40px;">
+      Przepraszamy, ale strona której szukasz nie istnieje.
+    </p>
+    <a href={homeUrl} class="back-button" style="display: inline-block;">
+      ← Powrót do strony głównej
+    </a>
+  </div>
+</Layout>
