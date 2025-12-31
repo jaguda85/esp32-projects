@@ -18,25 +18,63 @@ difficulty: "Łatwy"  # lub "Średni" lub "Trudny"
 
 Szczegółowy opis projektu...
 
-## Schemat połączeń
-
-- Pin 1 → Komponent A
-- Pin 2 → Komponent B
-
 ## Kod programu
+Pobierz plik: [??.ino](/code/??/??.ino)
 
-```cpp
-// Twój kod .ino tutaj
+## 🔌 Schemat połączeń
 
-void setup() {
-  // setup code
-}
+import ESP32PinDiagram from '../../components/ESP32PinDiagram.astro';
 
-void loop() {
-  // main code
-}
-```
+<ESP32PinDiagram 
+  leftPins={[
+    { number: "1", name: "3V3" },
+    { number: "2", name: "EN" },
+    { number: "3", name: "VP", connection: "" },
+    { number: "4", name: "VN" },
+    { number: "5", name: "IO34" },
+    { number: "6", name: "IO35" },
+    { number: "7", name: "IO32" },
+    { number: "8", name: "IO33" },
+    { number: "9", name: "IO25" },
+    { number: "10", name: "IO26" },
+    { number: "11", name: "IO27" },
+    { number: "12", name: "IO14" },
+    { number: "13", name: "IO12" },
+    { number: "14", name: "GND", connection: "LED Katoda (przez 220Ω)" },
+    { number: "15", name: "IO13" },
+    { number: "16", name: "SD2" },
+    { number: "17", name: "SD3" },
+    { number: "18", name: "CMD" },
+    { number: "19", name: "5V" }
+  ]}
+  rightPins={[
+    { number: "38", name: "GND" },
+    { number: "37", name: "IO23" },
+    { number: "36", name: "IO22" },
+    { number: "35", name: "TXD0" },
+    { number: "34", name: "RXD0" },
+    { number: "33", name: "IO21" },
+    { number: "32", name: "IO19" },
+    { number: "31", name: "IO18" },
+    { number: "30", name: "IO5" },
+    { number: "29", name: "IO17" },
+    { number: "28", name: "IO16" },
+    { number: "27", name: "IO4" },
+    { number: "26", name: "IO0" },
+    { number: "25", name: "IO2", connection: "LED Anoda (+)" },
+    { number: "24", name: "IO15" },
+    { number: "23", name: "SD1" },
+    { number: "22", name: "SD0" },
+    { number: "21", name: "CLK" },
+    { number: "20", name: "3V3" }
+  ]}
+/>
 
-## Podsumowanie
+## ⚙️ Jak to działa?
+Program włącza i wyłącza pin GPIO2 co sekundę, powodując miganie diody.
 
-Co nauczyłem się w tym projekcie...
+## 📝 Jak wgrać kod?
+1. Pobierz plik .ino
+2. Otwórz w Arduino IDE
+3. Wybierz Board: ESP32 Dev Module
+4. Upload!

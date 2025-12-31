@@ -1,147 +1,144 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import { getCollection } from 'astro:content';
 
 export async function getStaticPaths() {
-  const projects = await getCollection('projects');
-  return projects.map(project => ({
-    params: { slug: project.slug },
-    props: { project },
-  }));
+    const projects = await import.meta.glob('../../projects/*.md');
+    
+    const paths = await Promise.all(
+        Object.keys(projects).map(async (path) => {
+            const project = await projects[path]();
+            return {
+                params: { slug: project.frontmatter.slug },
+                props: { project },
+            };
+        })
+    );
+    
+    return paths;
 }
 
 const { project } = Astro.props;
-const { Content } = await project.render();
-
-const formatDate = (date: Date) => {
-  return new Date(date).toLocaleDateString('pl-PL', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric'
-  });
-};
-
-const getDifficultyClass = (difficulty: string) => {
-  const map: Record<string, string> = {
-    'Łatwy': 'difficulty-easy',
-    'Średni': 'difficulty-medium',
-    'Trudny': 'difficulty-hard'
-  };
-  return map[difficulty] || 'difficulty-medium';
-};
-
-// DODAJ - poprawny URL do strony głównej
-const homeUrl = import.meta.env.BASE_URL || '/';
+const { Content } = project;
 ---
 
-<Layout title={project.data.title} description={project.data.description}>
-  <a href={homeUrl} class="back-button">← Powrót do listy projektów</a>
-  
-  <article class="project-detail">
-    <h1>{project.data.title}</h1>
+<Layout title={project.frontmatter.title}>
+    <a href="/" class="back-link">← Powrót do projektów</a>
     
-    <div class="project-meta">
-      <span>📅 {formatDate(project.data.date)}</span>
-      {project.data.difficulty && (
-        <span class={`difficulty-badge ${getDifficultyClass(project.data.difficulty)}`}>
-          📊 {project.data.difficulty}
-        </span>
-      )}
-    </div>
-    
-    {project.data.tags && (
-      <div class="tags" style="margin: 20px 0;">
-        {project.data.tags.map((tag) => (
-          <span class="tag">{tag}</span>
-        ))}
-      </div>
-    )}
-    
-    <img 
-      src={project.data.mainImage} 
-      alt={project.data.title}
-      style="width: 100%; border-radius: 12px; margin: 30px 0; border: 1px solid var(--border);"
-    />
-    
-    <div class="content">
-      <Content />
-    </div>
-    
-    {project.data.components && project.data.components.length > 0 && (
-      <div style="margin: 30px 0;">
-        <h2>🔌 Potrzebne komponenty:</h2>
-        <ul style="margin-left: 20px; line-height: 2;">
-          {project.data.components.map((component) => (
-            <li>{component}</li>
-          ))}
-        </ul>
-      </div>
-    )}
-    
-    {project.data.images && project.data.images.length > 0 && (
-      <div>
-        <h2>📸 Więcej zdjęć:</h2>
-        <div class="image-gallery">
-          {project.data.images.map((image) => (
-            <img src={image} alt={`${project.data.title} - zdjęcie`} loading="lazy" />
-          ))}
+    <article class="project-detail">
+        <h1>{project.frontmatter.title}</h1>
+        
+        {project.frontmatter.image && (
+            <img src={project.frontmatter.image} alt={project.frontmatter.title} class="main-image" />
+        )}
+        
+        <div class="content">
+            <Content />
         </div>
-      </div>
-    )}
-  </article>
+        
+        {project.frontmatter.codeFile && (
+            <a href={project.frontmatter.codeFile} class="download-btn" download>
+                📥 Pobierz plik .ino
+            </a>
+        )}
+    </article>
 </Layout>
 
 <style>
-  .content {
-    margin: 30px 0;
-    line-height: 1.8;
-  }
-  
-  .content :global(h2) {
-    color: var(--primary);
-    margin-top: 35px;
-    margin-bottom: 15px;
-    border-bottom: 2px solid var(--border);
-    padding-bottom: 8px;
-  }
-  
-  .content :global(h3) {
-    color: var(--secondary);
-    margin-top: 25px;
-    margin-bottom: 12px;
-    font-weight: 600;
-  }
-  
-  .content :global(p) {
-    margin-bottom: 15px;
-    color: var(--text);
-  }
-  
-  .content :global(ul), .content :global(ol) {
-    margin-left: 25px;
-    margin-bottom: 15px;
-  }
-  
-  .content :global(li) {
-    margin-bottom: 8px;
-    color: var(--text);
-  }
-  
-  .content :global(img) {
-    max-width: 100%;
-    border-radius: 8px;
-    margin: 20px 0;
-    border: 1px solid var(--border);
-  }
-  
-  .content :global(a) {
-    color: var(--primary);
-    text-decoration: none;
-    border-bottom: 1px solid var(--primary);
-  }
-  
-  .content :global(a:hover) {
-    color: var(--primary-light);
-    border-bottom-color: var(--primary-light);
-  }
+    .back-link {
+        display: inline-block;
+        margin-bottom: 20px;
+        color: #667eea;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s;
+    }
+    
+    .back-link:hover {
+        color: #5568d3;
+        text-decoration: underline;
+    }
+
+    .project-detail {
+        max-width: 100%;
+    }
+    
+    .main-image {
+        width: 100%;
+        max-height: 400px;
+        object-fit: cover;
+        border-radius: 15px;
+        margin: 20px 0;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    }
+    
+    .content {
+        line-height: 1.8;
+        color: #333;
+    }
+    
+    .content :global(h2) {
+        color: #667eea;
+        margin-top: 35px;
+        margin-bottom: 15px;
+        font-size: 1.8rem;
+    }
+
+    .content :global(h3) {
+        color: #764ba2;
+        margin-top: 25px;
+        margin-bottom: 12px;
+        font-size: 1.4rem;
+    }
+    
+    .content :global(ul) {
+        margin-left: 25px;
+        margin-bottom: 20px;
+    }
+
+    .content :global(li) {
+        margin-bottom: 8px;
+    }
+
+    .content :global(code) {
+        background: #f4f4f4;
+        padding: 2px 6px;
+        border-radius: 3px;
+        font-family: 'Courier New', monospace;
+        font-size: 0.9em;
+    }
+
+    .content :global(pre) {
+        background: #2d2d2d;
+        color: #f8f8f2;
+        padding: 20px;
+        border-radius: 8px;
+        overflow-x: auto;
+        margin: 20px 0;
+    }
+
+    .content :global(pre code) {
+        background: transparent;
+        padding: 0;
+        color: inherit;
+    }
+    
+    .download-btn {
+        display: inline-block;
+        margin-top: 40px;
+        padding: 15px 35px;
+        background: #28a745;
+        color: white;
+        text-decoration: none;
+        border-radius: 10px;
+        font-weight: bold;
+        font-size: 16px;
+        transition: all 0.3s;
+        box-shadow: 0 4px 10px rgba(40, 167, 69, 0.3);
+    }
+    
+    .download-btn:hover {
+        background: #218838;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 15px rgba(40, 167, 69, 0.4);
+    }
 </style>
