@@ -1,0 +1,165 @@
+---
+interface Props {
+  code: string;
+  filename: string;
+  language?: string;
+}
+
+const { code, filename, language = 'cpp' } = Astro.props;
+---
+
+<div class="code-block-container">
+  <div class="code-header">
+    <span class="code-filename">📄 {filename}</span>
+    <div class="code-actions">
+      <button class="btn-copy" data-code={code}>
+        📋 Kopiuj
+      </button>
+      <button class="btn-download" data-code={code} data-filename={filename}>
+        💾 Pobierz
+      </button>
+    </div>
+  </div>
+  
+  <pre class="code-content"><code class={`language-${language}`}>{code}</code></pre>
+</div>
+
+<script>
+  // Kopiowanie do schowka
+  document.querySelectorAll('.btn-copy').forEach(button => {
+    button.addEventListener('click', async () => {
+      const code = button.getAttribute('data-code');
+      if (code) {
+        try {
+          await navigator.clipboard.writeText(code);
+          const originalText = button.textContent;
+          button.textContent = '✅ Skopiowano!';
+          button.classList.add('success');
+          setTimeout(() => {
+            button.textContent = originalText;
+            button.classList.remove('success');
+          }, 2000);
+        } catch (err) {
+          alert('Nie udało się skopiować kodu');
+        }
+      }
+    });
+  });
+
+  // Pobieranie pliku .ino
+  document.querySelectorAll('.btn-download').forEach(button => {
+    button.addEventListener('click', () => {
+      const code = button.getAttribute('data-code');
+      const filename = button.getAttribute('data-filename');
+      
+      if (code && filename) {
+        // Utwórz blob z kodem
+        const blob = new Blob([code], { type: 'text/plain' });
+        
+        // Utwórz link do pobrania
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = filename;
+        document.body.appendChild(a);
+        a.click();
+        
+        // Cleanup
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+        
+        // Feedback
+        const originalText = button.textContent;
+        button.textContent = '✅ Pobrano!';
+        button.classList.add('success');
+        setTimeout(() => {
+          button.textContent = originalText;
+          button.classList.remove('success');
+        }, 2000);
+      }
+    });
+  });
+</script>
+
+<style>
+  .code-block-container {
+    margin: 30px 0;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    background: var(--code-bg);
+  }
+
+  .code-header {
+    background: #0f172a;
+    padding: 12px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #334155;
+  }
+
+  .code-filename {
+    color: #e2e8f0;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+
+  .code-actions {
+    display: flex;
+    gap: 10px;
+  }
+
+  .btn-copy, .btn-download {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 6px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    font-family: 'Segoe UI', sans-serif;
+  }
+
+  .btn-copy:hover, .btn-download:hover {
+    background: var(--primary-light);
+    transform: translateY(-2px);
+  }
+
+  .btn-copy.success, .btn-download.success {
+    background: #10b981;
+  }
+
+  .code-content {
+    margin: 0;
+    padding: 20px;
+    background: var(--code-bg);
+    color: #e2e8f0;
+    overflow-x: auto;
+    line-height: 1.6;
+  }
+
+  .code-content code {
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+    font-size: 0.9rem;
+  }
+
+  @media (max-width: 768px) {
+    .code-header {
+      flex-direction: column;
+      gap: 10px;
+      align-items: flex-start;
+    }
+
+    .code-actions {
+      width: 100%;
+    }
+
+    .btn-copy, .btn-download {
+      flex: 1;
+    }
+  }
+</style>

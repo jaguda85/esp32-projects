@@ -1,7 +1,8 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
-import ESP32Pinout from '../../components/ESP32Pinout.astro';  // DODAJ TO
+import ESP32Pinout from '../../components/ESP32Pinout.astro';
+import CodeBlock from '../../components/CodeBlock.astro';  // DODAJ TO
 
 export async function getStaticPaths() {
   const projects = await getCollection('projects');
@@ -63,7 +64,6 @@ const homeUrl = import.meta.env.BASE_URL || '/';
       style="width: 100%; border-radius: 12px; margin: 30px 0; border: 1px solid var(--border);"
     />
     
-    <!-- DODAJ SCHEMAT PINÓW - TUTAJ -->
     {(project.data.leftPins || project.data.rightPins) && (
       <ESP32Pinout 
         leftPins={project.data.leftPins} 
@@ -74,6 +74,18 @@ const homeUrl = import.meta.env.BASE_URL || '/';
     <div class="content">
       <Content />
     </div>
+    
+    <!-- DODAJ KOD ARDUINO Z PRZYCISKAMI -->
+    {project.data.arduinoCode && (
+      <div>
+        <h2>💻 Kod programu Arduino</h2>
+        <CodeBlock 
+          code={project.data.arduinoCode}
+          filename={project.data.arduinoFilename || 'sketch.ino'}
+          language="cpp"
+        />
+      </div>
+    )}
     
     {project.data.components && project.data.components.length > 0 && (
       <div style="margin: 30px 0;">

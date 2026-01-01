@@ -11,7 +11,6 @@ const projectsCollection = defineCollection({
     tags: z.array(z.string()).optional(),
     components: z.array(z.string()).optional(),
     difficulty: z.enum(['Łatwy', 'Średni', 'Trudny']).optional(),
-    // NOWE - piny ESP32
     leftPins: z.array(z.object({
       pin: z.string(),
       connection: z.string(),
@@ -20,6 +19,9 @@ const projectsCollection = defineCollection({
       pin: z.string(),
       connection: z.string(),
     })).optional(),
+    // NOWE - kod Arduino
+    arduinoCode: z.string().optional(),
+    arduinoFilename: z.string().optional(),
   }),
 });
 
