@@ -28,39 +28,34 @@ components:
   - "2 Kondensatory 10uf"
   - "2 Kondensatory 100nf"
 
-#Dostępne piny po lewej:
-#EN, 36, 39, 34, 35, 32, 33, 25, 26, 27, 14, 12, GND, 13, 9, 10, 11, 6, 7, 8
-
-#Dostępne piny po prawej:
-#3V3, GND, 15, 2, 0, 4, 16, 17, 5, 18, 19, 21, RX, TX, 22, 23, GND, 3V3, 5V, CMD
 # PINY - LEWA STRONA
 leftPins:
--pin: "EN"
-connection: "TFT_RST"
--pin: "36"
-connection: "T_IRQ"
--pin: "39"
-connection: "T_DO"
--pin: "32"
-connection: "T_DIN"
--pin: "27"
-connection: "NRF24_CSN; PN532_SDA; IR_TX"
--pin: "13"
-connection: "TFT_MOSI"
--pin: "12"
-connection: "TFT_MISO"
--pin: "34"
-connection: ""
--pin: "35"
-connection: ""
--pin: "33"
-connection: "T_CS"
--pin: "25"
-connection: "T_CLK"
--pin: "26"
-connection: ""
--pin: "14"
-connection: "TFT_SCK"
+  - pin: "EN"
+    connection: "TFT_RST"
+  - pin: "36"
+    connection: "T_IRQ"
+  - pin: "39"
+    connection: "T_DO"
+  - pin: "32"
+    connection: "T_DIN"
+  - pin: "27"
+    connection: "NRF24_CSN; PN532_SDA; IR_TX"
+  - pin: "13"
+    connection: "TFT_MOSI"
+  - pin: "12"
+    connection: "TFT_MISO"
+  - pin: "34"
+    connection: ""
+  - pin: "35"
+    connection: ""
+  - pin: "33"
+    connection: "T_CS"
+  - pin: "25"
+    connection: "T_CLK"
+  - pin: "26"
+    connection: ""
+  - pin: "14"
+    connection: "TFT_SCK"
 
 # PINY - PRAWA STRONA
 rightPins:
@@ -79,7 +74,7 @@ rightPins:
   - pin: "18"
     connection: "NRF24_SCK; SD_SCK"
   - pin: "19"
-    connection: "NRF24_MISO; SD_MISO; "
+    connection: "NRF24_MISO; SD_MISO"
   - pin: "21"
     connection: "TFT_LED"
   - pin: "TX"
@@ -87,7 +82,7 @@ rightPins:
   - pin: "RX"
     connection: "GPS_RX"
   - pin: "22"
-    connection: "HRF24_CE; PN532_SCL; IR_RX"
+    connection: "NRF24_CE; PN532_SCL; IR_RX"
   - pin: "3V3"
     connection: "Zasilanie czujnika"
 ---
@@ -96,15 +91,35 @@ rightPins:
 
 Bruce ma być wszechstronnym oprogramowaniem ESP32, które obsługuje mnóstwo ofensywnych funkcji skupiających się na ułatwianiu operacji Red Team. Obsługuje także produkty M5stack i Lilygo i świetnie współpracuje z Cardputerami, Stickami, M5Cores, T-Decks i T-Embeds.
 
-## Jak to działa
+## Funkcje
 
-Wyjaśnij działanie...
+- Skanowanie i analiza sieci WiFi
+- Testy bezpieczeństwa Bluetooth
+- Komunikacja RF (NRF24L01, CC1101)
+- Odczyt kart RFID (PN532)
+- GPS tracking
+- Transmisja IR
+- Interfejs dotykowy TFT
+- Zapis danych na karcie SD
 
-## Kod programu
-Pobierz plik:   https://github.com/BruceDevices/firmware/releases/tag/1.13
+## Instalacja firmware
 
-## Link do Github:  https://github.com/BruceDevices/firmware
+1. Pobierz najnowszą wersję z GitHub
+2. Użyj ESP Flash Tool lub Arduino IDE
+3. Skonfiguruj piny zgodnie z powyższym schematem
+
+## Link do firmware
+
+**Pobierz plik:** [Bruce Firmware v1.13](https://github.com/BruceDevices/firmware/releases/tag/1.13)
+
+**GitHub:** [BruceDevices/firmware](https://github.com/BruceDevices/firmware)
+
+## Uwagi
+
+- Projekt zaawansowany - wymaga doświadczenia
+- Używaj tylko do legalnych testów bezpieczeństwa
+- Sprawdź lokalne przepisy przed użyciem
 
 ## Podsumowanie
 
-Co osiągnąłeś...
+Bruce to potężne narzędzie do pentestingu i testowania bezpieczeństwa urządzeń bezprzewodowych. Idealny dla Red Teamów i entuzjastów bezpieczeństwa.
