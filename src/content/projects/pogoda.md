@@ -10,11 +10,6 @@ components:
   - "Komponent 1"
   - "Komponent 2"
 
-#Dostępne piny po lewej:
-#EN, 36, 39, 34, 35, 32, 33, 25, 26, 27, 14, 12, GND, 13, 9, 10, 11, 6, 7, 8
-
-#Dostępne piny po prawej:
-#3V3, GND, 15, 2, 0, 4, 16, 17, 5, 18, 19, 21, RX, TX, 22, 23, GND, 3V3, 5V, CMD
 # PINY - LEWA STRONA
 leftPins:
   - pin: "36"
@@ -65,7 +60,7 @@ Stacja pogodowa oparta na ESP32, która wyświetla aktualną godzinę i datę, k
 Wyjaśnij działanie...
 
 ## Kod programu
-Pobierz plik: [pogoda.ino](/code/trener/trener.ino)
+Pobierz plik: [pogoda.ino](/code/pogoda/pogoda.ino)
 ```cpp
 #define LED_PIN 25
 #define BUTTON_PIN 39
