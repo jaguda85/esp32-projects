@@ -28,7 +28,7 @@ Szczegółowy opis projektu...
 - Pin 5 → HX711 SCL
 
 ## Kod programu
-Pobierz plik: [waga.ino](/code/waga/waga.ino)
+Pobierz plik: [waga.ino](/esp32-projects/code/waga/waga.ino)
 ```cpp
 // Twój kod .ino tutaj
 

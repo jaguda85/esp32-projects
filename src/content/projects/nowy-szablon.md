@@ -1,7 +1,7 @@
 ---
 title: "Nazwa projektu"
 description: "Krótki opis projektu"
-mainImage: "/images/projects/nazwa/main.jpg"
+mainImage: "/esp32-projects/images/projects/nazwa/main.jpg"
 date: 2025-01-20
 tags: ["ESP32", "Tag2"]
 difficulty: "Średni"
@@ -9,7 +9,11 @@ components:
   - "ESP32 DevKit v1"
   - "Komponent 1"
 
+## Kod programu
+Pobierz plik: [waga.ino](/esp32-projects/code/??/??.ino)
+
 arduinoFilename: "nazwa_projektu.ino"
+
 arduinoCode: |
   /*
    * Nazwa projektu

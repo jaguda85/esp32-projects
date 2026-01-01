@@ -31,7 +31,7 @@ Funkcja `delay()` dodaje pauzę między zmianami stanu.
 
 ## Kod programu
 
-Pobierz plik: [zegarmax.ino](/code/zegarmax/zegarmax.ino)
+Pobierz plik: [zegarmax.ino](/esp32-projects/code/zegarmax/zegarmax.ino)
 
 ```cpp
 // Migająca dioda LED na ESP32

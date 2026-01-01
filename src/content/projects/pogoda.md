@@ -62,7 +62,7 @@ Stacja pogodowa oparta na ESP32, która wyświetla aktualną godzinę i datę, k
 Wyjaśnij działanie...
 
 ## Kod programu
-Pobierz plik: [pogoda.ino](/code/pogoda/pogoda.ino)
+Pobierz plik: [pogoda.ino](/esp32-projects/code/pogoda/pogoda.ino)
 ```cpp
 #define LED_PIN 25
 #define BUTTON_PIN 39
