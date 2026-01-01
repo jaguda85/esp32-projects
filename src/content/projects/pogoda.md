@@ -1,7 +1,9 @@
 ---
 title: "STACJA POGODOWA"
 description: "Wyświetla godzinę i datę (wifi)"
-mainImage: "/images/projects/pogoda/main.jpg"
+mainImage: "/esp32-projects/images/projects/pogoda/main.jpg"
+images:
+  - "/esp32-projects/images/projects/pogoda/photo1.jpg"
 date: 2025-01-20
 tags: ["ESP32", "POGODA"]
 difficulty: "Średni"
