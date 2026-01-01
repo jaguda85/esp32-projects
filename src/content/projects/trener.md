@@ -26,7 +26,7 @@ Szczegółowy opis projektu...
 - Pin 2 → Komponent B
 
 ## Kod programu
-Pobierz plik: [trener.ino](/code/trener/trener.ino)
+Pobierz plik: [trener.ino](/esp32-projects/code/trener/trener.ino)
 ```cpp
 // Twój kod .ino tutaj
 
