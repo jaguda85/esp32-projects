@@ -1,14 +1,14 @@
 ---
-title: "STACJA POGODOWA"
-description: "Wyświetla godzinę i datę (wifi)"
-mainImage: "/images/projects/pogoda/main.jpg"
+title: "ESP32 MARAUDER"
+description: "Do zabawy z wigi i BT"
+mainImage: "/esp32-projects/images/projects/pogoda/main.jpg"
 date: 2025-01-20
-tags: ["ESP32", "POGODA"]
+tags: ["ESP32", "wifi"]
 difficulty: "Średni"
 components:
   - "ESP32 DevKit v1"
-  - "Komponent 1"
-  - "Komponent 2"
+  - ""
+  - ""
 
 #Dostępne piny po lewej:
 #EN, 36, 39, 34, 35, 32, 33, 25, 26, 27, 14, 12, GND, 13, 9, 10, 11, 6, 7, 8
