@@ -2,7 +2,8 @@
 title: "MARAUDER ESP32"
 description: "Zabawa z wifi i BT"
 mainImage: "/esp32-projects/images/projects/marauder/main.jpg"
-image: "/esp32-projects/images/projects/marauder/main.jpg"
+images: "/esp32-projects/images/projects/marauder/photo1.jpg"
+-  "/esp32-projects/images/projects/marauder/photo2.jpg"
 date: 2025-01-20
 tags: ["ESP32", "wifi"]
 difficulty: "Średni"
