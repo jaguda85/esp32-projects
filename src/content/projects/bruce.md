@@ -35,8 +35,6 @@ components:
 #3V3, GND, 15, 2, 0, 4, 16, 17, 5, 18, 19, 21, RX, TX, 22, 23, GND, 3V3, 5V, CMD
 # PINY - LEWA STRONA
 leftPins:
- -pin: "3V3"
-connection: ""
 -pin: "EN"
 connection: "TFT_RST"
 -pin: "36"
