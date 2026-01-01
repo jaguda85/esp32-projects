@@ -2,7 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
 import ESP32Pinout from '../../components/ESP32Pinout.astro';
-import CodeBlock from '../../components/CodeBlock.astro';  // DODAJ TO
+import CodeBlock from '../../components/CodeBlock.astro';
 
 export async function getStaticPaths() {
   const projects = await getCollection('projects');
@@ -58,10 +58,11 @@ const homeUrl = import.meta.env.BASE_URL || '/';
       </div>
     )}
     
+    <!-- GŁÓWNE ZDJĘCIE - WYSKALOWANE -->
     <img 
       src={project.data.mainImage} 
       alt={project.data.title}
-      style="width: 100%; border-radius: 12px; margin: 30px 0; border: 1px solid var(--border);"
+      class="project-main-image"
     />
     
     {(project.data.leftPins || project.data.rightPins) && (
@@ -75,7 +76,6 @@ const homeUrl = import.meta.env.BASE_URL || '/';
       <Content />
     </div>
     
-    <!-- DODAJ KOD ARDUINO Z PRZYCISKAMI -->
     {project.data.arduinoCode && (
       <div>
         <h2>💻 Kod programu Arduino</h2>
@@ -98,59 +98,123 @@ const homeUrl = import.meta.env.BASE_URL || '/';
       </div>
     )}
     
+    <!-- GALERIA Z LIGHTBOX -->
     {project.data.images && project.data.images.length > 0 && (
       <div>
         <h2>📸 Więcej zdjęć:</h2>
+        <p style="color: var(--text-light); font-size: 0.9rem; margin-bottom: 15px;">
+          Kliknij na zdjęcie aby powiększyć
+        </p>
         <div class="image-gallery">
-          {project.data.images.map((image) => (
-            <img src={image} alt={`${project.data.title} - zdjęcie`} loading="lazy" />
+          {project.data.images.map((image, index) => (
+            <img 
+              src={image} 
+              alt={`${project.data.title} - zdjęcie ${index + 1}`} 
+              loading="lazy"
+              class="gallery-image"
+              data-image={image}
+            />
           ))}
         </div>
       </div>
     )}
   </article>
+
+  <!-- LIGHTBOX MODAL -->
+  <div id="lightbox" class="lightbox">
+    <span class="lightbox-close">&times;</span>
+    <img class="lightbox-content" id="lightbox-image" alt="Powiększone zdjęcie">
+  </div>
 </Layout>
+
+<!-- SKRYPT LIGHTBOX -->
+<script>
+  // Inicjalizacja lightboxa
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-image') as HTMLImageElement;
+  const closeBtn = document.querySelector('.lightbox-close');
+  const galleryImages = document.querySelectorAll('.gallery-image');
+
+  // Otwórz lightbox po kliknięciu na zdjęcie
+  galleryImages.forEach(img => {
+    img.addEventListener('click', function(this: HTMLImageElement) {
+      const imageSrc = this.getAttribute('data-image');
+      if (lightbox && lightboxImg && imageSrc) {
+        lightboxImg.src = imageSrc;
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Zablokuj scroll
+      }
+    });
+  });
+
+  // Zamknij lightbox
+  const closeLightbox = () => {
+    if (lightbox) {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = 'auto'; // Odblokuj scroll
+    }
+  };
+
+  // Zamknij przez X
+  closeBtn?.addEventListener('click', closeLightbox);
+
+  // Zamknij przez kliknięcie w tło
+  lightbox?.addEventListener('click', function(e) {
+    if (e.target === lightbox) {
+      closeLightbox();
+    }
+  });
+
+  // Zamknij przez ESC
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      closeLightbox();
+    }
+  });
+</script>
 
 <style>
   .content {
-    margin: 30px 0;
-    line-height: 1.8;
+    margin: 25px 0;  /* ZMNIEJSZONE z 30px */
+    line-height: 1.7;  /* ZMNIEJSZONE z 1.8 */
+    font-size: 0.95rem;  /* DODANE */
   }
   
   .content :global(h2) {
     color: var(--primary);
-    margin-top: 35px;
-    margin-bottom: 15px;
+    margin-top: 25px;  /* ZMNIEJSZONE z 35px */
+    margin-bottom: 12px;  /* ZMNIEJSZONE z 15px */
     border-bottom: 2px solid var(--border);
-    padding-bottom: 8px;
+    padding-bottom: 6px;  /* ZMNIEJSZONE z 8px */
   }
   
   .content :global(h3) {
     color: var(--secondary);
-    margin-top: 25px;
-    margin-bottom: 12px;
+    margin-top: 20px;  /* ZMNIEJSZONE z 25px */
+    margin-bottom: 10px;  /* ZMNIEJSZONE z 12px */
     font-weight: 600;
+    font-size: 1.1rem;  /* DODANE */
   }
   
   .content :global(p) {
-    margin-bottom: 15px;
+    margin-bottom: 12px;  /* ZMNIEJSZONE z 15px */
     color: var(--text);
   }
   
   .content :global(ul), .content :global(ol) {
-    margin-left: 25px;
-    margin-bottom: 15px;
+    margin-left: 20px;  /* ZMNIEJSZONE z 25px */
+    margin-bottom: 12px;  /* ZMNIEJSZONE z 15px */
   }
   
   .content :global(li) {
-    margin-bottom: 8px;
+    margin-bottom: 6px;  /* ZMNIEJSZONE z 8px */
     color: var(--text);
   }
   
   .content :global(img) {
     max-width: 100%;
     border-radius: 8px;
-    margin: 20px 0;
+    margin: 15px 0;  /* ZMNIEJSZONE z 20px */
     border: 1px solid var(--border);
   }
   
