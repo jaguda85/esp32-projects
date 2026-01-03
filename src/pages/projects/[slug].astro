@@ -58,7 +58,6 @@ const homeUrl = import.meta.env.BASE_URL || '/';
       </div>
     )}
     
-    <!-- GŁÓWNE ZDJĘCIE - WYSKALOWANE -->
     <img 
       src={project.data.mainImage} 
       alt={project.data.title}
@@ -87,6 +86,38 @@ const homeUrl = import.meta.env.BASE_URL || '/';
       </div>
     )}
     
+    {project.data.libraries && project.data.libraries.length > 0 && (
+      <div style="margin: 30px 0;">
+        <h2>📚 Niezbędne biblioteki Arduino IDE</h2>
+        <div class="libraries-list">
+          {project.data.libraries.map((library) => (
+            <div class="library-item">
+              <div class="library-info">
+                <span class="library-name">📦 {library.name}</span>
+                {library.author && (
+                  <span class="library-author">by {library.author}</span>
+                )}
+              </div>
+              {library.link && (
+                <a href={library.link} target="_blank" rel="noopener noreferrer" class="library-link">
+                  🔗 Link
+                </a>
+              )}
+            </div>
+          ))}
+        </div>
+        <div class="library-help">
+          <p><strong>Jak zainstalować:</strong></p>
+          <ol>
+            <li>Otwórz Arduino IDE</li>
+            <li>Przejdź do: <code>Sketch → Include Library → Manage Libraries...</code></li>
+            <li>Wyszukaj nazwę biblioteki</li>
+            <li>Kliknij "Install"</li>
+          </ol>
+        </div>
+      </div>
+    )}
+    
     {project.data.components && project.data.components.length > 0 && (
       <div style="margin: 30px 0;">
         <h2>🔌 Potrzebne komponenty:</h2>
@@ -98,7 +129,6 @@ const homeUrl = import.meta.env.BASE_URL || '/';
       </div>
     )}
     
-    <!-- GALERIA Z LIGHTBOX -->
     {project.data.images && project.data.images.length > 0 && (
       <div>
         <h2>📸 Więcej zdjęć:</h2>
@@ -120,52 +150,44 @@ const homeUrl = import.meta.env.BASE_URL || '/';
     )}
   </article>
 
-  <!-- LIGHTBOX MODAL -->
   <div id="lightbox" class="lightbox">
     <span class="lightbox-close">&times;</span>
     <img class="lightbox-content" id="lightbox-image" alt="Powiększone zdjęcie">
   </div>
 </Layout>
 
-<!-- SKRYPT LIGHTBOX -->
 <script>
-  // Inicjalizacja lightboxa
   const lightbox = document.getElementById('lightbox');
   const lightboxImg = document.getElementById('lightbox-image') as HTMLImageElement;
   const closeBtn = document.querySelector('.lightbox-close');
   const galleryImages = document.querySelectorAll('.gallery-image');
 
-  // Otwórz lightbox po kliknięciu na zdjęcie
   galleryImages.forEach(img => {
     img.addEventListener('click', function(this: HTMLImageElement) {
       const imageSrc = this.getAttribute('data-image');
       if (lightbox && lightboxImg && imageSrc) {
         lightboxImg.src = imageSrc;
         lightbox.classList.add('active');
-        document.body.style.overflow = 'hidden'; // Zablokuj scroll
+        document.body.style.overflow = 'hidden';
       }
     });
   });
 
-  // Zamknij lightbox
   const closeLightbox = () => {
     if (lightbox) {
       lightbox.classList.remove('active');
-      document.body.style.overflow = 'auto'; // Odblokuj scroll
+      document.body.style.overflow = 'auto';
     }
   };
 
-  // Zamknij przez X
   closeBtn?.addEventListener('click', closeLightbox);
 
-  // Zamknij przez kliknięcie w tło
   lightbox?.addEventListener('click', function(e) {
     if (e.target === lightbox) {
       closeLightbox();
     }
   });
 
-  // Zamknij przez ESC
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') {
       closeLightbox();
@@ -175,46 +197,46 @@ const homeUrl = import.meta.env.BASE_URL || '/';
 
 <style>
   .content {
-    margin: 25px 0;  /* ZMNIEJSZONE z 30px */
-    line-height: 1.7;  /* ZMNIEJSZONE z 1.8 */
-    font-size: 0.95rem;  /* DODANE */
+    margin: 25px 0;
+    line-height: 1.7;
+    font-size: 0.95rem;
   }
   
   .content :global(h2) {
     color: var(--primary);
-    margin-top: 25px;  /* ZMNIEJSZONE z 35px */
-    margin-bottom: 12px;  /* ZMNIEJSZONE z 15px */
+    margin-top: 25px;
+    margin-bottom: 12px;
     border-bottom: 2px solid var(--border);
-    padding-bottom: 6px;  /* ZMNIEJSZONE z 8px */
+    padding-bottom: 6px;
   }
   
   .content :global(h3) {
     color: var(--secondary);
-    margin-top: 20px;  /* ZMNIEJSZONE z 25px */
-    margin-bottom: 10px;  /* ZMNIEJSZONE z 12px */
+    margin-top: 20px;
+    margin-bottom: 10px;
     font-weight: 600;
-    font-size: 1.1rem;  /* DODANE */
+    font-size: 1.1rem;
   }
   
   .content :global(p) {
-    margin-bottom: 12px;  /* ZMNIEJSZONE z 15px */
+    margin-bottom: 12px;
     color: var(--text);
   }
   
   .content :global(ul), .content :global(ol) {
-    margin-left: 20px;  /* ZMNIEJSZONE z 25px */
-    margin-bottom: 12px;  /* ZMNIEJSZONE z 15px */
+    margin-left: 20px;
+    margin-bottom: 12px;
   }
   
   .content :global(li) {
-    margin-bottom: 6px;  /* ZMNIEJSZONE z 8px */
+    margin-bottom: 6px;
     color: var(--text);
   }
   
   .content :global(img) {
     max-width: 100%;
     border-radius: 8px;
-    margin: 15px 0;  /* ZMNIEJSZONE z 20px */
+    margin: 15px 0;
     border: 1px solid var(--border);
   }
   
@@ -227,5 +249,109 @@ const homeUrl = import.meta.env.BASE_URL || '/';
   .content :global(a:hover) {
     color: var(--primary-light);
     border-bottom-color: var(--primary-light);
+  }
+
+  .libraries-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 20px 0;
+  }
+
+  .library-item {
+    background: var(--dark-secondary);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+  }
+
+  .library-item:hover {
+    background: var(--card-hover);
+    border-color: var(--primary);
+    transform: translateX(5px);
+  }
+
+  .library-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .library-name {
+    font-weight: 600;
+    color: var(--text);
+    font-size: 1rem;
+  }
+
+  .library-author {
+    color: var(--text-light);
+    font-size: 0.85rem;
+  }
+
+  .library-link {
+    background: var(--primary);
+    color: var(--dark);
+    padding: 6px 14px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+    border: none;
+  }
+
+  .library-link:hover {
+    background: var(--primary-light);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(74, 158, 255, 0.4);
+  }
+
+  .library-help {
+    background: var(--dark-secondary);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--primary);
+    border-radius: 8px;
+    padding: 16px;
+    margin-top: 20px;
+  }
+
+  .library-help p {
+    color: var(--text);
+    margin-bottom: 10px;
+  }
+
+  .library-help strong {
+    color: var(--primary);
+  }
+
+  .library-help ol {
+    margin-left: 20px;
+    color: var(--text-light);
+    line-height: 1.8;
+  }
+
+  .library-help code {
+    background: var(--code-bg);
+    color: var(--primary);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+  }
+
+  @media (max-width: 768px) {
+    .library-item {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .library-link {
+      align-self: stretch;
+      text-align: center;
+    }
   }
 </style>

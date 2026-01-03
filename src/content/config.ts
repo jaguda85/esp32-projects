@@ -19,6 +19,11 @@ const projectsCollection = defineCollection({
       pin: z.string(),
       connection: z.string(),
     })).optional(),
+    libraries: z.array(z.object({
+      name: z.string(),
+      author: z.string().optional(),
+      link: z.string().optional(),
+    })).optional(),
     // NOWE - kod Arduino
     arduinoCode: z.string().optional(),
     arduinoFilename: z.string().optional(),

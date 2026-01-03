@@ -9,10 +9,13 @@ images:
   - "/esp32-projects/images/projects/trener/photo4.jpg"
 date: 2024-01-20
 tags: ["zuzel", "trenażer", "sprzęgło"]
+libraries:
+ 
 components:
   - "ESP32"
-  - "Komponent 1"
-  - "Komponent 2"
+  - "2 potencjometry suwakowe"
+  - "Ekran TFT 2.8' ILI9341"
+  - "Dioda LED zielona"
 difficulty: "Łatwy"  # lub "Średni" lub "Trudny"
 ---
 
