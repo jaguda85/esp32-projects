@@ -15,7 +15,7 @@ components:
 difficulty: "Łatwy"
 
 # PINY - PRAWA STRONA
-rightpins:
+rightPins:
   - pin: "18"
     connection: "CLK"
   - pin: "23"
