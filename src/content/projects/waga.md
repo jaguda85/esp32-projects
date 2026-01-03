@@ -22,7 +22,7 @@ rightPins:
     connection: "SCL OLED"
   - pin: "4"
     connection: "DOUT HX711"
-  - pIN: "5"
+  - pin: "5"
     connection: "SCL HX711"
 
 leftPins:
