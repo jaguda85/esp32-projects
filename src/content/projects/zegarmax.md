@@ -13,14 +13,6 @@ components:
   - "Rezystor 220Ω"
   - "Przewody połączeniowe"
 difficulty: "Łatwy"
----
-
-## Opis projektu
-
-Projekt zegara z datą i pogodą. Posiada AP z www gdzie można dokonać zmiany wielu parametrów. Wymaga połącznia wifi i API na 'openweather.com'. 
-Koniecznie uzupełnij je w kodzie.
-
-## Schemat połączeń
 
 # PINY - PRAWA STRONA
 rightpins:
@@ -30,6 +22,16 @@ rightpins:
     connection: "DATA_PIN"
   - pin: "5"
     connection: "CS_PIN"
+---
+
+## Opis projektu
+
+Projekt zegara z datą i pogodą. Posiada AP z www gdzie można dokonać zmiany wielu parametrów. Wymaga połącznia wifi i API na 'openweather.com'. 
+Koniecznie uzupełnij je w kodzie.
+
+## Schemat połączeń
+
+
   
 
 ## Jak to działa
