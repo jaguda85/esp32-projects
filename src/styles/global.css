@@ -6,15 +6,15 @@
 
 :root {
   /* Ciemna paleta */
-  --primary: #4a9eff;
-  --primary-light: #488cd5;
+  --primary: #ab0303;
+  --primary-light: #ff0000;
   --secondary: #446985;
-  --accent: #4a7ba7;
-  --dark: #4bc20c;
+  --accent: #4a1a04;
+  --dark: #03231b;
   --dark-secondary: #1c2938;
   
   /* Główne tło - CIEMNE */
-  --bg-main: #a53204;
+  --bg-main: #0522a5;
   --bg-secondary: #066204;
   --light: #0906b4;
   
@@ -28,9 +28,9 @@
   --border-light: #475569;
   
   /* Karty i komponenty */
-  --card-bg: #242b3d;
-  --card-hover: #2d3548;
-  --code-bg: #0f172a;
+  --card-bg: #00420d;
+  --card-hover: #198202;
+  --code-bg: #1c5031;
 }
 
 body {
