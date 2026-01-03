@@ -8,7 +8,6 @@ interface Props {
 
 const { title, description = 'Moje projekty z ESP32' } = Astro.props;
 
-// POPRAWIONA FUNKCJA
 const getAssetPath = (path: string) => {
   const base = import.meta.env.BASE_URL || '/';
   const baseWithSlash = base.endsWith('/') ? base : `${base}/`;
@@ -24,20 +23,23 @@ const getAssetPath = (path: string) => {
   <meta name="description" content={description}>
   <title>{title}</title>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
   <header>
     <div class="container">
       <div class="header-content">
         <img 
-          src={getAssetPath('images/esp32-logo.png')}
-          alt="ESP32" 
-          class="esp32-logo"
+          src={getAssetPath('images/jaguda-logo1.png')}
+          alt="Jaguda" 
+          class="jaguda-logo"
           onerror="this.style.display='none'"
         />
         <div class="header-text">
-          <h1>🔧 Moje projekty ESP32</h1>
-          <p>Zbiór moich projektów IoT i elektroniki</p>
+          <h1>🔥 ESP32 Projects Hub</h1>
+          <p>Innowacyjne rozwiązania IoT & Elektronika</p>
         </div>
       </div>
     </div>
@@ -48,7 +50,16 @@ const getAssetPath = (path: string) => {
   </main>
   
   <footer>
-    <p>&copy; {new Date().getFullYear()} - Wszystkie prawa zastrzeżone</p>
+    <img 
+      src={getAssetPath('images/jaguda-logo.png')}
+      alt="Jaguda Logo" 
+      class="footer-logo"
+      onerror="this.style.display='none'"
+    />
+    <p>&copy; {new Date().getFullYear()} <strong>Jaguda</strong> - All rights reserved</p>
+    <p style="margin-top: 10px; font-size: 0.85rem; color: var(--text-muted);">
+      Zbudowano z ⚡ używając Astro
+    </p>
   </footer>
 </body>
 </html>

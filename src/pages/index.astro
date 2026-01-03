@@ -15,23 +15,47 @@ const getDifficultyClass = (difficulty: string) => {
   return map[difficulty] || 'difficulty-medium';
 };
 
-// POPRAWIONA FUNKCJA - dodaje slash
 const getProjectUrl = (slug: string) => {
   const base = import.meta.env.BASE_URL || '/';
-  // Upewnij się że base kończy się na /
   const baseWithSlash = base.endsWith('/') ? base : `${base}/`;
   return `${baseWithSlash}projects/${slug}`;
+};
+
+const getAssetPath = (path: string) => {
+  const base = import.meta.env.BASE_URL || '/';
+  const baseWithSlash = base.endsWith('/') ? base : `${base}/`;
+  return `${baseWithSlash}${path}`;
 };
 ---
 
 <Layout title="Moje projekty ESP32">
-  <h1 style="text-align: center; color: var(--primary); margin-bottom: 8px; font-weight: 700; font-size: 1.6rem;">
-    Wszystkie projekty
+  <!-- SEKCJA PROFILU -->
+  <div class="profile-section">
+    <img 
+      src={getAssetPath('images/jaguda-logo.png')}
+      alt="Jaguda Logo" 
+      class="profile-avatar"
+    />
+    <h1 class="profile-name">Jaguda</h1>
+    <a href="https://github.com/jaguda85" target="_blank" rel="noopener noreferrer" class="github-link">
+      <span class="github-icon">⚡</span>
+      <span>GitHub Profile</span>
+      <span class="github-icon">🚀</span>
+    </a>
+  </div>
+
+  <!-- SEPARATOR -->
+  <div style="height: 2px; background: linear-gradient(90deg, transparent, var(--primary), transparent); margin: 50px 0;"></div>
+
+  <!-- NAGŁÓWEK PROJEKTÓW -->
+  <h1 style="text-align: center; background: linear-gradient(135deg, var(--primary), var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 10px; font-weight: 800; font-size: 2rem;">
+    ⚡ Moje Projekty ⚡
   </h1>
-  <p style="text-align: center; color: var(--text-light); margin-bottom: 30px; font-size: 0.9rem;">
-    Odkryj moje projekty z ESP32 i elektroniką
+  <p style="text-align: center; color: var(--text-light); margin-bottom: 40px; font-size: 1rem;">
+    Elektronika • IoT • ESP32
   </p>
   
+  <!-- SIATKA PROJEKTÓW -->
   <div class="project-grid">
     {projects.map((project) => (
       <a href={getProjectUrl(project.slug)} class="project-card">
@@ -45,7 +69,7 @@ const getProjectUrl = (slug: string) => {
           <p>{project.data.description}</p>
           
           {project.data.difficulty && (
-            <p class={`difficulty-badge ${getDifficultyClass(project.data.difficulty)}`} style="margin: 10px 0;">
+            <p class={`difficulty-badge ${getDifficultyClass(project.data.difficulty)}`} style="margin: 12px 0;">
               {project.data.difficulty}
             </p>
           )}
@@ -63,12 +87,12 @@ const getProjectUrl = (slug: string) => {
   </div>
   
   {projects.length === 0 && (
-    <div style="text-align: center; padding: 60px 20px; background: var(--card-bg); border-radius: 12px; border: 1px solid var(--border);">
-      <p style="color: var(--text-light); font-size: 1rem; margin-bottom: 10px;">
-        Nie dodano jeszcze żadnych projektów.
+    <div style="text-align: center; padding: 80px 20px; background: var(--bg-card); border-radius: 15px; border: 1px solid var(--border);">
+      <p style="color: var(--text-light); font-size: 1.2rem; margin-bottom: 15px;">
+        🚀 Brak projektów
       </p>
-      <p style="color: var(--text-light); font-size: 0.9rem;">
-        Dodaj swój pierwszy projekt w katalogu <code>src/content/projects/</code>
+      <p style="color: var(--text-muted); font-size: 0.95rem;">
+        Dodaj swój pierwszy projekt w katalogu <code style="background: var(--code-bg); padding: 3px 8px; border-radius: 5px;">src/content/projects/</code>
       </p>
     </div>
   )}
