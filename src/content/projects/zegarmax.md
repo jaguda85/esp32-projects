@@ -46,7 +46,7 @@ const char* sta_password = "TU HASŁO DO TWOJEGO WIFI";
 
 // Konfiguracja OpenWeatherMap
 const char* weatherApiKey = "TU WPISZ KOD API Z OPENWEATHER.COM";
-const char* weatherCity = "TU WPISZ SWOJE MIASTO";
+const char* weatherCity = "TU WPISZ SWOJE MIASTO";1
 const char* weatherCountry = "PL";
 
 API założysz za darmo na stronie openweather.com
