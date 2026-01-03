@@ -13,7 +13,31 @@ libraries:
   - name: "Adafruit_GFX.h"
     author: "ADAFRUIT"
   - name: "Adafruit_ILI9341.h"
- 
+leftPins:
+  - pin: "35"
+    connection: "POT_GAZ"
+  - pin: "34"
+    connection: "POT_SPRZEGLO"
+  - pin: "26"
+    connection: "LED ZIELONY"
+  - pin: "32"
+    connection: "PRZYCISK GÓRA"
+  - pin: "33"
+    connection: "PRZYCISK DÓŁ"
+  - pin: "12"
+    connection: "LEWO"
+  - pin: "14"
+    connection: "PRAWO"
+  - pin: "21"
+    connection: "OK"
+  - pin: "27"
+    connection: "START"
+  - pin: "13"
+    connection: "SET"
+rightPins:
+  - pin: "5"
+    connection: "TFT_CS"
+
 components:
   - "ESP32"
   - "2 potencjometry suwakowe"
