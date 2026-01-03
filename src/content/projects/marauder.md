@@ -61,7 +61,7 @@ rightPins:
 
 ## Opis projektu
 
-Stacja pogodowa oparta na ESP32, która wyświetla aktualną godzinę i datę, korzystając z połączenia WiFi.
+ESP32 Marauder to zestaw narzędzi ofensywnych i defensywnych WiFi/Bluetooth stworzony dla ESP32 i został pierwotnie zainspirowany projektem esp8266_deauther firmy Spacehuhn. Samo narzędzie pełni funkcję przenośnego urządzenia służącego do testowania i analizowania urządzeń WiFi i Bluetooth. Używaj tego narzędzia i jego oprogramowania sprzętowego ostrożnie, ponieważ korzystanie z niektórych jego możliwości bez wyraźnej zgody docelowego właściciela jest niezgodne z prawem w większości krajów.
 
 ## Jak to działa
 
