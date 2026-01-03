@@ -46,7 +46,7 @@ body {
   padding: 0 20px;
 }
 
-/* ========== KARTY PROJEKTÓW (LISTA) - ZMNIEJSZONE ========== */
+/* ========== KARTY PROJEKTÓW (LISTA) ========== */
 .project-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -58,7 +58,7 @@ body {
   background: var(--card-bg);
   border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);  /* CIEMNIEJSZY CIEŃ */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
   border: 1px solid var(--border);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   text-decoration: none;
@@ -68,13 +68,24 @@ body {
 
 .project-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(74, 158, 255, 0.3);  /* NIEBIESKI CIEŃ */
+  box-shadow: 0 8px 20px rgba(74, 158, 255, 0.3);
   border-color: var(--primary);
   background: var(--card-hover);
 }
 
+.project-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-bottom: 1px solid var(--border);
+}
+
+.project-card-content {
+  padding: 16px;
+}
+
 .project-card h2 {
-  color: var(--primary);  /* ZMIENIONE */
+  color: var(--primary);
   margin-bottom: 8px;
   font-size: 1.2rem;
   font-weight: 600;
@@ -90,31 +101,31 @@ body {
 .tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 6px;  /* ZMNIEJSZONE z 8px */
+  gap: 6px;
 }
 
 .tag {
-  background: var(--dark-secondary);  /* ZMIENIONE */
-  color: var(--primary);  /* ZMIENIONE */
+  background: var(--dark-secondary);
+  color: var(--primary);
   padding: 4px 10px;
   border-radius: 6px;
   font-size: 0.8rem;
   font-weight: 500;
-  border: 1px solid var(--border);  /* DODANE */
+  border: 1px solid var(--border);
 }
 
-/* ========== STRONA SZCZEGÓŁÓW PROJEKTU - ZMNIEJSZONA ========== */
+/* ========== STRONA SZCZEGÓŁÓW PROJEKTU ========== */
 .project-detail {
-  background: var(--card-bg);  /* ZMIENIONE */
+  background: var(--card-bg);
   border-radius: 12px;
   padding: 30px;
   margin: 30px 0;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);  /* CIEMNIEJSZY CIEŃ */
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
   border: 1px solid var(--border);
 }
 
 .project-detail h1 {
-  color: var(--primary);  /* ZMIENIONE */
+  color: var(--primary);
   margin-bottom: 15px;
   font-size: 2rem;
   font-weight: 700;
@@ -132,14 +143,14 @@ body {
 
 .project-meta {
   display: flex;
-  gap: 15px;  /* ZMNIEJSZONE z 20px */
-  margin: 15px 0;  /* ZMNIEJSZONE z 20px */
+  gap: 15px;
+  margin: 15px 0;
   color: var(--text-light);
   flex-wrap: wrap;
-  font-size: 0.9rem;  /* ZMNIEJSZONE z 0.95rem */
+  font-size: 0.9rem;
 }
 
-/* ========== GŁÓWNE ZDJĘCIE PROJEKTU - WYSKALOWANE ========== */
+/* ========== GŁÓWNE ZDJĘCIE PROJEKTU ========== */
 .project-main-image {
   width: 100%;
   max-width: 800px;
@@ -150,17 +161,17 @@ body {
   margin: 20px auto;
   display: block;
   border: 1px solid var(--border);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);  /* CIEMNIEJSZY CIEŃ */
-  background: var(--dark-secondary);  /* TŁO POD ZDJĘCIEM */
-  padding: 10px;  /* DODANE */
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  background: var(--dark-secondary);
+  padding: 10px;
 }
 
-/* ========== GALERIA ZDJĘĆ - MINIATURY Z LIGHTBOX ========== */
+/* ========== GALERIA ZDJĘĆ ========== */
 .image-gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));  /* ZMNIEJSZONE z 250px */
-  gap: 15px;  /* ZMNIEJSZONE z 20px */
-  margin: 25px 0;  /* ZMNIEJSZONE z 30px */
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  margin: 25px 0;
 }
 
 .image-gallery img {
@@ -168,7 +179,7 @@ body {
   height: 150px;
   object-fit: cover;
   border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);  /* CIEMNIEJSZY */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
   border: 1px solid var(--border);
   cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -177,11 +188,11 @@ body {
 
 .image-gallery img:hover {
   transform: scale(1.05);
-  box-shadow: 0 6px 20px rgba(74, 158, 255, 0.4);  /* NIEBIESKI CIEŃ */
+  box-shadow: 0 6px 20px rgba(74, 158, 255, 0.4);
   border-color: var(--primary);
 }
 
-/* ========== LIGHTBOX - MODAL DLA ZDJĘĆ ========== */
+/* ========== LIGHTBOX ========== */
 .lightbox {
   display: none;
   position: fixed;
@@ -190,7 +201,7 @@ body {
   top: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.95);  /* CIEMNIEJSZE TŁO */
+  background-color: rgba(0, 0, 0, 0.95);
   justify-content: center;
   align-items: center;
   animation: fadeIn 0.3s ease;
@@ -244,71 +255,71 @@ body {
 }
 
 .code-section {
-  margin: 30px 0;  /* ZMNIEJSZONE z 40px */
+  margin: 30px 0;
 }
 
 .code-section h2 {
   color: var(--primary);
-  margin-bottom: 12px;  /* ZMNIEJSZONE z 15px */
+  margin-bottom: 12px;
 }
 
 pre {
   background: var(--code-bg);
   color: #e2e8f0;
-  padding: 20px;  /* ZMNIEJSZONE z 24px */
+  padding: 20px;
   border-radius: 8px;
   overflow-x: auto;
   line-height: 1.6;
   border: 1px solid #334155;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-  font-size: 0.85rem;  /* DODANE */
+  font-size: 0.85rem;
 }
 
 code {
   font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
-  font-size: 0.85rem;  /* ZMNIEJSZONE z 0.9rem */
+  font-size: 0.85rem;
 }
 
-/* Header */
+/* ========== HEADER ========== */
 header {
-  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);  /* CIEMNIEJSZY */
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
   color: white;
   padding: 25px 0;
   margin-bottom: 30px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
-  border-bottom: 1px solid var(--border);  /* DODANE */
+  border-bottom: 1px solid var(--border);
 }
 
 header h1 {
   font-size: 1.8rem;
   font-weight: 700;
   margin-bottom: 6px;
-  color: var(--primary);  /* DODANE */
+  color: var(--primary);
 }
 
 header p {
-  color: var(--text-light);  /* ZMIENIONE */
+  color: var(--text-light);
   font-size: 1rem;
 }
 
-/* Przycisk powrotu */
+/* ========== PRZYCISKI ========== */
 .back-button {
   display: inline-block;
   background: var(--primary);
-  color: var(--dark);  /* CIEMNY TEKST NA JASNYM TLE */
+  color: var(--dark);
   padding: 8px 16px;
   border-radius: 6px;
   text-decoration: none;
   margin: 15px 0;
   transition: background 0.3s ease;
-  font-weight: 600;  /* POGRUBIONE */
+  font-weight: 600;
   font-size: 0.9rem;
-  border: 1px solid var(--primary);  /* DODANE */
+  border: 1px solid var(--primary);
 }
 
 .back-button:hover {
   background: var(--primary-light);
-  box-shadow: 0 4px 12px rgba(74, 158, 255, 0.4);  /* DODANE */
+  box-shadow: 0 4px 12px rgba(74, 158, 255, 0.4);
 }
 
 /* Listy */
@@ -329,54 +340,54 @@ a:hover {
   color: var(--primary-light);
 }
 
-/* Poziom trudności */
+/* ========== POZIOM TRUDNOŚCI ========== */
 .difficulty-badge {
   display: inline-block;
-  padding: 5px 12px;  /* ZMNIEJSZONE z 6px 16px */
+  padding: 5px 12px;
   border-radius: 6px;
   font-weight: 600;
-  font-size: 0.85rem;  /* ZMNIEJSZONE z 0.9rem */
+  font-size: 0.85rem;
 }
 
 .difficulty-easy {
-  background: #064e3b;  /* CIEMNIEJSZY ZIELONY */
+  background: #064e3b;
   color: #6ee7b7;
   border: 1px solid #10b981;
 }
 
 .difficulty-medium {
-  background: #78350f;  /* CIEMNIEJSZY POMARAŃCZOWY */
+  background: #78350f;
   color: #fbbf24;
   border: 1px solid #f59e0b;
 }
 
 .difficulty-hard {
-  background: #7f1d1d;  /* CIEMNIEJSZY CZERWONY */
+  background: #7f1d1d;
   color: #fca5a5;
   border: 1px solid #ef4444;
 }
 
-/* Responsive */
+/* ========== RESPONSIVE ========== */
 @media (max-width: 768px) {
   .project-grid {
     grid-template-columns: 1fr;
   }
   
   .project-detail {
-    padding: 16px;  /* ZMNIEJSZONE z 20px */
+    padding: 16px;
   }
   
   .project-detail h1 {
-    font-size: 1.6rem;  /* ZMNIEJSZONE z 2rem */
+    font-size: 1.6rem;
   }
   
   header h1 {
-    font-size: 1.4rem;  /* ZMNIEJSZONE z 1.5rem */
+    font-size: 1.4rem;
   }
   
   pre {
-    padding: 14px;  /* ZMNIEJSZONE z 16px */
-    font-size: 0.8rem;  /* ZMNIEJSZONE z 0.85rem */
+    padding: 14px;
+    font-size: 0.8rem;
   }
 
   .lightbox-close {
@@ -391,12 +402,12 @@ a:hover {
   }
 }
 
-/* Footer */
+/* ========== FOOTER ========== */
 footer {
   text-align: center;
   padding: 30px 0;
   color: var(--text-light);
-  background: var(--card-bg);  /* ZMIENIONE */
+  background: var(--card-bg);
   margin-top: 50px;
   border-top: 1px solid var(--border);
   font-size: 0.9rem;

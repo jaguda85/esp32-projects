@@ -88,11 +88,11 @@ const { code, filename, language = 'cpp' } = Astro.props;
     overflow: hidden;
     border: 1px solid var(--border);
     background: var(--code-bg);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);  /* DODANE */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
   }
 
   .code-header {
-    background: #0a0e1a;  /* CIEMNIEJSZE */
+    background: #0a0e1a;
     padding: 12px 20px;
     display: flex;
     justify-content: space-between;
@@ -101,15 +101,20 @@ const { code, filename, language = 'cpp' } = Astro.props;
   }
 
   .code-filename {
-    color: var(--primary);  /* ZMIENIONE */
+    color: var(--primary);
     font-family: 'Courier New', monospace;
     font-size: 0.9rem;
     font-weight: 600;
   }
 
+  .code-actions {
+    display: flex;
+    gap: 10px;
+  }
+
   .btn-copy, .btn-download {
     background: var(--primary);
-    color: var(--dark);  /* CIEMNY TEKST */
+    color: var(--dark);
     border: none;
     padding: 6px 14px;
     border-radius: 6px;
@@ -123,6 +128,40 @@ const { code, filename, language = 'cpp' } = Astro.props;
   .btn-copy:hover, .btn-download:hover {
     background: var(--primary-light);
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(74, 158, 255, 0.4);  /* DODANE */
+    box-shadow: 0 4px 12px rgba(74, 158, 255, 0.4);
+  }
+
+  .btn-copy.success, .btn-download.success {
+    background: #10b981;
+  }
+
+  .code-content {
+    margin: 0;
+    padding: 20px;
+    background: var(--code-bg);
+    color: #e2e8f0;
+    overflow-x: auto;
+    line-height: 1.6;
+  }
+
+  .code-content code {
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+    font-size: 0.9rem;
+  }
+
+  @media (max-width: 768px) {
+    .code-header {
+      flex-direction: column;
+      gap: 10px;
+      align-items: flex-start;
+    }
+
+    .code-actions {
+      width: 100%;
+    }
+
+    .btn-copy, .btn-download {
+      flex: 1;
+    }
   }
 </style>
