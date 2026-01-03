@@ -37,6 +37,18 @@ leftPins:
 rightPins:
   - pin: "5"
     connection: "TFT_CS"
+  - pin: "4"
+    connection: "TFT_DC"
+  - pin: "22"
+    connection: "TFT_RESET"
+  - pin: "23"
+    connection: "TFT_MOSI"
+  - pin: "18"
+    connection: "TFT_CLK"
+  - pin: "19"
+    connection: "TFT_MISO"
+  - pin: "15"
+    connection: "SD_CS"
 
 components:
   - "ESP32"
