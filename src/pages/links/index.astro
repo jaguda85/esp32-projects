@@ -72,8 +72,8 @@ const categoryColors: Record<string, string> = {
         {categories.map(cat => {
           const count = links.filter(l => l.data.category === cat).length;
           return (
-            <button 
-              class="category-btn" 
+            <button
+              class="category-btn"
               data-category={cat}
               style={`--cat-color: ${categoryColors[cat]}`}
             >
@@ -98,25 +98,25 @@ const categoryColors: Record<string, string> = {
 
     <!-- LINKI -->
     <div class="links-grid" id="linksGrid">
-      {links.map(async (link) => {
-        const { Content } = await link.render();
-        const tags = link.data.tags?.join(',') || '';
-        
+      {await Promise.all(links.map(async (linkItem) => {
+        const { Content } = await linkItem.render();
+        const linkTags = linkItem.data.tags?.join(',') || '';
+
         return (
-          <div 
-            class="link-card" 
-            data-category={link.data.category}
-            data-tags={tags}
+          <div
+            class="link-card"
+            data-category={linkItem.data.category}
+            data-tags={linkTags}
           >
             <div class="link-header">
-              <div 
+              <div
                 class="link-category"
-                style={`background: ${categoryColors[link.data.category]}; color: white;`}
+                style={`background: ${categoryColors[linkItem.data.category]}; color: white;`}
               >
-                {categoryIcons[link.data.category]} {link.data.category}
+                {categoryIcons[linkItem.data.category]} {linkItem.data.category}
               </div>
               <div class="link-date">
-                {new Date(link.data.date).toLocaleDateString('pl-PL', {
+                {new Date(linkItem.data.date).toLocaleDateString('pl-PL', {
                   year: 'numeric',
                   month: 'short',
                   day: 'numeric'
@@ -124,19 +124,19 @@ const categoryColors: Record<string, string> = {
               </div>
             </div>
 
-            {link.data.image && (
+            {linkItem.data.image && (
               <div class="link-image">
-                <img src={link.data.image} alt={link.data.title} />
+                <img src={linkItem.data.image} alt={linkItem.data.title} />
               </div>
             )}
 
             <div class="link-content">
-              <h2>{link.data.title}</h2>
-              <p class="link-description">{link.data.description}</p>
+              <h2>{linkItem.data.title}</h2>
+              <p class="link-description">{linkItem.data.description}</p>
 
-              {link.data.tags && (
+              {linkItem.data.tags && (
                 <div class="link-tags">
-                  {link.data.tags.map(tag => (
+                  {linkItem.data.tags.map(tag => (
                     <span class="tag">{tag}</span>
                   ))}
                 </div>
@@ -149,9 +149,9 @@ const categoryColors: Record<string, string> = {
                 </div>
               </details>
 
-              <a 
-                href={link.data.url} 
-                target="_blank" 
+              <a
+                href={linkItem.data.url}
+                target="_blank"
                 rel="noopener noreferrer"
                 class="visit-link"
               >
@@ -161,7 +161,7 @@ const categoryColors: Record<string, string> = {
             </div>
           </div>
         );
-      })}
+      }))}
     </div>
 
     {links.length === 0 && (
@@ -203,10 +203,10 @@ const categoryColors: Record<string, string> = {
   categoryButtons.forEach(button => {
     button.addEventListener('click', () => {
       selectedCategory = button.getAttribute('data-category') || 'all';
-      
+
       categoryButtons.forEach(btn => btn.classList.remove('active'));
       button.classList.add('active');
-      
+
       filterLinks();
     });
   });
@@ -214,10 +214,10 @@ const categoryColors: Record<string, string> = {
   tagButtons.forEach(button => {
     button.addEventListener('click', () => {
       selectedTag = button.getAttribute('data-tag') || 'all';
-      
+
       tagButtons.forEach(btn => btn.classList.remove('active'));
       button.classList.add('active');
-      
+
       filterLinks();
     });
   });

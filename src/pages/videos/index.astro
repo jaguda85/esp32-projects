@@ -35,9 +35,9 @@ const allTags = [...new Set(videos.flatMap(v => v.data.tags || []))];
           <p>Subskrybuj mój kanał YouTube!</p>
         </div>
       </div>
-      <a 
-        href="http://www.youtube.com/@JagoDam859" 
-        target="_blank" 
+      <a
+        href="http://www.youtube.com/@JagoDam859"
+        target="_blank"
         rel="noopener noreferrer"
         class="subscribe-btn"
       >
@@ -68,18 +68,18 @@ const allTags = [...new Set(videos.flatMap(v => v.data.tags || []))];
 
     <!-- LISTA FILMÓW -->
     <div class="videos-grid" id="videosGrid">
-      {videos.map((video) => {
+      {await Promise.all(videos.map(async (video) => {
         const { Content } = await video.render();
-        const tags = video.data.tags?.join(',') || '';
-        
+        const videoTags = video.data.tags?.join(',') || '';
+
         return (
-          <div class="video-card" data-tags={tags}>
+          <div class="video-card" data-tags={videoTags}>
             <!-- YouTube Embed -->
-            <YouTubeEmbed 
-              videoId={video.data.youtubeId} 
+            <YouTubeEmbed
+              videoId={video.data.youtubeId}
               title={video.data.title}
             />
-            
+
             <!-- Info -->
             <div class="video-info">
               <h2>{video.data.title}</h2>
@@ -91,7 +91,7 @@ const allTags = [...new Set(videos.flatMap(v => v.data.tags || []))];
                 })}
               </p>
               <p class="video-description">{video.data.description}</p>
-              
+
               {video.data.tags && (
                 <div class="video-tags">
                   {video.data.tags.map(tag => (
@@ -100,9 +100,8 @@ const allTags = [...new Set(videos.flatMap(v => v.data.tags || []))];
                 </div>
               )}
 
-              <!-- Powiązany projekt -->
               {video.data.relatedProject && (
-                <a 
+                <a
                   href={getAssetPath(`projects/${video.data.relatedProject}`)}
                   class="related-project"
                 >
@@ -110,7 +109,6 @@ const allTags = [...new Set(videos.flatMap(v => v.data.tags || []))];
                 </a>
               )}
 
-              <!-- Treść markdown -->
               <details class="video-details">
                 <summary>📄 Więcej informacji</summary>
                 <div class="video-content">
@@ -118,8 +116,7 @@ const allTags = [...new Set(videos.flatMap(v => v.data.tags || []))];
                 </div>
               </details>
 
-              <!-- Link do YouTube -->
-              <a 
+              <a
                 href={`https://www.youtube.com/watch?v=${video.data.youtubeId}`}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -130,7 +127,7 @@ const allTags = [...new Set(videos.flatMap(v => v.data.tags || []))];
             </div>
           </div>
         );
-      })}
+      }))}
     </div>
 
     {videos.length === 0 && (
@@ -159,7 +156,7 @@ const allTags = [...new Set(videos.flatMap(v => v.data.tags || []))];
       // Filtruj filmy
       videoCards.forEach(card => {
         const cardTags = card.getAttribute('data-tags');
-        
+
         if (selectedTag === 'all' || cardTags?.includes(selectedTag || '')) {
           card.style.display = 'block';
           card.style.animation = 'fadeInUp 0.5s ease-out';
@@ -173,82 +170,82 @@ const allTags = [...new Set(videos.flatMap(v => v.data.tags || []))];
 
 <style>
   .videos-page {
-    max-width: 1200px;
+    max-width: 1400px; /* ZWIĘKSZONE z 1200px */
     margin: 0 auto;
     padding: 40px 20px;
   }
 
   .page-header {
     text-align: center;
-    margin-bottom: 50px;
+    margin-bottom: 40px; /* ZMNIEJSZONE z 50px */
     animation: fadeInUp 0.6s ease-out;
   }
 
   .header-icon {
-    font-size: 4rem;
-    margin-bottom: 20px;
+    font-size: 3.5rem; /* ZMNIEJSZONE z 4rem */
+    margin-bottom: 15px; /* ZMNIEJSZONE z 20px */
     animation: float 3s ease-in-out infinite;
   }
 
   .page-header h1 {
-    font-size: 2.5rem;
+    font-size: 2.2rem; /* ZMNIEJSZONE z 2.5rem */
     font-weight: 900;
     background: linear-gradient(135deg, var(--primary), var(--secondary));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    margin-bottom: 10px;
+    margin-bottom: 8px; /* ZMNIEJSZONE z 10px */
   }
 
   .page-header p {
-    font-size: 1.1rem;
+    font-size: 1rem; /* ZMNIEJSZONE z 1.1rem */
     color: var(--text-light);
   }
 
   .channel-banner {
     background: linear-gradient(135deg, var(--bg-card), var(--bg-hover));
-    padding: 25px;
-    border-radius: 15px;
+    padding: 20px; /* ZMNIEJSZONE z 25px */
+    border-radius: 12px; /* ZMNIEJSZONE z 15px */
     border: 2px solid var(--border);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 40px;
+    margin-bottom: 35px; /* ZMNIEJSZONE z 40px */
     animation: fadeInUp 0.7s ease-out;
   }
 
   .channel-info {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 15px; /* ZMNIEJSZONE z 20px */
   }
 
   .channel-icon {
-    font-size: 3rem;
+    font-size: 2.5rem; /* ZMNIEJSZONE z 3rem */
   }
 
   .channel-info h3 {
     color: var(--primary);
-    font-size: 1.5rem;
-    margin-bottom: 5px;
+    font-size: 1.3rem; /* ZMNIEJSZONE z 1.5rem */
+    margin-bottom: 4px; /* ZMNIEJSZONE z 5px */
   }
 
   .channel-info p {
     color: var(--text-light);
-    font-size: 0.95rem;
+    font-size: 0.9rem; /* ZMNIEJSZONE z 0.95rem */
   }
 
   .subscribe-btn {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px; /* ZMNIEJSZONE z 10px */
     background: #FF0000;
     color: white;
-    padding: 12px 25px;
+    padding: 10px 20px; /* ZMNIEJSZONE z 12px 25px */
     border-radius: 50px;
     text-decoration: none;
     font-weight: 700;
-    font-size: 1rem;
+    font-size: 0.95rem; /* ZMNIEJSZONE z 1rem */
     transition: all 0.3s ease;
     box-shadow: 0 4px 15px rgba(255, 0, 0, 0.3);
   }
@@ -259,29 +256,29 @@ const allTags = [...new Set(videos.flatMap(v => v.data.tags || []))];
   }
 
   .filter-section {
-    margin-bottom: 40px;
+    margin-bottom: 35px; /* ZMNIEJSZONE z 40px */
     animation: fadeInUp 0.8s ease-out;
   }
 
   .filter-section h3 {
     color: var(--primary);
-    margin-bottom: 15px;
-    font-size: 1.2rem;
+    margin-bottom: 12px; /* ZMNIEJSZONE z 15px */
+    font-size: 1.1rem; /* ZMNIEJSZONE z 1.2rem */
   }
 
   .filter-tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 8px; /* ZMNIEJSZONE z 10px */
   }
 
   .filter-tag {
     background: var(--bg-card);
     color: var(--text-light);
     border: 2px solid var(--border);
-    padding: 8px 16px;
-    border-radius: 25px;
-    font-size: 0.9rem;
+    padding: 6px 14px; /* ZMNIEJSZONE z 8px 16px */
+    border-radius: 20px; /* ZMNIEJSZONE z 25px */
+    font-size: 0.85rem; /* ZMNIEJSZONE z 0.9rem */
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -299,15 +296,17 @@ const allTags = [...new Set(videos.flatMap(v => v.data.tags || []))];
     border-color: var(--primary);
   }
 
+  /* GŁÓWNA ZMIANA - GRID 3 KOLUMNY */
   .videos-grid {
     display: grid;
-    gap: 40px;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); /* 3 kolumny na dużych ekranach */
+    gap: 25px; /* ZMNIEJSZONE z 40px */
   }
 
   .video-card {
     background: var(--bg-card);
-    border-radius: 15px;
-    padding: 25px;
+    border-radius: 12px; /* ZMNIEJSZONE z 15px */
+    padding: 15px; /* ZMNIEJSZONE z 25px */
     border: 1px solid var(--border);
     animation: fadeInUp 0.6s ease-out;
     transition: all 0.3s ease;
@@ -319,45 +318,64 @@ const allTags = [...new Set(videos.flatMap(v => v.data.tags || []))];
   }
 
   .video-info {
-    margin-top: 20px;
+    margin-top: 15px; /* ZMNIEJSZONE z 20px */
   }
 
   .video-info h2 {
     color: var(--text);
-    font-size: 1.6rem;
-    margin-bottom: 10px;
+    font-size: 1.2rem; /* ZMNIEJSZONE z 1.6rem */
+    margin-bottom: 8px; /* ZMNIEJSZONE z 10px */
     font-weight: 700;
+    line-height: 1.3;
   }
 
   .video-date {
     color: var(--text-muted);
-    font-size: 0.9rem;
-    margin-bottom: 15px;
+    font-size: 0.85rem; /* ZMNIEJSZONE z 0.9rem */
+    margin-bottom: 12px; /* ZMNIEJSZONE z 15px */
   }
 
   .video-description {
     color: var(--text-light);
-    line-height: 1.6;
-    margin-bottom: 15px;
+    line-height: 1.5;
+    margin-bottom: 12px; /* ZMNIEJSZONE z 15px */
+    font-size: 0.9rem; /* DODANE */
   }
 
   .video-tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
-    margin-bottom: 15px;
+    gap: 6px; /* ZMNIEJSZONE z 8px */
+    margin-bottom: 12px; /* ZMNIEJSZONE z 15px */
+  }
+
+  .tag {
+    background: linear-gradient(135deg, rgba(0, 217, 255, 0.2), rgba(189, 0, 255, 0.2));
+    color: var(--primary);
+    padding: 3px 8px; /* ZMNIEJSZONE z 4px 10px */
+    border-radius: 5px; /* ZMNIEJSZONE z 6px */
+    font-size: 0.75rem; /* DODANE */
+    font-weight: 600;
+    border: 1px solid var(--primary);
+    transition: all 0.3s ease;
+  }
+
+  .tag:hover {
+    background: var(--primary);
+    color: white;
+    transform: scale(1.05);
   }
 
   .related-project {
     display: inline-block;
     background: linear-gradient(135deg, var(--primary-dark), var(--primary));
     color: white;
-    padding: 10px 20px;
-    border-radius: 25px;
+    padding: 8px 16px; /* ZMNIEJSZONE z 10px 20px */
+    border-radius: 20px; /* ZMNIEJSZONE z 25px */
     text-decoration: none;
     font-weight: 600;
-    font-size: 0.9rem;
-    margin-bottom: 15px;
+    font-size: 0.85rem; /* ZMNIEJSZONE z 0.9rem */
+    margin-bottom: 12px; /* ZMNIEJSZONE z 15px */
     transition: all 0.3s ease;
   }
 
@@ -367,19 +385,20 @@ const allTags = [...new Set(videos.flatMap(v => v.data.tags || []))];
   }
 
   .video-details {
-    margin: 20px 0;
+    margin: 15px 0; /* ZMNIEJSZONE z 20px */
     background: var(--bg-secondary);
-    border-radius: 10px;
+    border-radius: 8px; /* ZMNIEJSZONE z 10px */
     border: 1px solid var(--border);
   }
 
   .video-details summary {
-    padding: 15px;
+    padding: 12px; /* ZMNIEJSZONE z 15px */
     cursor: pointer;
     font-weight: 600;
     color: var(--primary);
     user-select: none;
     transition: all 0.3s ease;
+    font-size: 0.9rem; /* DODANE */
   }
 
   .video-details summary:hover {
@@ -391,20 +410,22 @@ const allTags = [...new Set(videos.flatMap(v => v.data.tags || []))];
   }
 
   .video-content {
-    padding: 20px;
+    padding: 15px; /* ZMNIEJSZONE z 20px */
     color: var(--text-light);
-    line-height: 1.8;
+    line-height: 1.7; /* ZMNIEJSZONE z 1.8 */
+    font-size: 0.9rem; /* DODANE */
   }
 
   .video-content :global(h2) {
     color: var(--primary);
-    margin-top: 20px;
-    margin-bottom: 10px;
+    margin-top: 15px; /* ZMNIEJSZONE z 20px */
+    margin-bottom: 8px; /* ZMNIEJSZONE z 10px */
+    font-size: 1.1rem; /* DODANE */
   }
 
   .video-content :global(ul) {
-    margin-left: 20px;
-    margin-bottom: 15px;
+    margin-left: 18px; /* ZMNIEJSZONE z 20px */
+    margin-bottom: 12px; /* ZMNIEJSZONE z 15px */
   }
 
   .video-content :global(a) {
@@ -416,16 +437,16 @@ const allTags = [...new Set(videos.flatMap(v => v.data.tags || []))];
   .watch-on-youtube {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
+    gap: 6px; /* ZMNIEJSZONE z 8px */
     background: #FF0000;
     color: white;
-    padding: 10px 20px;
-    border-radius: 25px;
+    padding: 8px 16px; /* ZMNIEJSZONE z 10px 20px */
+    border-radius: 20px; /* ZMNIEJSZONE z 25px */
     text-decoration: none;
     font-weight: 600;
-    font-size: 0.9rem;
+    font-size: 0.85rem; /* ZMNIEJSZONE z 0.9rem */
     transition: all 0.3s ease;
-    margin-top: 15px;
+    margin-top: 12px; /* ZMNIEJSZONE z 15px */
   }
 
   .watch-on-youtube:hover {
@@ -435,21 +456,21 @@ const allTags = [...new Set(videos.flatMap(v => v.data.tags || []))];
 
   .empty-state {
     text-align: center;
-    padding: 80px 20px;
+    padding: 60px 20px; /* ZMNIEJSZONE z 80px */
     background: var(--bg-card);
-    border-radius: 15px;
+    border-radius: 12px; /* ZMNIEJSZONE z 15px */
     border: 1px solid var(--border);
   }
 
   .empty-icon {
-    font-size: 5rem;
-    margin-bottom: 20px;
+    font-size: 4rem; /* ZMNIEJSZONE z 5rem */
+    margin-bottom: 15px; /* ZMNIEJSZONE z 20px */
     opacity: 0.5;
   }
 
   .empty-state h2 {
     color: var(--text-light);
-    margin-bottom: 10px;
+    margin-bottom: 8px; /* ZMNIEJSZONE z 10px */
   }
 
   .empty-state p {
@@ -462,10 +483,20 @@ const allTags = [...new Set(videos.flatMap(v => v.data.tags || []))];
     border-radius: 5px;
   }
 
+  @media (max-width: 1200px) {
+    .videos-grid {
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* 2 kolumny na średnich */
+    }
+  }
+
   @media (max-width: 768px) {
+    .videos-grid {
+      grid-template-columns: 1fr; /* 1 kolumna na mobile */
+    }
+
     .channel-banner {
       flex-direction: column;
-      gap: 20px;
+      gap: 15px; /* ZMNIEJSZONE z 20px */
       text-align: center;
     }
 
@@ -474,11 +505,11 @@ const allTags = [...new Set(videos.flatMap(v => v.data.tags || []))];
     }
 
     .page-header h1 {
-      font-size: 2rem;
+      font-size: 1.8rem; /* ZMNIEJSZONE z 2rem */
     }
 
     .video-info h2 {
-      font-size: 1.3rem;
+      font-size: 1.1rem; /* ZMNIEJSZONE z 1.3rem */
     }
   }
 </style>
