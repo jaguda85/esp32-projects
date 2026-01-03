@@ -13,8 +13,22 @@ components:
   - "2 przyciski"
   - "OLED 1.3' SH1106 I2C"
 difficulty: "Łatwy"  # lub "Średni" lub "Trudny"
----
 
+# PINY
+rightPins:
+  - pin: "22"
+    connection: "SDA OLED"
+  - pin: "21"
+    connection: "SCL OLED"
+  - pin: "4"
+    connection: "DOUT HX711"
+  - pIN: "5
+    connection: "SCL HX711"
+
+leftPins:
+  - pin: "26"
+    connection: "BUZZER +PIN"
+---
 ## Opis projektu
 
 Szczegółowy opis projektu...
