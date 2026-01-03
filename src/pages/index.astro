@@ -31,12 +31,37 @@ const getAssetPath = (path: string) => {
 <Layout title="Moje projekty ESP32">
   <!-- SEKCJA PROFILU -->
   <div class="profile-section">
-    <img 
-      src={getAssetPath('images/jaguda-logo.png')}
-      alt="Jaguda Logo" 
-      class="profile-avatar"
-    />
+    <div style="position: relative; display: inline-block;">
+      <img 
+        src={getAssetPath('images/jaguda-logo.png')}
+        alt="Jaguda Logo" 
+        class="profile-avatar"
+      />
+      <!-- ESP32 BADGE NA AVATARZE -->
+      <img 
+        src={getAssetPath('images/esp32-logo.jpg')}
+        alt="ESP32" 
+        class="esp32-badge"
+      />
+    </div>
     <h1 class="profile-name">Jaguda</h1>
+    
+    <!-- TECH STACK BADGES -->
+    <div class="tech-badges">
+      <div class="tech-badge-item">
+        <img src={getAssetPath('images/esp32-logo.jpg')} alt="ESP32" />
+        <span>ESP32</span>
+      </div>
+      <div class="tech-badge-item">
+        <span style="font-size: 2rem;">⚡</span>
+        <span>IoT</span>
+      </div>
+      <div class="tech-badge-item">
+        <span style="font-size: 2rem;">🔧</span>
+        <span>Arduino</span>
+      </div>
+    </div>
+    
     <a href="https://github.com/jaguda85" target="_blank" rel="noopener noreferrer" class="github-link">
       <span class="github-icon">⚡</span>
       <span>GitHub Profile</span>
