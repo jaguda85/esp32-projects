@@ -10,6 +10,9 @@ images:
 date: 2024-01-20
 tags: ["zuzel", "trenażer", "sprzęgło"]
 libraries:
+  - name: "Adafruit_GFX.h"
+    author: "ADAFRUIT"
+  - name: "Adafruit_ILI9341.h"
  
 components:
   - "ESP32"
