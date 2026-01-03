@@ -22,6 +22,7 @@ Koniecznie uzupełnij je w kodzie.
 
 ## Schemat połączeń
 
+# PINY - PRAWA STRONA
 rightpins:
   - pin: "18"
     connection: "CLK"
