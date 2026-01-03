@@ -21,8 +21,17 @@ const { title, description = 'Moje projekty z ESP32' } = Astro.props;
 <body>
   <header>
     <div class="container">
-      <h1>🔧 Moje projekty ESP32</h1>
-      <p>Zbiór moich projektów IoT i elektroniki</p>
+      <div class="header-content">
+        <img 
+          src="/images/esp32-logo.png" 
+          alt="ESP32" 
+          class="esp32-logo"
+        />
+        <div class="header-text">
+          <h1>🔧 Moje projekty ESP32</h1>
+          <p>Zbiór moich projektów IoT i elektroniki</p>
+        </div>
+      </div>
     </div>
   </header>
   
@@ -30,7 +39,7 @@ const { title, description = 'Moje projekty z ESP32' } = Astro.props;
     <slot />
   </main>
   
-  <footer style="text-align: center; padding: 40px 0; color: #666;">
+  <footer>
     <p>&copy; {new Date().getFullYear()} - Wszystkie prawa zastrzeżone</p>
   </footer>
 </body>

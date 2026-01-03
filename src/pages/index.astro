@@ -14,25 +14,19 @@ const getDifficultyClass = (difficulty: string) => {
   };
   return map[difficulty] || 'difficulty-medium';
 };
-
-// DODAJ TĘ FUNKCJĘ - tworzy poprawne URLe z base
-const getProjectUrl = (slug: string) => {
-  const base = import.meta.env.BASE_URL || '/';
-  return `${base}/projects/${slug}`.replace(/\/+/g, '/');
-};
 ---
 
 <Layout title="Moje projekty ESP32">
-  <h1 style="text-align: center; color: var(--secondary); margin-bottom: 10px; font-weight: 700;">
+  <h1 style="text-align: center; color: var(--primary); margin-bottom: 8px; font-weight: 700; font-size: 1.6rem;">
     Wszystkie projekty
   </h1>
-  <p style="text-align: center; color: var(--text-light); margin-bottom: 40px;">
+  <p style="text-align: center; color: var(--text-light); margin-bottom: 30px; font-size: 0.9rem;">
     Odkryj moje projekty z ESP32 i elektroniką
   </p>
   
   <div class="project-grid">
     {projects.map((project) => (
-      <a href={getProjectUrl(project.slug)} class="project-card">
+      <a href={`/projects/${project.slug}`} class="project-card">
         <img 
           src={project.data.mainImage} 
           alt={project.data.title}
@@ -43,7 +37,7 @@ const getProjectUrl = (slug: string) => {
           <p>{project.data.description}</p>
           
           {project.data.difficulty && (
-            <p class={`difficulty-badge ${getDifficultyClass(project.data.difficulty)}`} style="margin: 12px 0;">
+            <p class={`difficulty-badge ${getDifficultyClass(project.data.difficulty)}`} style="margin: 10px 0;">
               {project.data.difficulty}
             </p>
           )}
@@ -61,11 +55,11 @@ const getProjectUrl = (slug: string) => {
   </div>
   
   {projects.length === 0 && (
-    <div style="text-align: center; padding: 80px 20px; background: var(--card-bg); border-radius: 12px; border: 1px solid var(--border);">
-      <p style="color: var(--text-light); font-size: 1.1rem; margin-bottom: 10px;">
+    <div style="text-align: center; padding: 60px 20px; background: var(--card-bg); border-radius: 12px; border: 1px solid var(--border);">
+      <p style="color: var(--text-light); font-size: 1rem; margin-bottom: 10px;">
         Nie dodano jeszcze żadnych projektów.
       </p>
-      <p style="color: var(--text-light);">
+      <p style="color: var(--text-light); font-size: 0.9rem;">
         Dodaj swój pierwszy projekt w katalogu <code>src/content/projects/</code>
       </p>
     </div>
