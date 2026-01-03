@@ -19,16 +19,16 @@ MD_Parola myDisplay = MD_Parola(HARDWARE_TYPE, CS_PIN, MAX_DEVICES);
 Preferences preferences;
 
 // Konfiguracja WiFi - Access Point
-const char* ap_ssid = "tekstowy";
-const char* ap_password = "jagoooda";
+const char* ap_ssid = "";
+const char* ap_password = "";
 
 // Konfiguracja WiFi - połączenie z internetem
-const char* sta_ssid = "-BaKeR-2";
-const char* sta_password = "xocwac-4Rannu-daxmep";
+const char* sta_ssid = "";
+const char* sta_password = "";
 
 // Konfiguracja OpenWeatherMap
-const char* weatherApiKey = "80c2ac35e59be25f3bf4d97c19ffa213";
-const char* weatherCity = "Gniezno";
+const char* weatherApiKey = "";
+const char* weatherCity = "";
 const char* weatherCountry = "PL";
 
 // Serwer NTP i strefa czasowa dla Polski
