@@ -1,0 +1,1108 @@
+================================================================================
+            KOMPLETNY PRZEWODNIK OBSŁUGI - ESP32 PROJECTS
+                        Jaguda - Portfolio
+================================================================================
+
+SPIS TREŚCI:
+1. Podstawowe komendy
+2. Dodawanie nowego projektu
+3. Dodawanie nowego filmu
+4. Dodawanie nowego linku
+5. Edycja istniejących treści
+6. Zarządzanie zdjęciami
+7. Deployment (publikacja zmian)
+8. Backup
+9. Rozwiązywanie problemów
+10. Zmiana kolorów i wyglądu
+11. Konfiguracja komentarzy Giscus
+12. Szablony do kopiowania
+
+================================================================================
+1. PODSTAWOWE KOMENDY
+================================================================================
+
+--- URUCHOMIENIE SERWERA DEWELOPERSKIEGO ---
+cd D:\esp32-projects
+npm run dev
+
+Adres lokalny: http://localhost:4321/esp32-projects
+(Ctrl+C aby zatrzymać serwer)
+
+--- BUDOWANIE STRONY ---
+npm run build
+
+--- PODGLĄD BUILDU ---
+npm run preview
+
+--- GIT - PODSTAWY ---
+git status                          # Sprawdź zmiany
+git add .                           # Dodaj wszystkie zmiany
+git commit -m "Opis zmian"          # Zapisz zmiany
+git pull origin main --no-edit      # Pobierz z GitHuba
+git push                            # Wyślij na GitHub
+
+--- BACKUP ---
+robocopy D:\esp32-projects D:\BACKUP\esp32-backup-%date:~-4%%date:~3,2%%date:~0,2% /E /XD node_modules dist .astro
+
+
+================================================================================
+2. DODAWANIE NOWEGO PROJEKTU - KROK PO KROKU
+================================================================================
+
+KROK 1: UTWÓRZ PLIK PROJEKTU
+-----------------------------
+Lokalizacja: src\content\projects\nazwa-projektu.md
+
+Nazwa pliku = URL projektu (małe litery, bez spacji, myślniki zamiast spacji)
+Przykład: led-rgb.md → /projects/led-rgb
+
+
+KROK 2: SKOPIUJ SZABLON
+------------------------
+---
+title: "Tytuł projektu"
+description: "Krótki opis projektu w 1-2 zdaniach"
+mainImage: "/esp32-projects/images/projects/nazwa-projektu/main.jpg"
+images:
+  - "/esp32-projects/images/projects/nazwa-projektu/photo1.jpg"
+  - "/esp32-projects/images/projects/nazwa-projektu/photo2.jpg"
+date: 2025-01-31
+tags: ["ESP32", "WiFi", "LED"]
+difficulty: "Średni"
+components:
+  - "ESP32 DevKit v1"
+  - "LED RGB"
+  - "Rezystor 220Ω"
+  - "Przewody połączeniowe"
+libraries:
+  - name: "WiFi"
+    author: "Arduino"
+  - name: "FastLED"
+    author: "Daniel Garcia"
+    link: "https://github.com/FastLED/FastLED"
+leftPins:
+  - pin: "3V3"
+    connection: "Zasilanie LED"
+  - pin: "25"
+    connection: "LED Data Pin"
+  - pin: "GND"
+    connection: "Masa"
+rightPins:
+  - pin: "GND"
+    connection: "Masa wspólna"
+  - pin: "22"
+    connection: "I2C SCL"
+arduinoFilename: "projekt.ino"
+arduinoCode: |
+  // Twój kod Arduino tutaj
+  
+  void setup() {
+    Serial.begin(115200);
+    pinMode(LED_PIN, OUTPUT);
+  }
+  
+  void loop() {
+    // główna pętla
+    delay(1000);
+  }
+---
+
+## Opis projektu
+
+Tutaj szczegółowo opisz co robi projekt, jak działa i do czego służy.
+
+## Funkcje
+
+- Funkcja 1
+- Funkcja 2
+- Funkcja 3
+
+## Schemat połączeń
+
+Opisz jak połączyć komponenty:
+- Pin 25 → LED Data Pin
+- GND → LED GND
+- 3.3V → LED VCC
+
+## Jak uruchomić
+
+1. Podłącz komponenty według schematu
+2. Wgraj kod do ESP32
+3. Otwórz Serial Monitor (115200 baud)
+
+## Możliwe rozszerzenia
+
+- Dodaj przycisk
+- Połącz z WiFi
+- Zapisuj dane na SD
+
+
+KROK 3: DODAJ ZDJĘCIA
+---------------------
+1. Utwórz folder:
+   mkdir public\images\projects\nazwa-projektu
+
+2. Skopiuj zdjęcia do folderu:
+   - main.jpg (główne zdjęcie - wyświetlane na liście)
+   - photo1.jpg, photo2.jpg... (dodatkowe zdjęcia)
+
+3. Zalecane rozmiary:
+   - main.jpg: 800x600px (lub proporcjonalnie)
+   - inne: dowolne (zostaną przeskalowane)
+
+
+KROK 4: WYPEŁNIJ DANE
+----------------------
+- title: Nazwa wyświetlana na stronie
+- description: Krótki opis (pojawi się na karcie projektu)
+- mainImage: ścieżka do głównego zdjęcia
+- date: data w formacie YYYY-MM-DD (np. 2025-01-31)
+- tags: lista tagów w ["cudzysłowach", "oddzielone", "przecinkami"]
+- difficulty: "Łatwy", "Średni" lub "Trudny"
+- components: lista potrzebnych komponentów
+- libraries: biblioteki Arduino (opcjonalne)
+  - name: Nazwa biblioteki
+  - author: Autor (opcjonalne)
+  - link: Link do GitHub (opcjonalne)
+- leftPins: lista pinów po lewej stronie ESP32
+- rightPins: lista pinów po prawej stronie ESP32
+- arduinoCode: pełny kod .ino (używaj | po dwukropku dla wielu linii)
+
+
+KROK 5: PINY ESP32 - DOSTĘPNE OPCJE
+------------------------------------
+LEWA STRONA (od góry):
+3V3, EN, 36, 39, 34, 35, 32, 33, 25, 26, 27, 14, 12, GND, 13, 2, 3, CMD, 5V
+
+PRAWA STRONA (od góry):
+GND, 23, 22, TX, RX, 21, GND, 19, 18, 5, 17, 16, 4, 0, 2, 15, SD0, SD1, CLK
+
+Przykład:
+leftPins:
+  - pin: "25"
+    connection: "LED czerwona"
+  - pin: "26"
+    connection: "LED zielona"
+  - pin: "GND"
+    connection: "Masa"
+
+Jeśli pin nie jest użyty, zostaw puste:
+  - pin: "34"
+    connection: ""
+
+
+KROK 6: ZAPISZ I PRZETESTUJ
+----------------------------
+1. Zapisz plik (Ctrl+S)
+2. Uruchom serwer: npm run dev
+3. Otwórz: http://localhost:4321/esp32-projects
+4. Sprawdź czy projekt się wyświetla
+5. Kliknij w projekt i sprawdź szczegóły
+
+
+KROK 7: OPUBLIKUJ
+------------------
+git add .
+git status
+git commit -m "Dodano projekt: Nazwa projektu"
+git pull origin main --no-edit
+git push
+
+
+================================================================================
+3. DODAWANIE NOWEGO FILMU - KROK PO KROKU
+================================================================================
+
+KROK 1: UTWÓRZ PLIK FILMU
+--------------------------
+Lokalizacja: src\content\videos\nazwa-filmu.md
+
+
+KROK 2: SKOPIUJ SZABLON
+------------------------
+---
+title: "Tytuł filmu"
+description: "Krótki opis o czym jest film"
+youtubeId: "Vz_z4-nF4J8"
+date: 2025-01-31
+tags: ["Tutorial", "ESP32", "WiFi"]
+relatedProject: "nazwa-projektu"
+---
+
+## O filmie
+
+Szczegółowy opis co jest w filmie, co pokażesz, czego się nauczą.
+
+## Omawiane tematy:
+
+- Temat 1
+- Temat 2
+- Temat 3
+
+## Linki z filmu:
+
+- [GitHub projekt](https://github.com/user/repo)
+- [Dokumentacja](https://docs.example.com)
+
+
+KROK 3: JAK ZNALEŹĆ YOUTUBE ID
+-------------------------------
+Z adresu URL filmu:
+https://www.youtube.com/watch?v=Vz_z4-nF4J8
+                                 ^^^^^^^^^^^
+                                 To jest ID
+
+Lub z krótkiego linku:
+https://youtu.be/Vz_z4-nF4J8
+               ^^^^^^^^^^^
+               To jest ID
+
+Wklej tylko ID (bez reszty URL):
+youtubeId: "Vz_z4-nF4J8"
+
+
+KROK 4: POWIĄZANIE Z PROJEKTEM (opcjonalne)
+--------------------------------------------
+Jeśli film dotyczy konkretnego projektu:
+relatedProject: "led-rgb"
+
+Nazwa musi być taka sama jak nazwa pliku projektu (bez .md)
+
+
+KROK 5: ZAPISZ I PRZETESTUJ
+----------------------------
+1. Zapisz plik
+2. npm run dev
+3. Przejdź do: /videos
+4. Sprawdź czy film się wyświetla
+
+
+KROK 6: OPUBLIKUJ
+------------------
+git add .
+git commit -m "Dodano film: Tytuł filmu"
+git pull origin main --no-edit
+git push
+
+
+================================================================================
+4. DODAWANIE NOWEGO LINKU - KROK PO KROKU
+================================================================================
+
+KROK 1: UTWÓRZ PLIK LINKU
+--------------------------
+Lokalizacja: src\content\links\nazwa-linku.md
+
+
+KROK 2: SKOPIUJ SZABLON
+------------------------
+---
+title: "Nazwa zasobu/strony"
+description: "Krótki opis czym jest ten zasób"
+url: "https://example.com"
+category: "Projekt"
+date: 2025-01-31
+tags: ["ESP32", "Arduino", "Tutorial"]
+image: "/esp32-projects/images/links/thumb.jpg"
+---
+
+## Dlaczego polecam
+
+Szczegółowe uzasadnienie dlaczego warto odwiedzić ten link.
+
+## Co znajdziesz:
+
+- Informacja 1
+- Informacja 2
+- Informacja 3
+
+## Dla kogo:
+
+Ten zasób jest idealny dla osób które...
+
+
+KROK 3: WYBIERZ KATEGORIĘ
+--------------------------
+Dostępne kategorie (użyj dokładnie tak jak napisane):
+- "Projekt"        → projekty open-source
+- "Biblioteka"     → biblioteki Arduino/ESP32
+- "Tutorial"       → poradniki i tutoriale
+- "Narzędzie"      → narzędzia programistyczne
+- "Dokumentacja"   → oficjalna dokumentacja
+- "Inne"           → wszystko inne
+
+
+KROK 4: DODAJ MINIATURĘ (opcjonalne)
+-------------------------------------
+1. Zapisz obrazek w: public\images\links\nazwa.jpg
+2. W pliku linku dodaj:
+   image: "/esp32-projects/images/links/nazwa.jpg"
+
+Jeśli nie chcesz miniatury, usuń linię "image:"
+
+
+KROK 5: ZAPISZ I PRZETESTUJ
+----------------------------
+1. Zapisz plik
+2. npm run dev
+3. Przejdź do: /links
+4. Sprawdź czy link się wyświetla
+5. Przetestuj filtrowanie po kategorii i tagach
+
+
+KROK 6: OPUBLIKUJ
+------------------
+git add .
+git commit -m "Dodano link: Nazwa zasobu"
+git pull origin main --no-edit
+git push
+
+
+================================================================================
+5. EDYCJA ISTNIEJĄCYCH TREŚCI
+================================================================================
+
+EDYCJA PROJEKTU
+---------------
+1. Otwórz plik: src\content\projects\nazwa-projektu.md
+2. Edytuj zawartość
+3. Zapisz (Ctrl+S)
+4. Sprawdź lokalnie: npm run dev
+5. Opublikuj:
+   git add .
+   git commit -m "Zaktualizowano projekt: Nazwa"
+   git pull origin main --no-edit
+   git push
+
+
+USUNIĘCIE PROJEKTU
+------------------
+1. Usuń plik: src\content\projects\nazwa-projektu.md
+2. Usuń folder ze zdjęciami: public\images\projects\nazwa-projektu\
+3. Opublikuj:
+   git add .
+   git commit -m "Usunięto projekt: Nazwa"
+   git pull origin main --no-edit
+   git push
+
+
+ZMIANA NAZWY PROJEKTU
+---------------------
+1. Zmień nazwę pliku (to zmieni URL!)
+2. Zmień "title:" w frontmatter (to zmieni wyświetlaną nazwę)
+3. Jeśli zmieniasz nazwę pliku, zaktualizuj też relatedProject w filmach
+4. Opublikuj zmiany
+
+
+================================================================================
+6. ZARZĄDZANIE ZDJĘCIAMI
+================================================================================
+
+STRUKTURA FOLDERÓW
+------------------
+public\images\
+├── jaguda-logo.png       (twoje logo - avatar)
+├── jaguda-logo1.png      (twoje logo - header)
+├── esp32-logo.jpg        (logo ESP32)
+├── esp32-pic1.png        (showcase w O MNIE)
+├── esp32-pic2.png
+├── esp32-pic3.png
+├── esp32-pic4.png
+├── projects\
+│   └── nazwa-projektu\
+│       ├── main.jpg      (główne zdjęcie)
+│       ├── photo1.jpg
+│       ├── photo2.jpg
+│       └── ...
+└── links\
+    └── thumbnail.jpg     (miniatury dla linków)
+
+
+DODAWANIE ZDJĘĆ DO PROJEKTU
+----------------------------
+1. Utwórz folder:
+   mkdir public\images\projects\nazwa-projektu
+
+2. Skopiuj zdjęcia (możesz użyć eksploratora Windows lub komendy):
+   copy "C:\ścieżka\do\zdjęcia.jpg" public\images\projects\nazwa-projektu\main.jpg
+
+3. W pliku projektu (.md) użyj ścieżki:
+   mainImage: "/esp32-projects/images/projects/nazwa-projektu/main.jpg"
+   images:
+     - "/esp32-projects/images/projects/nazwa-projektu/photo1.jpg"
+     - "/esp32-projects/images/projects/nazwa-projektu/photo2.jpg"
+
+
+ZALECANE FORMATY I ROZMIARY
+----------------------------
+- Format: JPG lub PNG
+- Główne zdjęcie: 800x600px lub 1200x800px
+- Dodatkowe zdjęcia: dowolne (będą automatycznie przeskalowane)
+- Maksymalny rozmiar pliku: ~2MB (zdjęcia powinny być zoptymalizowane)
+
+
+OPTYMALIZACJA ZDJĘĆ
+--------------------
+Przed dodaniem zdjęć, zmniejsz ich rozmiar używając:
+- Windows: Paint (Zmień rozmiar → 80% jakości przy zapisie JPG)
+- Online: tinypng.com lub squoosh.app
+- Zaawansowane: ImageMagick, XnConvert
+
+
+USUWANIE ZDJĘĆ
+--------------
+1. Usuń plik ze zdjęciem z public\images\projects\...
+2. Usuń odniesienie z pliku .md
+3. Commituj zmiany
+
+
+================================================================================
+7. DEPLOYMENT (PUBLIKACJA ZMIAN)
+================================================================================
+
+STANDARDOWY WORKFLOW
+--------------------
+# Krok 1: Sprawdź co zmieniłeś
+git status
+
+# Krok 2: Dodaj wszystkie zmiany
+git add .
+
+# Krok 3: Sprawdź ponownie co zostanie zapisane
+git status
+
+# Krok 4: Zapisz zmiany z opisem
+git commit -m "Dodano projekt: Czujnik temperatury DHT22"
+
+# Krok 5: Pobierz zmiany z GitHuba (na wypadek gdyby coś się zmieniło)
+git pull origin main --no-edit
+
+# Krok 6: Wyślij na GitHub
+git push
+
+# Krok 7: Poczekaj 2-3 minuty na automatyczny build
+# Strona zostanie automatycznie zaktualizowana
+
+
+SPRAWDZENIE CZY BUILD SIĘ UDAŁ
+-------------------------------
+1. Idź na: https://github.com/jaguda85/esp32-projects
+2. Kliknij zakładkę "Actions"
+3. Pierwszy na liście powinien mieć:
+   - Zieloną ✓ = Sukces!
+   - Pomarańczowe kółko = Buduje się...
+   - Czerwony X = Błąd (sprawdź logi)
+
+
+TESTOWANIE PRZED PUBLIKACJĄ
+----------------------------
+# Zbuduj stronę lokalnie
+npm run build
+
+# Jeśli build się powiedzie, sprawdź jak wygląda:
+npm run preview
+
+# Otwórz: http://localhost:4321/esp32-projects
+# Przetestuj wszystkie funkcje
+
+# Jeśli wszystko OK - publikuj:
+git add .
+git commit -m "Opis zmian"
+git push
+
+
+COFNIĘCIE OSTATNIEGO COMMITA (jeśli się pomyliłeś)
+---------------------------------------------------
+# Przed push (zmiany zostają w plikach):
+git reset --soft HEAD~1
+
+# Po push (skomplikowane, lepiej dodaj nowy commit z poprawką):
+# Edytuj pliki
+git add .
+git commit -m "Poprawka: opis co naprawiłeś"
+git push
+
+
+================================================================================
+8. BACKUP
+================================================================================
+
+BACKUP RĘCZNY (regularnie, np. raz w tygodniu)
+-----------------------------------------------
+robocopy D:\esp32-projects D:\BACKUP\esp32-backup /E /XD node_modules dist .astro
+
+
+BACKUP Z DATĄ W NAZWIE
+-----------------------
+robocopy D:\esp32-projects D:\BACKUP\esp32-backup-%date:~-4%%date:~3,2%%date:~0,2% /E /XD node_modules dist .astro
+
+To utworzy folder np: esp32-backup-20250131
+
+
+BACKUP DO ZIP (używając PowerShell)
+------------------------------------
+powershell Compress-Archive -Path D:\esp32-projects\* -DestinationPath D:\BACKUP\esp32-backup.zip -Force
+
+
+CO WARTO BACKUPOWAĆ
+-------------------
+WAŻNE (zawsze):
+- src\content\projects\*.md      (twoje projekty)
+- src\content\videos\*.md        (filmy)
+- src\content\links\*.md         (linki)
+- public\images\projects\        (wszystkie zdjęcia)
+
+OPCJONALNIE:
+- src\components\                (jeśli zmieniałeś)
+- src\styles\global.css          (jeśli zmieniałeś kolory)
+- astro.config.mjs
+
+NIE TRZEBA (można wygenerować ponownie):
+- node_modules\
+- dist\
+- .astro\
+
+
+AUTOMATYCZNY BACKUP - SKRYPT .BAT
+----------------------------------
+Utwórz plik: backup.bat
+
+@echo off
+echo ================================================
+echo   BACKUP ESP32 PROJECTS
+echo ================================================
+echo.
+
+set SOURCE=D:\esp32-projects
+set DEST=D:\BACKUP
+set DATE=%date:~-4%%date:~3,2%%date:~0,2%
+
+echo Tworzę backup...
+robocopy "%SOURCE%" "%DEST%\esp32-backup-%DATE%" /E /XD node_modules dist .astro .git /XF *.log
+
+echo.
+echo ================================================
+echo   BACKUP ZAKOŃCZONY!
+echo ================================================
+echo Lokalizacja: %DEST%\esp32-backup-%DATE%
+echo.
+pause
+
+Uruchom: backup.bat (dwukrotne kliknięcie)
+
+
+PRZYWRACANIE Z BACKUPU
+-----------------------
+1. Zatrzymaj serwer dev (Ctrl+C)
+2. Skopiuj pliki z backupu do głównego folderu
+3. Zainstaluj zależności:
+   npm install
+4. Uruchom:
+   npm run dev
+
+
+================================================================================
+9. ROZWIĄZYWANIE PROBLEMÓW
+================================================================================
+
+BŁĄD: "npm run dev" NIE DZIAŁA
+-------------------------------
+Rozwiązanie 1:
+cd D:\esp32-projects
+npm install
+npm run dev
+
+Rozwiązanie 2:
+Usuń folder node_modules i package-lock.json
+npm install
+npm run dev
+
+
+BŁĄD: ZDJĘCIA NIE ŁADUJĄ SIĘ
+-----------------------------
+1. Sprawdź ścieżkę - musi zaczynać się od /esp32-projects/
+   Poprawnie: "/esp32-projects/images/projects/led/main.jpg"
+   Źle: "/images/projects/led/main.jpg"
+
+2. Sprawdź czy plik istnieje:
+   dir public\images\projects\led\main.jpg
+
+3. Sprawdź wielkość liter - musi się zgadzać!
+   main.jpg ≠ Main.jpg ≠ MAIN.JPG
+
+
+BŁĄD: "BUILD FAILED" PO GIT PUSH
+---------------------------------
+1. Zobacz logi:
+   - GitHub → Actions → kliknij na nieudany build → Zobacz błąd
+
+2. Najczęstsze problemy:
+   - Błąd w YAML frontmatter (nieprawidłowe wcięcia)
+   - Brakujące cudzysłowy w title/description
+   - Nieprawidłowa data (musi być YYYY-MM-DD)
+   - Nieprawidłowa kategoria w linkach
+
+3. Napraw lokalnie:
+   npm run build
+   (pokaże dokładny błąd)
+
+
+BŁĄD: "CANNOT READ PROPERTY"
+-----------------------------
+- Sprawdź czy wszystkie wymagane pola są wypełnione
+- title, description, date są OBOWIĄZKOWE
+- Jeśli pole jest opcjonalne, możesz je usunąć całkowicie
+
+
+BŁĄD: GIT PUSH REJECTED
+------------------------
+git pull origin main --no-edit
+git push
+
+
+STRONA POKAZUJE STARE TREŚCI
+-----------------------------
+1. Wyczyść cache przeglądarki: Ctrl+Shift+R (hard refresh)
+2. Sprawdź czy GitHub Actions zakończył build
+3. Poczekaj 5 minut (propagacja zmian)
+
+
+KONFLIKT W GIT (MERGE CONFLICT)
+--------------------------------
+# Jeśli widzisz konflikt:
+git status
+
+# Używaj SWOJEJ wersji:
+git checkout --ours nazwa-pliku.md
+git add nazwa-pliku.md
+git commit -m "Rozwiązano konflikt"
+git push
+
+# Lub przerwij i zacznij od nowa:
+git merge --abort
+git stash
+git pull
+git stash pop
+
+
+================================================================================
+10. ZMIANA KOLORÓW I WYGLĄDU
+================================================================================
+
+ZMIANA KOLORÓW GŁÓWNYCH
+-----------------------
+Edytuj: src\styles\global.css
+
+Znajdź sekcję :root (około linia 7):
+
+:root,
+[data-theme="dark"] {
+  --primary: #4a9eff;      ← GŁÓWNY KOLOR (niebieski)
+  --secondary: #bd00ff;    ← DRUGORZĘDNY (fioletowy)
+  --accent: #ff006e;       ← AKCENT (różowy)
+  --accent-2: #00ff9f;     ← DODATKOWY (zielony)
+}
+
+Zmień na swoje kolory (format HEX: #RRGGBB):
+--primary: #ff5733;        (pomarańczowy)
+--secondary: #33ff57;      (zielony)
+
+
+ZMIANA KOLORÓW LIGHT MODE
+--------------------------
+Znajdź sekcję [data-theme="light"] (około linia 30):
+
+[data-theme="light"] {
+  --primary: #0099cc;      ← Zmień tutaj
+  --secondary: #9933cc;
+}
+
+
+ZMIANA CZCIONKI
+---------------
+W global.css znajdź:
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+Zmień na np.:
+font-family: 'Arial', sans-serif;
+font-family: 'Roboto', sans-serif;  (wymaga importu Google Fonts)
+
+
+ZMIANA ROZMIARU FILMÓW
+-----------------------
+Edytuj: src\pages\videos\index.astro
+
+Znajdź (około linia 400):
+.videos-grid {
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+}
+
+Zmień 320px na:
+- 400px = większe filmy (2-3 w linii)
+- 280px = mniejsze filmy (4-5 w linii)
+
+
+ZMIANA LOGO
+-----------
+1. Przygotuj nowe logo (PNG z przezroczystym tłem, ~200x200px)
+2. Zapisz jako: public\images\jaguda-logo.png
+3. Nadpisz istniejące pliki
+4. Odśwież stronę (Ctrl+Shift+R)
+
+
+================================================================================
+11. KONFIGURACJA KOMENTARZY GISCUS
+================================================================================
+
+KROK 1: WŁĄCZ DISCUSSIONS
+--------------------------
+1. Idź na: https://github.com/jaguda85/esp32-projects
+2. Settings → Features
+3. Zaznacz ✓ Discussions
+4. Save
+
+
+KROK 2: UTWÓRZ KATEGORIĘ
+-------------------------
+1. Przejdź do zakładki Discussions w repo
+2. Categories → New category
+3. Name: "Comments"
+4. Discussion Format: Announcement (zalecane)
+5. Create
+
+
+KROK 3: ZAINSTALUJ GISCUS APP
+------------------------------
+1. Idź na: https://github.com/apps/giscus
+2. Install
+3. Wybierz repozytorium: jaguda85/esp32-projects
+4. Install
+
+
+KROK 4: WYGENERUJ KONFIGURACJĘ
+-------------------------------
+1. Idź na: https://giscus.app/pl
+2. Wypełnij:
+   - Język: pl
+   - Repozytorium: jaguda85/esp32-projects
+   - Mapowanie: pathname
+   - Kategoria: Comments
+   - Funkcje: zaznacz wszystkie które chcesz
+   - Motyw: dark (będzie się przełączać automatycznie)
+
+3. Skopiuj dane:
+   data-repo-id="xxxxx"
+   data-category-id="xxxxx"
+
+
+KROK 5: WKLEJ DO KODU
+----------------------
+Edytuj: src\pages\projects\[slug].astro
+
+Znajdź sekcję (około linia 160):
+data-repo-id="YOUR_REPO_ID"
+data-category-id="YOUR_CATEGORY_ID"
+
+Zamień na swoje wartości z Giscus:
+data-repo-id="R_kgDOxxxxxxx"
+data-category-id="DIC_kwDOxxxxxxx"
+
+
+KROK 6: TESTUJ
+--------------
+1. Zapisz plik
+2. npm run dev
+3. Otwórz dowolny projekt
+4. Przewiń na dół - powinny być komentarze
+5. Wypublikuj:
+   git add .
+   git commit -m "Dodano komentarze Giscus"
+   git push
+
+
+WYŁĄCZENIE KOMENTARZY
+----------------------
+Edytuj: src\pages\projects\[slug].astro
+
+Usuń lub zakomentuj całą sekcję (linie ~155-175):
+<!-- KOMENTARZE GISCUS -->
+
+
+================================================================================
+12. SZABLONY DO KOPIOWANIA
+================================================================================
+
+--- SZABLON PROJEKTU PODSTAWOWY ---
+
+---
+title: "Nazwa projektu"
+description: "Krótki opis projektu"
+mainImage: "/esp32-projects/images/projects/projekt/main.jpg"
+date: 2025-01-31
+tags: ["ESP32"]
+difficulty: "Łatwy"
+components:
+  - "ESP32 DevKit v1"
+arduinoCode: |
+  void setup() {
+    Serial.begin(115200);
+  }
+  
+  void loop() {
+    delay(1000);
+  }
+---
+
+## Opis projektu
+
+Opis...
+
+
+--- SZABLON PROJEKTU Z PINAMI ---
+
+---
+title: "Projekt z pinami"
+description: "Projekt z diagramem połączeń"
+mainImage: "/esp32-projects/images/projects/projekt/main.jpg"
+date: 2025-01-31
+tags: ["ESP32", "LED"]
+difficulty: "Średni"
+components:
+  - "ESP32 DevKit v1"
+  - "LED"
+  - "Rezystor 220Ω"
+leftPins:
+  - pin: "25"
+    connection: "LED +"
+  - pin: "GND"
+    connection: "LED -"
+rightPins:
+  - pin: "3V3"
+    connection: "Zasilanie"
+arduinoCode: |
+  #define LED 25
+  
+  void setup() {
+    pinMode(LED, OUTPUT);
+  }
+  
+  void loop() {
+    digitalWrite(LED, HIGH);
+    delay(1000);
+    digitalWrite(LED, LOW);
+    delay(1000);
+  }
+---
+
+## Opis
+
+Projekt migającej diody LED...
+
+
+--- SZABLON PROJEKTU Z BIBLIOTEKAMI ---
+
+---
+title: "Projekt WiFi"
+description: "Projekt wykorzystujący WiFi"
+mainImage: "/esp32-projects/images/projects/wifi/main.jpg"
+date: 2025-01-31
+tags: ["ESP32", "WiFi", "IoT"]
+difficulty: "Średni"
+components:
+  - "ESP32 DevKit v1"
+libraries:
+  - name: "WiFi"
+    author: "Arduino"
+  - name: "ESPAsyncWebServer"
+    author: "me-no-dev"
+    link: "https://github.com/me-no-dev/ESPAsyncWebServer"
+arduinoCode: |
+  #include <WiFi.h>
+  
+  const char* ssid = "TWOJA_SIEC";
+  const char* password = "HASLO";
+  
+  void setup() {
+    Serial.begin(115200);
+    WiFi.begin(ssid, password);
+    
+    while (WiFi.status() != WL_CONNECTED) {
+      delay(500);
+      Serial.print(".");
+    }
+    
+    Serial.println("\nPołączono!");
+    Serial.println(WiFi.localIP());
+  }
+  
+  void loop() {
+    delay(1000);
+  }
+---
+
+## Opis
+
+Połączenie ESP32 z WiFi...
+
+
+--- SZABLON FILMU ---
+
+---
+title: "Tytuł filmu YouTube"
+description: "O czym jest film"
+youtubeId: "Vz_z4-nF4J8"
+date: 2025-01-31
+tags: ["Tutorial", "ESP32"]
+relatedProject: "nazwa-projektu"
+---
+
+## O filmie
+
+W tym filmie pokazuję...
+
+## Linki:
+
+- [GitHub](https://github.com/...)
+
+
+--- SZABLON LINKU ---
+
+---
+title: "Nazwa zasobu"
+description: "Opis zasobu"
+url: "https://example.com"
+category: "Tutorial"
+date: 2025-01-31
+tags: ["ESP32", "Arduino"]
+---
+
+## Dlaczego polecam
+
+Ten zasób jest świetny ponieważ...
+
+
+--- SZABLON PROSTEGO KODU ARDUINO ---
+
+arduinoCode: |
+  // Prosty szablon
+  
+  #define PIN 25
+  
+  void setup() {
+    Serial.begin(115200);
+    pinMode(PIN, OUTPUT);
+    Serial.println("Start!");
+  }
+  
+  void loop() {
+    digitalWrite(PIN, HIGH);
+    delay(1000);
+    digitalWrite(PIN, LOW);
+    delay(1000);
+  }
+
+
+--- SZABLON ZAAWANSOWANEGO KODU ---
+
+arduinoCode: |
+  /*
+   * Nazwa projektu
+   * Autor: Jaguda
+   * Data: 2025-01-31
+   * Opis: Szczegółowy opis projektu
+   */
+  
+  #include <WiFi.h>
+  
+  // Konfiguracja
+  #define LED_PIN 25
+  const char* ssid = "SSID";
+  const char* password = "PASS";
+  
+  // Zmienne globalne
+  bool ledState = false;
+  
+  void setup() {
+    Serial.begin(115200);
+    pinMode(LED_PIN, OUTPUT);
+    
+    // Połącz WiFi
+    WiFi.begin(ssid, password);
+    while (WiFi.status() != WL_CONNECTED) {
+      delay(500);
+      Serial.print(".");
+    }
+    
+    Serial.println("\nGotowe!");
+  }
+  
+  void loop() {
+    ledState = !ledState;
+    digitalWrite(LED_PIN, ledState);
+    delay(1000);
+  }
+
+
+================================================================================
+SZYBKIE KOMENDY - ŚCIĄGAWKA
+================================================================================
+
+URUCHOM STRONĘ:
+cd D:\esp32-projects && npm run dev
+
+DODAJ PROJEKT:
+1. Utwórz: src\content\projects\nazwa.md
+2. Dodaj zdjęcia: public\images\projects\nazwa\
+3. Wypełnij szablon
+4. npm run dev (test)
+5. git add . && git commit -m "Nowy projekt" && git push
+
+DODAJ FILM:
+1. Utwórz: src\content\videos\nazwa.md
+2. Znajdź YouTube ID
+3. Wypełnij szablon
+4. git add . && git commit -m "Nowy film" && git push
+
+DODAJ LINK:
+1. Utwórz: src\content\links\nazwa.md
+2. Wypełnij szablon
+3. git add . && git commit -m "Nowy link" && git push
+
+BACKUP:
+robocopy D:\esp32-projects D:\BACKUP\esp32-backup /E /XD node_modules dist .astro
+
+DEPLOY:
+git add . && git commit -m "Update" && git pull origin main --no-edit && git push
+
+
+================================================================================
+POMOCNE LINKI
+================================================================================
+
+Dokumentacja Astro:        https://docs.astro.build
+Markdown Guide:            https://www.markdownguide.org
+Giscus (komentarze):       https://giscus.app/pl
+TinyPNG (optymalizacja):   https://tinypng.com
+GitHub repo:               https://github.com/jaguda85/esp32-projects
+Twoja strona:              https://jaguda85.github.io/esp32-projects
+
+
+================================================================================
+KONTAKT / NOTATKI
+================================================================================
+
+Data utworzenia: 31 stycznia 2025
+Wersja: 1.0
+
+Notatki własne:
+- 
+- 
+- 
+
+
+================================================================================
+KONIEC PRZEWODNIKA
+================================================================================
