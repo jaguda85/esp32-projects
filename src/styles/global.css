@@ -6,8 +6,8 @@
 
 :root {
   /* Ciemna paleta */
-  --primary: #ab0303;
-  --primary-light: #ff0000;
+  --primary: #750909;
+  --primary-light: #4f1919;
   --secondary: #446985;
   --accent: #4a1a04;
   --dark: #03231b;
@@ -29,7 +29,7 @@
   
   /* Karty i komponenty */
   --card-bg: #00420d;
-  --card-hover: #198202;
+  --card-hover: #197704;
   --code-bg: #1c5031;
 }
 
