@@ -1,0 +1,949 @@
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : sobota, 3 stycznia 2026 10:47:42
+   Source : D:\esp32-projects\
+     Dest : D:\BACKUP\esp32-projects-backup\
+
+    Files : *.*
+	    
+ Exc Dirs : node_modules
+	    dist
+	    .astro
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /MT:8 /R:3 /W:5 
+
+------------------------------------------------------------------------------
+
+	    New File  		     296	D:\esp32-projects\.gitignore100%  
+	    New File  		     247	D:\esp32-projects\astro.config.mjs100%  
+	    New File  		       0	D:\esp32-projects\backup-log.txt  0%  100%  
+	    New File  		  214110	D:\esp32-projects\package-lock.json100%  
+	    New File  		     279	D:\esp32-projects\package.json100%  
+	    New File  		    1604	D:\esp32-projects\README.md100%  
+	    New File  		     109	D:\esp32-projects\tsconfig.json100%  
+	    New File  		      40	D:\esp32-projects\.git\COMMIT_EDITMSG100%  
+	    New File  		     338	D:\esp32-projects\.git\config100%  
+	    New File  		      73	D:\esp32-projects\.git\description100%  
+	    New File  		     102	D:\esp32-projects\.git\FETCH_HEAD100%  
+	    New File  		      21	D:\esp32-projects\.git\HEAD100%  
+	    New File  		   14419	D:\esp32-projects\.git\index100%  
+	    New File  		      41	D:\esp32-projects\.git\ORIG_HEAD100%  
+	    New File  		     339	D:\esp32-projects\.vscode\c_cpp_properties.json100%  
+	    New File  		      87	D:\esp32-projects\.vscode\extensions.json100%  
+	    New File  		     207	D:\esp32-projects\.vscode\launch.json100%  
+	    New File  		    1452	D:\esp32-projects\.vscode\settings.json100%  
+	    New File  		     749	D:\esp32-projects\public\favicon.svg100%  
+	    New File  		     275	D:\esp32-projects\.vercel\output\config.json100%  
+	    New File  		    1116	D:\esp32-projects\.github\workflows\deploy.yml100%  
+	    New File  		     478	D:\esp32-projects\.git\hooks\applypatch-msg.sample100%  
+	    New File  		     896	D:\esp32-projects\.git\hooks\commit-msg.sample100%  
+	    New File  		    4726	D:\esp32-projects\.git\hooks\fsmonitor-watchman.sample100%  
+	    New File  		     189	D:\esp32-projects\.git\hooks\post-update.sample100%  
+	    New File  		     424	D:\esp32-projects\.git\hooks\pre-applypatch.sample100%  
+	    New File  		    1649	D:\esp32-projects\.git\hooks\pre-commit.sample100%  
+	    New File  		     416	D:\esp32-projects\.git\hooks\pre-merge-commit.sample100%  
+	    New File  		    1374	D:\esp32-projects\.git\hooks\pre-push.sample100%  
+	    New File  		    4898	D:\esp32-projects\.git\hooks\pre-rebase.sample100%  
+	    New File  		     544	D:\esp32-projects\.git\hooks\pre-receive.sample100%  
+	    New File  		    1492	D:\esp32-projects\.git\hooks\prepare-commit-msg.sample100%  
+	    New File  		    2783	D:\esp32-projects\.git\hooks\push-to-checkout.sample100%  
+	    New File  		    2308	D:\esp32-projects\.git\hooks\sendemail-validate.sample100%  
+	    New File  		    3650	D:\esp32-projects\.git\hooks\update.sample100%  
+	    New File  		   18003	D:\esp32-projects\.git\logs\HEAD100%  
+	    New File  		     240	D:\esp32-projects\.git\info\exclude100%  
+	    New File  		   70600	D:\esp32-projects\public\images\esp32-logo.jpg100%  
+	    New File  		  352029	D:\esp32-projects\public\images\esp32-logo.png100%  
+	    New File  		   98772	D:\esp32-projects\public\images\jaguda-logo.png100%  
+	    New File  		   91290	D:\esp32-projects\public\images\jaguda-logo1.png100%  
+	    New File  		    4187	D:\esp32-projects\src\components\CodeBlock.astro100%  
+	    New File  		    6071	D:\esp32-projects\src\components\ESP32Pinout.astro100%  
+	    New File  		    1024	D:\esp32-projects\src\content\config.ts100%  
+	    New File  		    1887	D:\esp32-projects\src\layouts\Layout.astro100%  
+	    New File  		   15532	D:\esp32-projects\src\styles\global.css100%  
+	    New File  		     676	D:\esp32-projects\src\pages\404.astro100%  
+	    New File  		    4174	D:\esp32-projects\src\pages\index.astro100%  
+	    New File  		    1279	D:\esp32-projects\.vercel\output\static\404.html100%  
+	    New File  		     749	D:\esp32-projects\.vercel\output\static\favicon.svg100%  
+	    New File  		    3852	D:\esp32-projects\.vercel\output\static\index.html100%  
+	    New File  		      41	D:\esp32-projects\.git\refs\heads\main100%  
+	    New File  		     283	D:\esp32-projects\.git\objects\01\43cb24a23c2c8e903baff86c8107a6630481d8100%  
+	    New File  		     118	D:\esp32-projects\.git\objects\01\afdcb6f687b65e2419820a9ebcddc9d01c68c8100%  
+	    New File  		     169	D:\esp32-projects\.git\objects\01\ec1847ef868fc1dc3459fc9b37ed033862d300100%  
+	    New File  		     170	D:\esp32-projects\.git\objects\02\027df4eefea51f8c892fbbc4ab9d084aa2fe63100%  
+	    New File  		     170	D:\esp32-projects\.git\objects\02\0411fedfd0531ba7edd03d7d9483bfeca1abd6100%  
+	    New File  		    2566	D:\esp32-projects\.git\objects\02\59720bb5c6749a229b4ba1799d61a01655a570100%  
+	    New File  		      50	D:\esp32-projects\.git\objects\02\6202b678ed5cbb7eae393f1dc1f4425066bacf100%  
+	    New File  		      57	D:\esp32-projects\.git\objects\02\e1a09917051d19e17dbc169bada75009cff4b1100%  
+	    New File  		     179	D:\esp32-projects\.git\objects\02\f33eb8efd477b35607e6a43e7cb843a3482b94100%  
+	    New File  		    2765	D:\esp32-projects\.git\objects\05\1316b81d4c70aae8fd81aa7ecf10602ba61fc6100%  
+	    New File  		     676	D:\esp32-projects\.git\objects\05\88a77f1d44fbbccfa4f1f4863ce8aeedc29d48100%  
+	    New File  		     169	D:\esp32-projects\.git\objects\05\b3868e553ff34c713ba5efadfe853c40c659e5100%  
+	    New File  		     953	D:\esp32-projects\.git\objects\05\c07f51435c59ff06db2e046d8e888c07e372be100%  
+	    New File  		     139	D:\esp32-projects\.git\objects\04\1cdb02462b99ff6da7b4ad027e00a28b531025100%  
+	    New File  		     826	D:\esp32-projects\.git\objects\04\77315b7928087b4f2c5167038f293edde07447100%  
+	    New File  		    3768	D:\esp32-projects\.git\objects\04\c0e335376df1c338d1f0afa90eb5fe800eb2a1100%  
+	    New File  		     139	D:\esp32-projects\.git\objects\06\5516a685ce2c7148163520f463637897dc3ef3100%  
+	    New File  		     853	D:\esp32-projects\.git\objects\06\8f217ca9766283309c419891ebefadef06064b100%  
+	    New File  		    1854	D:\esp32-projects\.git\objects\06\b884c695b18c4857c14257ac6b02a4c9858018100%  
+	    New File  		     854	D:\esp32-projects\.git\objects\06\d5ae40b7f7adbd05d2c0be8378229c46ba5417100%  
+	    New File  		     166	D:\esp32-projects\.git\objects\07\87dae2e283cf5cb88e134009087cc11f7c54c4100%  
+	    New File  		  278326	D:\esp32-projects\.git\objects\07\fbf94760da9a0bb01b304668031c17b0b5c1fb100%  
+	    New File  		     184	D:\esp32-projects\.git\objects\09\2068913d8feb455d98c8083cdd2da22debdfb9100%  
+	    New File  		      55	D:\esp32-projects\.git\objects\09\5efb58909f1404f72056a92e998b55faa0aaf2100%  
+	    New File  		     169	D:\esp32-projects\.git\objects\09\5f79cc0db160ee73e0e3bf2d1a68995167eec1100%  
+	    New File  		     284	D:\esp32-projects\.git\objects\08\68cb175eb6d656d2165f64b54496bd29effa79100%  
+	    New File  		     375	D:\esp32-projects\.git\objects\08\9ba1a0931901002ffe9bf5d33db8d885467afb100%  
+	    New File  		     176	D:\esp32-projects\.git\objects\08\dd4d84d67c2ad3b6c22b6d61548f9813727dcc100%  
+	    New File  		     170	D:\esp32-projects\.git\objects\0a\a6715ac9514ef8d58b2f1019181a1fe932639f100%  
+	    New File  		    1662	D:\esp32-projects\.git\objects\0a\b7a843b999064ec9e95c066b2cbbddf5aebe82100%  
+	    New File  		      87	D:\esp32-projects\.git\objects\0a\df0dc191395d4a1f6506f1c70588a5690431d3100%  
+	    New File  		     170	D:\esp32-projects\.git\objects\0a\ffabb98ac2e38f22de53a9887181b1d886f51a100%  
+	    New File  		      55	D:\esp32-projects\.git\objects\0b\601aea2d65e69f33d436de1290247e48550ea4100%  
+	    New File  		     196	D:\esp32-projects\.git\objects\0b\7eb9e036d9c9b2a179f8fa03af6a516d0dca24100%  
+	    New File  		      55	D:\esp32-projects\.git\objects\0b\81137d440a47dd610aa07da064533543a1a22f100%  
+	    New File  		      91	D:\esp32-projects\.git\objects\0c\33c7c3c06928c95be8c68f9f15a508c844a3dc100%  
+	    New File  		     375	D:\esp32-projects\.git\objects\0c\40414208af127a1145ac20bd09b26dec6bf64c100%  
+	    New File  		     179	D:\esp32-projects\.git\objects\0c\4ddb78a6326d3847301c9b29c9de287c0b4de7100%  
+	    New File  		    2737	D:\esp32-projects\.git\objects\0c\9bbbcc929ebd9d034c8fa285f6c6598643c762100%  
+	    New File  		     169	D:\esp32-projects\.git\objects\0c\ae9e04190ce5c81ed514c148c9752499b62409100%  
+	    New File  		      48	D:\esp32-projects\.git\objects\0c\c31f198f92e90ccefbbfc1f6a363c50422b105100%  
+	    New File  		     193	D:\esp32-projects\.git\objects\0c\cac9d366c4a42b7615a69ccd7aa282861445b9100%  
+	    New File  		    1668	D:\esp32-projects\.git\objects\0c\f7aa427f7db9c9b86b07d9c7456e2e2c9cfe28100%  
+	    New File  		   68102	D:\esp32-projects\.git\objects\0d\5972702630276854f340832872f12950880fbc100%  
+	    New File  		     178	D:\esp32-projects\.git\objects\0f\186188ddbf95aa3cb02bd3e308379b0f9a460b100%  
+	    New File  		     788	D:\esp32-projects\.git\objects\0f\3257fdd74a92b690bde0e7c19acb9dc7e1c410100%  
+	    New File  		     311	D:\esp32-projects\.git\objects\0e\0c3211df3a7e4fe20629f54d66419fbffb305c100%  
+	    New File  		    1913	D:\esp32-projects\.git\objects\0e\45f6183acb64302c2f55ce9650628dcb48bb20100%  
+	    New File  		      55	D:\esp32-projects\.git\objects\0e\58cedc3f817949fb284bde9e7e5e8626886b61100%  
+	    New File  		     164	D:\esp32-projects\.git\objects\0e\cf3b0ba483b340902b08fa6e49d634bf3efb7b100%  
+	    New File  		     919	D:\esp32-projects\.git\objects\0e\ddbfa8f2d5dd2ae35ea75ec51f3b0d663336b7100%  
+	    New File  		     916	D:\esp32-projects\.git\objects\11\204f5e60db6a1fe30380d459cdb41628a6db25100%  
+	    New File  		     191	D:\esp32-projects\.git\objects\11\7a7ced9b517d62dc9f75e5926d2be288743eae100%  
+	    New File  		      93	D:\esp32-projects\.git\objects\11\af9d20c11c0a26de88227ca48ae74d3cf0ebc0100%  
+	    New File  		     205	D:\esp32-projects\.git\objects\11\fda37dbbd711a5490d4a58659cedbd5d3b4d22100%  
+	    New File  		      62	D:\esp32-projects\.git\objects\12\06e5f8017c03ec617080951465c8ae94102ce6100%  
+	    New File  		      88	D:\esp32-projects\.git\objects\12\885a6bdcefe165f0390d3630d4c96e7b6e8825100%  
+	    New File  		     242	D:\esp32-projects\.git\objects\12\970f0543d42c4501507a0ba20c439bfa07ddb2100%  
+	    New File  		     595	D:\esp32-projects\.git\objects\12\a3a80112b5cf1c207891facbe994c250a3c4f6100%  
+	    New File  		     169	D:\esp32-projects\.git\objects\14\0bbc00c9258fa1ac04fbb253f99b4f8f51458f100%  
+	    New File  		     285	D:\esp32-projects\.git\objects\14\19e55f748166673624ed96404ad2acea2ef3cb100%  
+	    New File  		     375	D:\esp32-projects\.git\objects\14\643bfe21983c826a57bdc583da22c20e4ed8e3100%  
+	    New File  		     192	D:\esp32-projects\.git\objects\14\ed6c2f3283788258a61031ed89930aad8d303c100%  
+	    New File  		   11030	D:\esp32-projects\.git\objects\13\39aa59021d38abce43537c43ec736da7632d44100%  
+	    New File  		     168	D:\esp32-projects\.git\objects\13\7553095cda5f2e0eff5509e6e76e56dbda7381100%  
+	    New File  		     188	D:\esp32-projects\.git\objects\13\904557da91765f4a1653966cca3af5afc7d489100%  
+	    New File  		     530	D:\esp32-projects\.git\objects\13\9532d1b978ed7d6c0cd3333a0f2403a14235ed100%  
+	    New File  		      88	D:\esp32-projects\.git\objects\13\b49c29b6e6c13e87a10a1062fe9c111a211d76100%  
+	    New File  		      88	D:\esp32-projects\.git\objects\16\153d0a261b76a97ea2f21a7a772360a7f7a24d100%  
+	    New File  		     169	D:\esp32-projects\.git\objects\16\a41da398391c11efcb0d455bcfced3a80d1769100%  
+	    New File  		     188	D:\esp32-projects\.git\objects\16\d54bb13c8a867268b45c22eb7794d2625a78f5100%  
+	    New File  		     117	D:\esp32-projects\.git\objects\15\9f3b5ed980e0551acd81f0b534e37c8ff19c03100%  
+	    New File  		     182	D:\esp32-projects\.git\objects\15\c9f17d106a92e8f1da36e9cd1a3ae84af8e6d1100%  
+	    New File  		     197	D:\esp32-projects\.git\objects\15\d7138846130668e74d43374c2262b3c9ef36a0100%  
+	    New File  		    1503	D:\esp32-projects\.git\objects\17\83bb73965ae14264b22b528910b3fc136176ff100%  
+	    New File  		     285	D:\esp32-projects\.git\objects\17\89a4d9c6f293063f03cdab7d3ccc6db83618c4100%  
+	    New File  		      55	D:\esp32-projects\.git\objects\17\ecfbda8f0eb5be4543b74e2daa128ed3715a1b100%  
+	    New File  		     102	D:\esp32-projects\.git\objects\1a\126d97e0d4f4036e535981e1125eca1b51789b100%  
+	    New File  		      48	D:\esp32-projects\.git\objects\1a\20f14e8cf5808cef992b739943f5fe2c341098100%  
+	    New File  		    1048	D:\esp32-projects\.git\objects\1a\50402c72834c3f7ace8ecebcc6f8d5392a7cac100%  
+	    New File  		     212	D:\esp32-projects\.git\objects\1a\9ee9684d3c0062d0af2d42ca9c5025b0c415ee100%  
+	    New File  		     169	D:\esp32-projects\.git\objects\1a\d6fb196ba7c3c2ecaa1f16a79cccddbdf933f6100%  
+	    New File  		    3021	D:\esp32-projects\.git\objects\18\3a6d0e7ca0ac6141ef7427722a0c8bcb150686100%  
+	    New File  		     375	D:\esp32-projects\.git\objects\18\752bb9513ea85aebb7dda4c26893daaeb7e72c100%  
+	    New File  		     415	D:\esp32-projects\.git\objects\18\9bd6fff35ad8d2a9f5aefca7fe27ee1545cd47100%  
+	    New File  		    1291	D:\esp32-projects\.git\objects\18\d38212cbffc5cbf2319918c2516f59c0f5d907100%  
+	    New File  		    1048	D:\esp32-projects\.git\objects\18\e15114a2bb4318d9efd083513b4bfa081e2c42100%  
+	    New File  		      55	D:\esp32-projects\.git\objects\1b\98efe953a84f15c07e8a463bb0f69608775bf8100%  
+	    New File  		    3584	D:\esp32-projects\.git\objects\1b\e4b15d119580717351c030214adc0e97553794100%  
+	    New File  		     496	D:\esp32-projects\.git\objects\19\05ed230e8338ce3985484ef6c82249a3bb680b100%  
+	    New File  		      17	D:\esp32-projects\.git\objects\19\a6f8950aeaace63276cdb1e70c85922c9666e4100%  
+	    New File  		      89	D:\esp32-projects\.git\objects\19\bd472ca5a92b01ff02609c8633efeff24a1641100%  
+	    New File  		     252	D:\esp32-projects\.git\objects\1c\c2e36a3d4cb6413122ef1989223b5a8353adb0100%  
+	    New File  		     375	D:\esp32-projects\.git\objects\1d\204210cc2b5646d58f5f7192882ee4bdf0cbcb100%  
+	    New File  		      88	D:\esp32-projects\.git\objects\1d\5a5f33182cebc1ef4d8df3726dd62a5e48917f100%  
+	    New File  		    3123	D:\esp32-projects\.git\objects\1d\6d7e918f9c6d25e33585c2e0a7725532a56cc6100%  
+	    New File  		      50	D:\esp32-projects\.git\objects\1d\a0355ac7c1ef6c4d1d590298081e8a2f8ae97a100%  
+	    New File  		      55	D:\esp32-projects\.git\objects\1d\d63e0ce4f9b62697d9e2d1c419bd2d027c4d20100%  
+	    New File  		     170	D:\esp32-projects\.git\objects\1d\fac15a0611dc3a913712b1066bd78c0abc4a9b100%  
+	    New File  		     252	D:\esp32-projects\.git\objects\1e\8e2ae62c7b1c36498833f176b5f1e652c81d7c100%  
+	    New File  		     253	D:\esp32-projects\.git\objects\1e\b763f78da025f07fa60200360a614bec5b1cf9100%  
+	    New File  		     117	D:\esp32-projects\.git\objects\1e\fb3a3664eea6e6c253585ba100a871fb9e1977100%  
+	    New File  		     175	D:\esp32-projects\.git\objects\1f\08a90faab04f65ccc66c903b191e2e6af83b84100%  
+	    New File  		     165	D:\esp32-projects\.git\objects\1f\11016609234080d4e1e4c42a73849180414b18100%  
+	    New File  		      48	D:\esp32-projects\.git\objects\1f\114c225945c011c745a255e43a3494c66fb846100%  
+	    New File  		      55	D:\esp32-projects\.git\objects\1f\15359aeda4022831fcda815a80c9ed2accffd5100%  
+	    New File  		     168	D:\esp32-projects\.git\objects\1f\c0474e21f8abc0158acdf2fe13a0285b29c895100%  
+	    New File  		      55	D:\esp32-projects\.git\objects\1f\dd5eeba48da152eb81cfa7955783f43dc20e3f100%  
+	    New File  		     826	D:\esp32-projects\.git\objects\1f\e9d2b6d1cb5b25efe739e9d11a4780f1003634100%  
+	    New File  		      88	D:\esp32-projects\.git\objects\20\6632bf68cb8e45c54f26b93345c0f334c96f05100%  
+	    New File  		    1340	D:\esp32-projects\.git\objects\20\6704d340c6eb0fd246e719029114a8e1de94e6100%  
+	    New File  		      87	D:\esp32-projects\.git\objects\20\865cf08bfd7e71bf37fed886bf3ed41c6df4c1100%  
+	    New File  		     169	D:\esp32-projects\.git\objects\20\f918a700df74892559f6215c847403c7dc6580100%  
+	    New File  		     119	D:\esp32-projects\.git\objects\21\51825c5a38487fdc1820b83f17bd4b836d3b14100%  
+	    New File  		      81	D:\esp32-projects\.git\objects\22\a15055d638988eb33bb61536d27f623df92e4a100%  
+	    New File  		      57	D:\esp32-projects\.git\objects\24\5e6fee36e12405593850ecb5a19e32e7a40eb0100%  
+	    New File  		      88	D:\esp32-projects\.git\objects\24\e4657e3d791226b2c062b1cec7c977c87c2630100%  
+	    New File  		     231	D:\esp32-projects\.git\objects\24\ee36805f68f6db1782713eef460d95049fab39100%  
+	    New File  		    1916	D:\esp32-projects\.git\objects\24\f1f4c9876c0f8cccd0384d9f58c23412f8ea3a100%  
+	    New File  		      88	D:\esp32-projects\.git\objects\23\0af215e6dcc72be73dc88781adbe3d135e44c0100%  
+	    New File  		     504	D:\esp32-projects\.git\objects\23\9a0b0a6daedcdcd95104492410085a943e98d0100%  
+	    New File  		     858	D:\esp32-projects\.git\objects\25\09d49bca4aac65362ee813ae113e66c981a533100%  
+	    New File  		     194	D:\esp32-projects\.git\objects\25\26dd5159c202746477e7ef237cf7b14385ae78100%  
+	    New File  		     538	D:\esp32-projects\.git\objects\25\4b6a19f6a0ed78114250b2cc80a37fb647264d100%  
+	    New File  		  452006	D:\esp32-projects\.git\objects\25\c52dc886325c981507887a0c3f513cdae43c1e100%  
+	    New File  		      55	D:\esp32-projects\.git\objects\26\0016c7b2b679ca4cd82f1cb0e7b114847bd386100%  
+	    New File  		   55285	D:\esp32-projects\.git\objects\26\10c98fa79d7ea181826ea38d51f8c7e8c994f6100%  
+	    New File  		    4191	D:\esp32-projects\.git\objects\26\6a74f5fc364b96817443aad823b4c6a287d22d100%  
+	    New File  		     284	D:\esp32-projects\.git\objects\26\aecf7834e48c1c2a1c05d3f801e11325c7fbf7100%  
+	    New File  		     169	D:\esp32-projects\.git\objects\26\db4b64d192ed20cdea041ddea460a571f0a79f100%  
+	    New File  		      55	D:\esp32-projects\.git\objects\26\fa1fe2126c22ced0e42977f57660a4a7a61617100%  
+	    New File  		     212	D:\esp32-projects\.git\objects\27\02dbae88fefc2087ff367c1927ca3592c98dc7100%  
+	    New File  		     108	D:\esp32-projects\.git\objects\27\6243de2907938c333a05de07db443cc4f5f589100%  
+	    New File  		     197	D:\esp32-projects\.git\objects\27\7d6e7ab195b0f2ad4bca306ea438e7e48e725b100%  
+	    New File  		      88	D:\esp32-projects\.git\objects\28\2cae80db7f08b92046891113a61aaa97aac380100%  
+	    New File  		     284	D:\esp32-projects\.git\objects\28\87484dc1ec1eeaaa0e864b143fce5756889f2f100%  
+	    New File  		     118	D:\esp32-projects\.git\objects\28\a8e32a8dc0283845a493c68364760387c9984c100%  
+	    New File  		      88	D:\esp32-projects\.git\objects\29\77b0b06ea286ac23ecaf357d89e18d779713f0100%  
+	    New File  		      89	D:\esp32-projects\.git\objects\29\795f29e62772177b32b8cb999c5df5bdbd1c0e100%  
+	    New File  		     188	D:\esp32-projects\.git\objects\29\986bd7c08c4c04f7afe77848d4ccd7320f1346100%  
+	    New File  		      88	D:\esp32-projects\.git\objects\29\fa08a58a78bc1b3d91dd61d717a17428fd5246100%  
+	    New File  		      88	D:\esp32-projects\.git\objects\2a\10ae8fce9ce47bbd4192c8555106006b76d8eb100%  
+	    New File  		     121	D:\esp32-projects\.git\objects\2a\27d61f6e00ebc57f56b9a56dea8c20947383ab100%  
+	    New File  		     267	D:\esp32-projects\.git\objects\2a\ab40a4d3e938ca1fc57be4b9a48e4225f0ba01100%  
+	    New File  		     678	D:\esp32-projects\.git\objects\2b\35363c0ae3a8ca5f7d309913490d5887776308100%  
+	    New File  		     818	D:\esp32-projects\.git\objects\2b\74f14a77250034699a707ac366fe15befef8f8100%  
+	    New File  		    1270	D:\esp32-projects\.git\objects\2b\95305a21e75ebcd2960f30d0e9c6ea504c86ab100%  
+	    New File  		      50	D:\esp32-projects\.git\objects\2b\b38dc61a4d1f488eefeaeba9ccb85feab6a4b0100%  
+	    New File  		     170	D:\esp32-projects\.git\objects\2c\2b603856a2dc820688c4c3928588fff203165e100%  
+	    New File  		     207	D:\esp32-projects\.git\objects\2d\141073625b2be9a20f2199a68c98bc8ba8bd41100%  
+	    New File  		     212	D:\esp32-projects\.git\objects\2d\361abcd0b3fa76ccdd80611a0c1bc4b55c0e20100%  
+	    New File  		      95	D:\esp32-projects\.git\objects\2d\58965c19e109b4cae98ec312f6acd1037c6475100%  
+	    New File  		     170	D:\esp32-projects\.git\objects\2d\769119253a844057926e792c7490c73c6d04b4100%  
+	    New File  		      55	D:\esp32-projects\.git\objects\2d\7816d43f928763bd6c7b36b828bffc86911b22100%  
+	    New File  		    2764	D:\esp32-projects\.git\objects\2e\753458e7ea0bdb2464d981e5a005b16c7bb321100%  
+	    New File  		      88	D:\esp32-projects\.git\objects\2f\2c5695482c65b52a62a298fe380ea9a530a13f100%  
+	    New File  		     117	D:\esp32-projects\.git\objects\30\2e6007faf82b65f1ee5c7f9b7f6d5be9cd97e4100%  
+	    New File  		    2392	D:\esp32-projects\.git\objects\30\730aa6fef0c15573e5acba8cb7f1f3ae898e03100%  
+	    New File  		     179	D:\esp32-projects\.git\objects\30\7e55b0c4500a74da6678ac5f90b06c94388ceb100%  
+	    New File  		  524079	D:\esp32-projects\.git\objects\31\1e8c7cfcf71d49e505f8613de499aec7ac78d1100%  
+	    New File  		     480	D:\esp32-projects\.git\objects\31\b91ff98c286c8b19e9dac6f7456a75e88e6140100%  
+	    New File  		     170	D:\esp32-projects\.git\objects\31\d7afff58d90401020fc3ff6c7621dd6c789f1b100%  
+	    New File  		     165	D:\esp32-projects\.git\objects\33\2f436dd58cd95f831d2efd3ff1dd9f76fdceec100%  
+	    New File  		     495	D:\esp32-projects\.git\objects\34\13a1557fbbe1fd363731799404ec5ad14be2d1100%  
+	    New File  		     187	D:\esp32-projects\.git\objects\34\2fa9a51e89229de6806ab34e2c2031fe04ad34100%  
+	    New File  		     120	D:\esp32-projects\.git\objects\34\4b6957868cc7e46bb3b26a5767a3bf39424e99100%  
+	    New File  		      89	D:\esp32-projects\.git\objects\34\4ec0807df0b68944a946208b86ee24883691fa100%  
+	    New File  		     495	D:\esp32-projects\.git\objects\34\f91307042bc62ee7f8384002b5048acb8985f2100%  
+	    New File  		     375	D:\esp32-projects\.git\objects\37\ad6c960f2a955f52f0fd8e594218ba69b8b724100%  
+	    New File  		     375	D:\esp32-projects\.git\objects\37\ba8b7b2a145c71458f624494bc5355f89988f9100%  
+	    New File  		     169	D:\esp32-projects\.git\objects\37\fcb2607fcf7602493e0a8c031ff5965db80db3100%  
+	    New File  		      57	D:\esp32-projects\.git\objects\35\bea43e0af8d640fa07df13b6b8c9d56d6b686a100%  
+	    New File  		      55	D:\esp32-projects\.git\objects\36\5dd87164cac7835817ac5c40dd8a5f0c85457e100%  
+	    New File  		    2886	D:\esp32-projects\.git\objects\38\78cfc21ff05c666ac497350dd11e663455d0bf100%  
+	    New File  		     376	D:\esp32-projects\.git\objects\38\d394d425a1f4cabad89a87300a360b99479b90100%  
+	    New File  		  505647	D:\esp32-projects\.git\objects\38\fcf4069c767496dd4c9af0db0ae2b7a334bfbd100%  
+	    New File  		     176	D:\esp32-projects\.git\objects\39\4ce74f52169370d9422e904948930aca974ee6100%  
+	    New File  		     121	D:\esp32-projects\.git\objects\39\96f2a3ce329e09bf94e472e952b5175a7485c3100%  
+	    New File  		     121	D:\esp32-projects\.git\objects\3a\8fbbad86a8365a777b3a50ec9b641465245cd9100%  
+	    New File  		      96	D:\esp32-projects\.git\objects\3a\a01200d2110f7dbc69808763e9289f49969af6100%  
+	    New File  		     117	D:\esp32-projects\.git\objects\3a\e1c55c9042f87c109aa607b43aa16af08abbff100%  
+	    New File  		     119	D:\esp32-projects\.git\objects\3a\f9a131bcd9c7b699d9928840445af5144cafeb100%  
+	    New File  		    2025	D:\esp32-projects\.git\objects\3b\329dfa22cf5259cf6540410fc2a9186f9e70b3100%  
+	    New File  		      78	D:\esp32-projects\.git\objects\3b\637618a7a00d0445aa1d98ae424e1473d11e4e100%  
+	    New File  		     286	D:\esp32-projects\.git\objects\3b\9f6c2fe951ad83181dbb1de87a8d10ecd84db2100%  
+	    New File  		      55	D:\esp32-projects\.git\objects\3b\e771a3854ebe65ffce11b5a73955193a351d03100%  
+	    New File  		     834	D:\esp32-projects\.git\objects\3b\f81afd8e97589bc5ab60df1cff9429eec5058d100%  
+	    New File  		     375	D:\esp32-projects\.git\objects\3c\04717592f54f0165ad968bd1390587b2a38d0c100%  
+	    New File  		     172	D:\esp32-projects\.git\objects\3c\074dee0ab95e6787ea636d53597906c061a635100%  
+	    New File  		      78	D:\esp32-projects\.git\objects\3c\4784c6b8c8cfc0d6d169ca7e7dfcd1628db96c100%  
+	    New File  		     375	D:\esp32-projects\.git\objects\3c\88f45aa7408eb435b319a88ff5851c02916540100%  
+	    New File  		      89	D:\esp32-projects\.git\objects\3c\feb835159a376e3429130d8ef30400a7f188c3100%  
+	    New File  		    2712	D:\esp32-projects\.git\objects\3d\4b50eeb01011e5744be00838e23ae0634ec2e0100%  
+	    New File  		  912040	D:\esp32-projects\.git\objects\3e\2769eba1fb8a3ba3bfbbf9643ac1e3304976eb100%  
+	    New File  		    1943	D:\esp32-projects\.git\objects\3d\fee5081af467bad07e5011d5c0e512b37937a8100%  
+	    New File  		     920	D:\esp32-projects\.git\objects\3e\5b53d62e61c99d3c3ad1f4e758847699dc8a61100%  
+	    New File  		     169	D:\esp32-projects\.git\objects\3e\a2b4319434b3e70b284ae57adcc83f29710ec7100%  
+	    New File  		      55	D:\esp32-projects\.git\objects\3e\c4fd80d4162669fe1b38e1c3b149251ea789f7100%  
+	    New File  		      88	D:\esp32-projects\.git\objects\3f\3f6a4ca3e266a8199194a4c6492f307794bd59100%  
+	    New File  		     375	D:\esp32-projects\.git\objects\3f\6a5e91476f78b1127f40441a09c25393f11107100%  
+	    New File  		    2614	D:\esp32-projects\.git\objects\3f\928bc77cd36e4ca0154ab2bc82baafab5cbf1d100%  
+	    New File  		     837	D:\esp32-projects\.git\objects\3f\f23eae598ec5b7dbf523be3615faf0b232f2fc100%  
+	    New File  		    2612	D:\esp32-projects\.git\objects\40\3de9611d3d569605d67d5afdc2d04589e64686100%  
+	    New File  		     160	D:\esp32-projects\.git\objects\40\632d067d7409f4d0c2bb7d43042f2bc63099f4100%  
+	    New File  		     198	D:\esp32-projects\.git\objects\41\9d1f469594bc810fa0c67f79f6d57bbf096864100%  
+	    New File  		    1293	D:\esp32-projects\.git\objects\44\0013fc5bb64d14eba61218be87c2da2d3a6a02100%  
+	    New File  		     347	D:\esp32-projects\.git\objects\44\1a1ea92b7eefe37d009e226089c09efd1ee970100%  
+	    New File  		     453	D:\esp32-projects\.git\objects\44\82d16f13cc708ac005ea0ee0e1c3fb1bbcf032100%  
+	    New File  		     169	D:\esp32-projects\.git\objects\44\dad7938dc72a0ae951bdba582f700fd5e3ff4b100%  
+	    New File  		      55	D:\esp32-projects\.git\objects\44\e1ed7259ac7bad019322684584c9132206804c100%  
+	    New File  		    2162	D:\esp32-projects\.git\objects\43\b3df19f475164bd47a1863570665b4306040f1100%  
+	    New File  		     284	D:\esp32-projects\.git\objects\42\0ca9a2094d74c5d1e2c386c2c6122d06fc9f7f100%  
+	    New File  		    2546	D:\esp32-projects\.git\objects\42\a7ba089540330448c42fdb7eacfe2c018893b0100%  
+	    New File  		     169	D:\esp32-projects\.git\objects\46\192233809301670815917de930ca5c3dae852a100%  
+	    New File  		     108	D:\esp32-projects\.git\objects\46\1ac5a7b3dc4953e4757fe57fa050abe882e742100%  
+	    New File  		      87	D:\esp32-projects\.git\objects\46\20105d879e2f9a63e651c3be753cbef66e83cb100%  
+	    New File  		     199	D:\esp32-projects\.git\objects\46\2a6faaa736c75c9f290fe2410345f0cff472ff100%  
+	    New File  		     178	D:\esp32-projects\.git\objects\46\41d622c19715a5102055b7a77a247a61da05ed100%  
+	    New File  		     908	D:\esp32-projects\.git\objects\46\56dea9b98f2a3830277d3d577b73a86d83d144100%  
+	    New File  		     545	D:\esp32-projects\.git\objects\47\3dfe845eda07a9e307be7781d05bb2a641a7e1100%  
+	    New File  		     222	D:\esp32-projects\.git\objects\45\05aa11cd2ce9d1ff9ba4141b8e2c5f5648e850100%  
+	    New File  		   2.2 m	D:\esp32-projects\.git\objects\45\68dd9e5d78e818d0652d10a28b5a1a01c77bf0100%  
+	    New File  		     191	D:\esp32-projects\.git\objects\45\765d164101854e0d5da16aacd09ba7b3b46298100%  
+	    New File  		   24074	D:\esp32-projects\.git\objects\45\924b6f51a9909bd4522dec27e959ab8f7a4b8b100%  
+	    New File  		      64	D:\esp32-projects\.git\objects\45\e291d27b1bcdbc0bac6560cd47ead64a951efd100%  
+	    New File  		     376	D:\esp32-projects\.git\objects\48\0ebf02aa8c6fe3063d69060eade2fe98af0d3a100%  
+	    New File  		    1593	D:\esp32-projects\.git\objects\48\c0f23a2266cd2ed3ad26874115bac679c6523c100%  
+	    New File  		      55	D:\esp32-projects\.git\objects\49\69a9ef4a4bf8dc38c17beb522736135d622697100%  
+	    New File  		     206	D:\esp32-projects\.git\objects\49\6e41ab2312792c0b1e878fb0f7c71d7144f967100%  
+	    New File  		     121	D:\esp32-projects\.git\objects\49\7a60566157c1319d2f463a463ee81f3d34d428100%  
+	    New File  		      57	D:\esp32-projects\.git\objects\4c\0bfde243e5a7511fceb5fd6ab5c78e50052125100%  
+	    New File  		     139	D:\esp32-projects\.git\objects\4c\a170d2f8c09c6ec0b9157ac3550c951895ac26100%  
+	    New File  		     165	D:\esp32-projects\.git\objects\4c\e0ec25924ea150939a3647fe521ba73ccf5b57100%  
+	    New File  		     816	D:\esp32-projects\.git\objects\4c\f3d33d89227914e31083ca7b63227eeac0999c100%  
+	    New File  		     375	D:\esp32-projects\.git\objects\4a\652a14311bd3757472c48f9d0c43a5c9a75976100%  
+	    New File  		    2932	D:\esp32-projects\.git\objects\4a\6c9801548d7fcaa64afbb3ca762b0953536da2100%  
+	    New File  		      55	D:\esp32-projects\.git\objects\4a\814d469e911449e853010caaa9780e06383819100%  
+	    New File  		      88	D:\esp32-projects\.git\objects\4a\8dffca0d587b77e410624bc8b9c35dc4caffe2100%  
+	    New File  		      88	D:\esp32-projects\.git\objects\4a\a7c82bf2dedd48c4ed2ab58e048931eca93301100%  
+	    New File  		     119	D:\esp32-projects\.git\objects\4d\2ca71c912b8729b820899d87a5c8ab8eae91ef100%  
+	    New File  		      56	D:\esp32-projects\.git\objects\4d\3262779559d4faa3228474b2d2f07d1601f663100%  
+	    New File  		     284	D:\esp32-projects\.git\objects\4d\35f48635c3e170c68e6c3c62ad01bc84cbcb18100%  
+	    New File  		     139	D:\esp32-projects\.git\objects\4d\3e1db53c474a371e1b3a5617d620a96a55803a100%  
+	    New File  		     828	D:\esp32-projects\.git\objects\4d\47694a3e8daecf76bea92b7fe9c33bdc4bba89100%  
+	    New File  		     482	D:\esp32-projects\.git\objects\4d\4e3a4b49f890003f6527220597a3313b7ae04e100%  
+	    New File  		    3255	D:\esp32-projects\.git\objects\4e\1124b4c624ca7393f8108b8283e9ddc23e53d8100%  
+	    New File  		     205	D:\esp32-projects\.git\objects\4e\bb3ea2cf04edd1ea67cae3b9e4b56accd4b0d8100%  
+	    New File  		     374	D:\esp32-projects\.git\objects\4e\df47e39de660b443358c12a105caf26ff79547100%  
+	    New File  		      50	D:\esp32-projects\.git\objects\4f\7c2bdb1ee7e55ffaed605930cd32f9e7130bf0100%  
+	    New File  		    2570	D:\esp32-projects\.git\objects\4f\f783e830355f6a1569408f2ce41aa5075f55ea100%  
+	    New File  		    1777	D:\esp32-projects\.git\objects\50\82d1b21df8e30331dda84396be7c713898318f100%  
+	    New File  		      88	D:\esp32-projects\.git\objects\50\9a908872b0d06ef94c59af6cb02bc95e5021f8100%  
+	    New File  		    2073	D:\esp32-projects\.git\objects\50\b145f7d43ba2f0b3f39f180c4576ef69a04196100%  
+	    New File  		    3977	D:\esp32-projects\.git\objects\50\cc428346c5582cbcd8e43d0f1796d1d7b577de100%  
+	    New File  		      66	D:\esp32-projects\.git\objects\51\655a5d95b85bf2efd7186af1727ef890dbfd8b100%  
+	    New File  		     375	D:\esp32-projects\.git\objects\51\a1bc275bc755b48a403a03a1d3d9e524436ed4100%  
+	    New File  		     170	D:\esp32-projects\.git\objects\52\0aa3085d6748560f8837b67ac8c551efdcff1e100%  
+	    New File  		      88	D:\esp32-projects\.git\objects\52\2035f974937acce8041f0a1ca43f0d76c82c27100%  
+	    New File  		  354771	D:\esp32-projects\.git\objects\52\9b5cbb58ad639a1e4976d1d6a0bb72189b241d100%  
+	    New File  		      55	D:\esp32-projects\.git\objects\53\1f27f10286fce983641d6f35d677f20f315277100%  
+	    New File  		     139	D:\esp32-projects\.git\objects\53\4a0cf3e882fbca92883dcc91e4286308ef8b53100%  
+	    New File  		    4490	D:\esp32-projects\.git\objects\53\57abb4670019d6ae61e70583edf3b3f58775b5100%  
+	    New File  		     169	D:\esp32-projects\.git\objects\57\158875a232eb5158787d602a852593f83d56d4100%  
+	    New File  		     243	D:\esp32-projects\.git\objects\57\a9c9acaf03cfbf27c468640683979af81ac391100%  
+	    New File  		     941	D:\esp32-projects\.git\objects\57\e097e0dd31cb5e90eada614a4d9f8e50c75681100%  
+	    New File  		     375	D:\esp32-projects\.git\objects\55\103687c7c9f70e372211864f219275f04ec062100%  
+	    New File  		     161	D:\esp32-projects\.git\objects\56\40d87745c73634f685a55f026466107cfde505100%  
+	    New File  		    1257	D:\esp32-projects\.git\objects\56\5eaaac64148c3b2708e9c0343caeb7717d21b8100%  
+	    New File  		   21099	D:\esp32-projects\.git\objects\56\95335dcaad650a89eb363a594c1811326da937100%  
+	    New File  		      96	D:\esp32-projects\.git\objects\56\a312b537eddb6cb88e0a767245e45c976a7a3f100%  
+	    New File  		     120	D:\esp32-projects\.git\objects\56\f0680db61bec59b0e811644970db8866dab128100%  
+	    New File  		     177	D:\esp32-projects\.git\objects\5a\2f9e13ae3dc2a23c9a39631b4b7a54631c01c8100%  
+	    New File  		     375	D:\esp32-projects\.git\objects\58\306a4b59f5670b2bb5be345c178402daebb501100%  
+	    New File  		     375	D:\esp32-projects\.git\objects\58\b9afa967cc5c7e088ccad784d715b107885500100%  
+	    New File  		     594	D:\esp32-projects\.git\objects\58\e4884cf169938a6ec57316855588cbb85fc447100%  
+	    New File  		    1087	D:\esp32-projects\.git\objects\59\75033e8a5e95eeef945a4071945049bd9df28e100%  
+	    New File  		      57	D:\esp32-projects\.git\objects\59\869e47ac1f444f2c8e711d3853eb562f6e0b04100%  
+	    New File  		    1486	D:\esp32-projects\.git\objects\5c\7aaa54d32a244d8cb6df05529c0f7c9a874844100%  
+	    New File  		      55	D:\esp32-projects\.git\objects\5c\aa3f6b121fa18c965678eee1cd2ba659c65089100%  
+	    New File  		     878	D:\esp32-projects\.git\objects\5b\2a8495396e994983eb0c403a2a66eb2a96400b100%  
+	    New File  		      61	D:\esp32-projects\.git\objects\5b\33b930240d813272bfa7449b46063973ff7de9100%  
+	    New File  		     310	D:\esp32-projects\.git\objects\5b\41bb9e7b2961c9caaea6641c64e2740c8ed34b100%  
+	    New File  		      55	D:\esp32-projects\.git\objects\5e\2c86e468fba5cdb0d30df06b499bfe5838b981100%  
+	    New File  		      88	D:\esp32-projects\.git\objects\5e\d680eec710c4b98c935e07dd254ca6888c8aa6100%  
+	    New File  		     375	D:\esp32-projects\.git\objects\5d\ad57c2532600ec6d6d0e357ad8a856d775c5eb100%  
+	    New File  		  581633	D:\esp32-projects\.git\objects\5d\f7fd25d6e0ec8c0db367d8ecb0beec536491e8100%  
+	    New File  		     170	D:\esp32-projects\.git\objects\5f\0658cbefad2802f8a6ad4ef70772a536fe0d97100%  
+	    New File  		     184	D:\esp32-projects\.git\objects\5f\1a021a4895f89bf1a66751dbbe1cceead0b7d5100%  
+	    New File  		      50	D:\esp32-projects\.git\objects\5f\56cbe68220decdc6c0e11fa22a2804d4a28d79100%  
+	    New File  		    3046	D:\esp32-projects\.git\objects\5f\6af5f5ca343c403281acd89733d7a48b0b2feb100%  
+	    New File  		     200	D:\esp32-projects\.git\objects\5f\79cf3349fdb6aecc688ed89c3c55c5350344c5100%  
+	    New File  		     208	D:\esp32-projects\.git\objects\5f\b0d78369e701263472c0e3e7acdadedd3f6caa100%  
+	    New File  		    2162	D:\esp32-projects\.git\objects\5f\c5f3a574e8563c72708f6df92fd93f4b3ac2ce100%  
+	    New File  		    3460	D:\esp32-projects\.git\objects\5f\c974118bdc6df78556c5d751d5408b89e0f4b1100%  
+	    New File  		      88	D:\esp32-projects\.git\objects\60\024685f754fb3ca946ad59d8ec16a4ee594a62100%  
+	    New File  		    2912	D:\esp32-projects\.git\objects\60\1f34f5fdc5d5e5ec00712439f341fa81cab1cb100%  
+	    New File  		     185	D:\esp32-projects\.git\objects\60\22850e21a7eb452247f4f7dd6205c0afbfdeef100%  
+	    New File  		     169	D:\esp32-projects\.git\objects\60\5a3d7aa408ebc356d82bccb1b19c4f3cf3b44e100%  
+	    New File  		  735171	D:\esp32-projects\.git\objects\60\e5b958ae4cbc43dfc2b5cd59d79bf67f398e0a100%  
+	    New File  		      54	D:\esp32-projects\.git\objects\60\f99e432efcefc5c5daeebc87d89fad18ac257d100%  
+	    New File  		     169	D:\esp32-projects\.git\objects\61\9829338cadac36a616acbccd7228219ea0a86e100%  
+	    New File  		      48	D:\esp32-projects\.git\objects\61\9df753d32a03d2b4e79312db3cbe593739995c100%  
+	    New File  		     169	D:\esp32-projects\.git\objects\61\b2f99ad0ed3442808ec323baae630a5c9e2ab4100%  
+	    New File  		      57	D:\esp32-projects\.git\objects\61\c17731a664c55f0819bc9b816d151e2bb728ae100%  
+	    New File  		     169	D:\esp32-projects\.git\objects\61\ce027b5e8596f99bda5df684e4e62c2af65331100%  
+	    New File  		    2554	D:\esp32-projects\.git\objects\61\f016b6f4edd7566a6166aa99738694947098f5100%  
+	    New File  		      88	D:\esp32-projects\.git\objects\62\0025f276cc7d673510108c50423e642643f714100%  
+	    New File  		     375	D:\esp32-projects\.git\objects\62\9b0b3936a163494ecf06db90ee04b8de03e8ca100%  
+	    New File  		      55	D:\esp32-projects\.git\objects\62\a212cb9ead85500cb1b6fda26a327c7f3997f3100%  
+	    New File  		     253	D:\esp32-projects\.git\objects\62\c1dc59fe1fb2ce106769690904acdffaec98f1100%  
+	    New File  		      57	D:\esp32-projects\.git\objects\62\cd608187382abbb0b3ccfc795cc33bbbd7c24f100%  
+	    New File  		    2559	D:\esp32-projects\.git\objects\63\075178d8f4fce1ac80e943a15c71ddf556f3ed100%  
+	    New File  		     181	D:\esp32-projects\.git\objects\63\2ef7bddcfcae1596c38de79561b3464fb0d7c3100%  
+	    New File  		     170	D:\esp32-projects\.git\objects\63\c9c21abe932163c2430173eadc03f6cfde1d44100%  
+	    New File  		     196	D:\esp32-projects\.git\objects\63\eba878a00bd7780c52a978012abd1a81f36c50100%  
+	    New File  		   1.0 m	D:\esp32-projects\.git\objects\65\7372275544fe97d3d98711fb39e0ce24c76210100%  
+	    New File  		     169	D:\esp32-projects\.git\objects\65\82d23d1635f8102ebf5a87927d7cc837c8a37e100%  
+	    New File  		     171	D:\esp32-projects\.git\objects\64\901dc3092f5ffd6cadfc21c6d0bb52a516a22f100%  
+	    New File  		    2473	D:\esp32-projects\.git\objects\66\4355bb8db1961a4d430842ea49b140b98aa35f100%  
+	    New File  		      55	D:\esp32-projects\.git\objects\66\5151f3e36ad47dd87d4cfa51ca9cb015feb947100%  
+	    New File  		     185	D:\esp32-projects\.git\objects\66\d4985aab20b3376be24e3c195d1e34791d3e3a100%  
+	    New File  		     170	D:\esp32-projects\.git\objects\67\1165874e8f155eb2d339b8da7fbc202b6f6196100%  
+	    New File  		      54	D:\esp32-projects\.git\objects\67\e2d5ae389af02847e671ac968f67ae66ce2493100%  
+	    New File  		      55	D:\esp32-projects\.git\objects\68\29be79c9607186cc3b3ae45502c36004a88afe100%  
+	    New File  		     826	D:\esp32-projects\.git\objects\68\61cff6cb22a74bd1e9d0a28b54c5f7cf24fd90100%  
+	    New File  		     285	D:\esp32-projects\.git\objects\68\e97501de3edc3fbda8220628993ca1020fb82f100%  
+	    New File  		      55	D:\esp32-projects\.git\objects\69\0c7610583ed98943727f8bd9f3ca8bf4698002100%  
+	    New File  		     120	D:\esp32-projects\.git\objects\69\52bc220bc00a3f16a5f49011ed2b5bc2066d36100%  
+	    New File  		  139891	D:\esp32-projects\.git\objects\69\f5a121e71a8d5f629f3262f7abd4667bda1ecd100%  
+	    New File  		     109	D:\esp32-projects\.git\objects\6a\36b0751309228eb33228f97a79b722cc030b68100%  
+	    New File  		     170	D:\esp32-projects\.git\objects\6a\d87d85355c9d99723cd515a237d94365411b74100%  
+	    New File  		     376	D:\esp32-projects\.git\objects\6b\f04bfdd73004c1632882340ff70aac81da6052100%  
+	    New File  		      55	D:\esp32-projects\.git\objects\6d\96af37d3178e71852d2ef81c0991ccc5fdc3d4100%  
+	    New File  		   91337	D:\esp32-projects\.git\objects\6d\b6f69e570297fcf71ea3ba9627597034f7be9d100%  
+	    New File  		     170	D:\esp32-projects\.git\objects\6d\f00f1ed276a598a396f18e3f460231d72fe06c100%  
+	    New File  		  451229	D:\esp32-projects\.git\objects\6e\9e863e779264faa6e458489c6a068ad0c9030a100%  
+	    New File  		    3342	D:\esp32-projects\.git\objects\6e\c1a3924b6e20a79f04b318fb59c94c9b613beb100%  
+	    New File  		      55	D:\esp32-projects\.git\objects\6e\c47a44e9ceba61928a194a4850d8a2c2c1b71a100%  
+	    New File  		    4292	D:\esp32-projects\.git\objects\6e\fa8db091eab6943f2b118c033b8dea9d3ce41a100%  
+	    New File  		      93	D:\esp32-projects\.git\objects\6f\1c614dbf46df1bf1afcd8ad65e7a26356d816e100%  
+	    New File  		     375	D:\esp32-projects\.git\objects\6f\522124d99c8944ff6e58918147040b27a1236e100%  
+	    New File  		    1942	D:\esp32-projects\.git\objects\6f\6621fdf131b6156aae64dba9b1902717e41a7b100%  
+	    New File  		     376	D:\esp32-projects\.git\objects\6f\7056ece35f8bc51db1b6c717db052d93bda633100%  
+	    New File  		     181	D:\esp32-projects\.git\objects\70\117ad89747ba1861375c7f3fd4bdae7c5dcb2e100%  
+	    New File  		     853	D:\esp32-projects\.git\objects\70\96d25caca3e6976ef01e74a607ad92abe53558100%  
+	    New File  		    1860	D:\esp32-projects\.git\objects\71\080a240cc0eec6a9866a7cfd82e94cdcf47b1c100%  
+	    New File  		      63	D:\esp32-projects\.git\objects\71\517a1b7c68c8384f15c3b8c6fa39d8f13f1dd7100%  
+	    New File  		      55	D:\esp32-projects\.git\objects\71\c8801d4289f953d141f4940843e07e578b660b100%  
+	    New File  		      88	D:\esp32-projects\.git\objects\71\fc0ac9502732525cea99347f9496b9d16c46f0100%  
+	    New File  		     214	D:\esp32-projects\.git\objects\72\35302dafef415905039c6900b7f69a39837374100%  
+	    New File  		   46129	D:\esp32-projects\.git\objects\72\4a78aba9bed204bc65e377a54ad02bd529d5b0100%  
+	    New File  		     139	D:\esp32-projects\.git\objects\72\9475e560c206c88c2bf3f83c91db79906930d9100%  
+	    New File  		     319	D:\esp32-projects\.git\objects\73\15e955cae44946b35eaa59f88951f2da1ce9e7100%  
+	    New File  		    1214	D:\esp32-projects\.git\objects\72\f0bbc629c073e9f8349c4083d90613d9db0c15100%  
+	    New File  		     500	D:\esp32-projects\.git\objects\73\c565747ae8f74829c54373f5f7608ee7763b87100%  
+	    New File  		     169	D:\esp32-projects\.git\objects\75\024911c1362c25ae5a50c420b0fcf00d1527db100%  
+	    New File  		      53	D:\esp32-projects\.git\objects\75\1ce9aa04f3ea15b5e282fd9d06dff794005844100%  
+	    New File  		     375	D:\esp32-projects\.git\objects\75\6705f47b20612c1ed141e8cf8555bf172de2eb100%  
+	    New File  		    2438	D:\esp32-projects\.git\objects\75\ba98dfbc30c30bb40cac681a8d50b1b1a956ca100%  
+	    New File  		      88	D:\esp32-projects\.git\objects\77\3a260f3eb571f910b33d402a5c262d612cf8a7100%  
+	    New File  		     169	D:\esp32-projects\.git\objects\77\576fa4ee169396457ab8a86c3a958251c2b420100%  
+	    New File  		     164	D:\esp32-projects\.git\objects\77\d99c570bb95d29f0dd0eb1b3b59640b228cabc100%  
+	    New File  		     139	D:\esp32-projects\.git\objects\7b\2b86c7ccb6214fb5666489cb20101aa2b04873100%  
+	    New File  		     163	D:\esp32-projects\.git\objects\7b\2ebcecaba58a09b02efa4b33c7b54536261874100%  
+	    New File  		    1600	D:\esp32-projects\.git\objects\7a\57ca610e2a39e13d87b52c06f76d3c9e07ccde100%  
+	    New File  		    3133	D:\esp32-projects\.git\objects\7b\801da9080038585891e8e49121ae0ebd0bc75e100%  
+	    New File  		  426745	D:\esp32-projects\.git\objects\7b\82995d1dbec7be838f119554675f0e8e9f827a100%  
+	    New File  		     376	D:\esp32-projects\.git\objects\7b\85f1499c3d3a535600fd559f49f5564f8ee96b100%  
+	    New File  		      88	D:\esp32-projects\.git\objects\79\3d8c03ed6822d145f48274317c7862a4a0f22e100%  
+	    New File  		     730	D:\esp32-projects\.git\objects\7b\8de4f813e28e8a6d00700c964db26767253e18100%  
+	    New File  		     376	D:\esp32-projects\.git\objects\7a\caf9b21bee1575e8859aa7fdaaf918a7591b23100%  
+	    New File  		  160875	D:\esp32-projects\.git\objects\7a\e3e58fe43216c8d96e51f9556ab08ad6e4649a100%  
+	    New File  		    1942	D:\esp32-projects\.git\objects\79\41d3f0e984b100f509b3ed4c295c8a1e5e1591100%  
+	    New File  		     375	D:\esp32-projects\.git\objects\79\5b01604774e4bea64c243f362018d4dd9d2ccb100%  
+	    New File  		     375	D:\esp32-projects\.git\objects\79\e6dafd1bf74ce8401dd5560a70222b7628b074100%  
+	    New File  		    1518	D:\esp32-projects\.git\objects\78\312292060e856b618dad00b23a34d02e8e1ccd100%  
+	    New File  		      55	D:\esp32-projects\.git\objects\78\56cdb216b33e1667d2c97e47e8c5abdb7d6d4e100%  
+	    New File  		     376	D:\esp32-projects\.git\objects\7d\21620ec8de735b6e0ada295a54e82ccf18d4d7100%  
+	    New File  		      89	D:\esp32-projects\.git\objects\7d\dc6e79237ffc33af2d0868b7babfcde1d92eea100%  
+	    New File  		      88	D:\esp32-projects\.git\objects\7d\de068ab3bf7563dc547d1826984a7cf8f12617100%  
+	    New File  		      57	D:\esp32-projects\.git\objects\7e\25d69f36b378fb99f260d578313fc238e9b241100%  
+	    New File  		     375	D:\esp32-projects\.git\objects\7e\af7786154e0df0a504af00243b503fa0974489100%  
+	    New File  		     170	D:\esp32-projects\.git\objects\7c\5f4fe16b53e30b2bdcf5db53d7367e3f5b9d84100%  
+	    New File  		     139	D:\esp32-projects\.git\objects\7c\766b5c26967852c54d66fa09a77a70c4ab96c5100%  
+	    New File  		      55	D:\esp32-projects\.git\objects\7f\8efc65ba0335ba49d7804d1b5b173885906d3f100%  
+	    New File  		     118	D:\esp32-projects\.git\objects\7f\f9311c07ca7bf8322465d6c94ce4421ee44294100%  
+	    New File  		   1.4 m	D:\esp32-projects\.git\objects\80\3f81a88e1217368f5edb0f20cea445bbbde72a100%  
+	    New File  		    2849	D:\esp32-projects\.git\objects\80\4e100bc0e9a83d064bdc377e59c71e21d3c8ca100%  
+	    New File  		      88	D:\esp32-projects\.git\objects\80\ab392202b47ffd0d62d3801cdfb74aaba923ca100%  
+	    New File  		     154	D:\esp32-projects\.git\objects\80\dbf985e1df50332d350e9502c4dabe23c5afb0100%  
+	    New File  		    1505	D:\esp32-projects\.git\objects\81\fcf8d26c7a11915f31d670a005ccd507cb43c2100%  
+	    New File  		    3767	D:\esp32-projects\.git\objects\83\2389840e0cb52195db7db801893801e5aa1bed100%  
+	    New File  		      88	D:\esp32-projects\.git\objects\83\69fdac0cb07e1b0a731471cbe2f04ba6d550cc100%  
+	    New File  		      57	D:\esp32-projects\.git\objects\83\7b4c546c7d0104d6febfc7d8d01050418b5913100%  
+	    New File  		    4014	D:\esp32-projects\.git\objects\83\7d393e8951e3322f2e55b2fa25f7b71a81ada3100%  
+	    New File  		     191	D:\esp32-projects\.git\objects\83\d72b035503f32203f475288fba13fe668ed800100%  
+	    New File  		     169	D:\esp32-projects\.git\objects\82\3e3d12c3da113949cd1575761e271cef4329b8100%  
+	    New File  		    1262	D:\esp32-projects\.git\objects\84\5f34d1b9c2a1e6ae85a354ac14953457505e87100%  
+	    New File  		     827	D:\esp32-projects\.git\objects\84\a35ae34e9bdcb8e443f4438f043d167f61e167100%  
+	    New File  		     375	D:\esp32-projects\.git\objects\84\c12349f4686795a58e41e2e1e9877a465c5780100%  
+	    New File  		     375	D:\esp32-projects\.git\objects\86\3551f7c478f31346e118bf6d68cf2c72213a01100%  
+	    New File  		      48	D:\esp32-projects\.git\objects\86\7581fa9bd272dc7d8234882dd9c533342c4af9100%  
+	    New File  		      48	D:\esp32-projects\.git\objects\86\a854599393e04f82672f7c799022ece96e0996100%  
+	    New File  		      88	D:\esp32-projects\.git\objects\86\de960b44d4a2f495dbfec087a1654366b45948100%  
+	    New File  		     152	D:\esp32-projects\.git\objects\85\1758b46a033e4d92fea4f4280dea92eacfe64d100%  
+	    New File  		     376	D:\esp32-projects\.git\objects\85\7d84b01a07b31fe3b229fe1e2913b2fdce503b100%  
+	    New File  		      48	D:\esp32-projects\.git\objects\85\f679b294f8b9143d164c38f6dd661e57b2b42e100%  
+	    New File  		     375	D:\esp32-projects\.git\objects\87\8fb12e667f96ba8ba92c60cf69c4d426dd6d9a100%  
+	    New File  		     832	D:\esp32-projects\.git\objects\87\b813ae7e4ac294e8258506215b02709b59403c100%  
+	    New File  		      87	D:\esp32-projects\.git\objects\87\c252c8b8b4eb3306e7d1045ef1338b8f3613a0100%  
+	    New File  		      55	D:\esp32-projects\.git\objects\88\4ae38c45e08da696264880849438de8b849313100%  
+	    New File  		     318	D:\esp32-projects\.git\objects\89\0506c3500ff25f36da1208094fd9c23fbd7dba100%  
+	    New File  		     818	D:\esp32-projects\.git\objects\89\2a53adbc39a717f8e7d85801113c0b5553e223100%  
+	    New File  		     164	D:\esp32-projects\.git\objects\89\3327de1ab29bc96d198504bc48f244d7388959100%  
+	    New File  		    1122	D:\esp32-projects\.git\objects\89\5f9e82747ebc6b9a9df0a32f964e305bdaa28f100%  
+	    New File  		      96	D:\esp32-projects\.git\objects\89\829ccb5e5c630f5a55489748cdce7b4c7124d6100%  
+	    New File  		     175	D:\esp32-projects\.git\objects\89\bfe72acde940c1e77f81338021f815ebb8652b100%  
+	    New File  		     375	D:\esp32-projects\.git\objects\89\cc764e4fc6a121efddfacb568119ab844a686c100%  
+	    New File  		     376	D:\esp32-projects\.git\objects\89\ce4e169aff40b72fea5284d8ad9111131e06a2100%  
+	    New File  		     347	D:\esp32-projects\.git\objects\8a\306556c4defc3e4c5a5f4a311f2c366d18eeea100%  
+	    New File  		     373	D:\esp32-projects\.git\objects\8a\6d536615222ee0335b953069a1f126115d12dc100%  
+	    New File  		      88	D:\esp32-projects\.git\objects\8a\759c163bcfb3b52780a7e283f079b1f35c228b100%  
+	    New File  		      16	D:\esp32-projects\.git\objects\8b\137891791fe96927ad78e64b0aad7bded08bdc100%  
+	    New File  		      55	D:\esp32-projects\.git\objects\8a\9ad19dc7e5f7104f7d522ec9c3fdd3e61f1ba8100%  
+	    New File  		      88	D:\esp32-projects\.git\objects\8b\36504a8fd0ff93db5d53db81b88d8ff373a514100%  
+	    New File  		     376	D:\esp32-projects\.git\objects\8b\bca4ecf87c640ae3b115ce3cd9aa282449d2da100%  
+	    New File  		     105	D:\esp32-projects\.git\objects\8b\f91d3bb997dfb0ea4a592b849545656f0fcebe100%  
+	    New File  		      50	D:\esp32-projects\.git\objects\8c\da3aba901c79090f781e461343abf3be64f6db100%  
+	    New File  		      78	D:\esp32-projects\.git\objects\8d\0a1a7a46ea240c6222401a1cef34db459708b3100%  
+	    New File  		     242	D:\esp32-projects\.git\objects\8d\118242b55dab85bc636cbd5dcd1c94387d3340100%  
+	    New File  		  154280	D:\esp32-projects\.git\objects\8d\6b3d53ccc97f53ed69fd847551cdcd69ebbea1100%  
+	    New File  		     344	D:\esp32-projects\.git\objects\8d\70ed11ecf91a9176b6afbb95dadfa2a5e9493a100%  
+	    New File  		     253	D:\esp32-projects\.git\objects\8e\00c1eb12d514205b4ab6eff437f6cc9a1ec544100%  
+	    New File  		     119	D:\esp32-projects\.git\objects\8e\11891f8a545aab621cdc116b34a6084de7b8e3100%  
+	    New File  		      57	D:\esp32-projects\.git\objects\8e\35c6ed6271c478f9ad1c0058a4326c25687dee100%  
+	    New File  		     908	D:\esp32-projects\.git\objects\8e\df39e2cb005e729e22b9dbd3508bfd6a95c41c100%  
+	    New File  		    2163	D:\esp32-projects\.git\objects\8f\5fa888c5e114ffff43304cd80190accf6f2887100%  
+	    New File  		    2573	D:\esp32-projects\.git\objects\8f\dc0dcb387a2e56340b1efa35e23a7b3f2f9d95100%  
+	    New File  		   98598	D:\esp32-projects\.git\objects\90\47f41ad920390e46198bfbe2dc5cebc0958941100%  
+	    New File  		  521472	D:\esp32-projects\.git\objects\90\b1bfd785ac4ef1820968f679101406aac06c8b100%  
+	    New File  		     170	D:\esp32-projects\.git\objects\91\a646eb9c4a9375f55dd40bb2fe998d6e756d28100%  
+	    New File  		     169	D:\esp32-projects\.git\objects\91\ad0a2a50bd5bcd1361d86f29b2a8d2084ec56f100%  
+	    New File  		      55	D:\esp32-projects\.git\objects\92\87c9f77a4cb98a2c3aa3cbe4b6ab08ec7e2827100%  
+	    New File  		     824	D:\esp32-projects\.git\objects\92\d1cd46371b95755b835440179816efac5f9ee4100%  
+	    New File  		     156	D:\esp32-projects\.git\objects\92\d94d1154fbb20d1c480cc4b34aa07aafd49f78100%  
+	    New File  		     197	D:\esp32-projects\.git\objects\93\0ddc8d2b9bef85ec4b06e49e0f7e4b44da8c0f100%  
+	    New File  		     170	D:\esp32-projects\.git\objects\93\2bbb274ece2a2bb1e1d4543a2c3d3beb0bc380100%  
+	    New File  		   1.9 m	D:\esp32-projects\.git\objects\93\55e0c9ecafc75c8b74ad5b015f0ab285cede52100%  
+	    New File  		   18786	D:\esp32-projects\.git\objects\93\69475cf31af5d136eef81a80b25875baf9fba4100%  
+	    New File  		      55	D:\esp32-projects\.git\objects\93\aaddf2e7f47451cb69081048da580908d53513100%  
+	    New File  		      88	D:\esp32-projects\.git\objects\94\0fa6201427f8ee69336296f84e8e25e4a239e4100%  
+	    New File  		     170	D:\esp32-projects\.git\objects\95\0a3b05d5fd78707679457d6ad48eb3b541c9a2100%  
+	    New File  		     375	D:\esp32-projects\.git\objects\96\0b4aa57ff8fbd2cf7931cca5430ba35c78b85b100%  
+	    New File  		     319	D:\esp32-projects\.git\objects\96\6ac609c3990dc7b38796db7efec854467ff60e100%  
+	    New File  		     830	D:\esp32-projects\.git\objects\96\af885e1090be5085fa1a75c9880a125bda8cfd100%  
+	    New File  		 1010874	D:\esp32-projects\.git\objects\96\c2834b36d8bf3f54fa62939b86fe838da78d86100%  
+	    New File  		     285	D:\esp32-projects\.git\objects\97\8e116fdb1d3279e6afbdf763febe7554168821100%  
+	    New File  		     375	D:\esp32-projects\.git\objects\97\ac71dfbd1af8dd9dbc3c2357891f145d40b100100%  
+	    New File  		     192	D:\esp32-projects\.git\objects\97\e3e9c24b996121c2054f42fb8b430fc8703c58100%  
+	    New File  		     374	D:\esp32-projects\.git\objects\98\1a5bae73b1a77e57187652b20f951183a22af4100%  
+	    New File  		   51205	D:\esp32-projects\.git\objects\99\18627eab6fb61c08ebc0ad30f1c60f0648ba70100%  
+	    New File  		     197	D:\esp32-projects\.git\objects\99\599cf668ee4bbe6e45aef719ac1a91dcbb8476100%  
+	    New File  		     235	D:\esp32-projects\.git\objects\99\a913be56fa8875948f913f007bb502aedbd97f100%  
+	    New File  		     731	D:\esp32-projects\.git\objects\99\b37192a57a896332475845b7bb8fa3802fae66100%  
+	    New File  		     171	D:\esp32-projects\.git\objects\9a\817d7144cf93a3ba57f093cd3f09615d176678100%  
+	    New File  		    1160	D:\esp32-projects\.git\objects\9a\858c69c5495e285cedce17fad82f86375da543100%  
+	    New File  		     205	D:\esp32-projects\.git\objects\9a\acf960b64717a64c89099497d44ae0aa19b35d100%  
+	    New File  		   1.0 m	D:\esp32-projects\.git\objects\9a\afb5c9defbbb7176a586cb667f29d491145cd1100%  
+	    New File  		      51	D:\esp32-projects\.git\objects\9b\94bb0cea1910f3067733dc9957b362fc7302f7100%  
+	    New File  		     829	D:\esp32-projects\.git\objects\9c\156d2a921d40d07be1e15444d24bdae393606d100%  
+	    New File  		      55	D:\esp32-projects\.git\objects\9c\6fc5df81c279ba7c48a8b2b5c586fa594f5a9f100%  
+	    New File  		     264	D:\esp32-projects\.git\objects\9c\f8664e222841b76c4505750989e7a8f3414f50100%  
+	    New File  		    1938	D:\esp32-projects\.git\objects\9e\d3a5505129fe202162427570f1e250615dcb0d100%  
+	    New File  		     170	D:\esp32-projects\.git\objects\a0\0d5885e8fa98dfca0a39e6175aab05bb5f5da1100%  
+	    New File  		     242	D:\esp32-projects\.git\objects\a0\3daf253ea4f8195fa29fd9191a640efce81998100%  
+	    New File  		      96	D:\esp32-projects\.git\objects\a0\77d8f8ec876f5b47b6d15ab0be57b2b187f53e100%  
+	    New File  		    3490	D:\esp32-projects\.git\objects\a0\9272d3dd49c4f3f42f61694bfe3989eee5d884100%  
+	    New File  		      88	D:\esp32-projects\.git\objects\a0\a4781506bd93e569b89e4390ab1b058aadc0d1100%  
+	    New File  		    1935	D:\esp32-projects\.git\objects\9f\0bd7b8725793e81bb8123d5d94b5dce2b40fc4100%  
+	    New File  		      48	D:\esp32-projects\.git\objects\9f\cbc03e714d73ba271e408fdf563f8f3479d4c8100%  
+	    New File  		    1085	D:\esp32-projects\.git\objects\a1\71ff621046c9849ecf72321f2410e77eea9ae1100%  
+	    New File  		      88	D:\esp32-projects\.git\objects\a1\9b636eedad107bc30338608005ea4da1e70f40100%  
+	    New File  		  403172	D:\esp32-projects\.git\objects\a1\d5ba074d6beade8631d0097e8772779a7c6084100%  
+	    New File  		      88	D:\esp32-projects\.git\objects\a2\0d88dff60ad17648b9ce50e88e97ed07486385100%  
+	    New File  		     376	D:\esp32-projects\.git\objects\a2\38bc6e146005819e9ce1b070e3cb2873e06991100%  
+	    New File  		     701	D:\esp32-projects\.git\objects\a3\1657c38469327ad8200a4f8507f0d885893fd5100%  
+	    New File  		      55	D:\esp32-projects\.git\objects\a3\39328a4e19434dd44594fbf29d0dc766d40c11100%  
+	    New File  		      49	D:\esp32-projects\.git\objects\a3\3deddca443be7b2d21d9cec44fd0e8e16cb9b0100%  
+	    New File  		      55	D:\esp32-projects\.git\objects\a3\abde01e2ba6a5cb6a82c940bafd105eb7f726b100%  
+	    New File  		  130396	D:\esp32-projects\.git\objects\a3\b1394867438e6482f638c225fb02779d18d917100%  
+	    New File  		    2301	D:\esp32-projects\.git\objects\a3\b25e00257aee7ded2df361c774b80e6f2b9fa7100%  
+	    New File  		      88	D:\esp32-projects\.git\objects\a4\3c0e84971149407516a4d53a3c24bcbdfbcb03100%  
+	    New File  		     191	D:\esp32-projects\.git\objects\a4\3f0127da559d8b6e8dd7b53a4987a61cba8126100%  
+	    New File  		     109	D:\esp32-projects\.git\objects\a4\886a60f6e35a10dbe8abf6caa8002d690443b7100%  
+	    New File  		    1182	D:\esp32-projects\.git\objects\a5\dd21deef8537a717ffd0b08d918a9dbfeb247c100%  
+	    New File  		     828	D:\esp32-projects\.git\objects\a6\42a19dcdf7b4a5feb21441b0cc5e939ecbcb01100%  
+	    New File  		     376	D:\esp32-projects\.git\objects\a6\53bcb24acbb957038055dcd89e31c3bacd1e01100%  
+	    New File  		      48	D:\esp32-projects\.git\objects\a7\423170fef215e4612cadbf67bd6e33e0c5658d100%  
+	    New File  		      57	D:\esp32-projects\.git\objects\a7\5b4e84182679e2a942078d3c37fdc44343d46b100%  
+	    New File  		     195	D:\esp32-projects\.git\objects\a7\900a1585dc9bb02558e71f0ec57f8e608576d1100%  
+	    New File  		     170	D:\esp32-projects\.git\objects\a8\497c3918e2d1b744c6d258f3351d64e5d10041100%  
+	    New File  		    3001	D:\esp32-projects\.git\objects\a9\02b747218da5f725ec2a9d00f375f548810ddf100%  
+	    New File  		     242	D:\esp32-projects\.git\objects\a9\80663ee7c5a825bdc866a825ffde21ee384b9e100%  
+	    New File  		      48	D:\esp32-projects\.git\objects\a9\d6f835650404d9cd78123a3b65932a5b2a5c42100%  
+	    New File  		      88	D:\esp32-projects\.git\objects\aa\5876d796d1525a691a82b33c3e86755eb2c6b3100%  
+	    New File  		    2823	D:\esp32-projects\.git\objects\aa\d1c1eec975e269bf835e5401805b7c31eccaa0100%  
+	    New File  		     175	D:\esp32-projects\.git\objects\ad\8c4d3a80452ffb0f134b2aa63f3f2ed8205df2100%  
+	    New File  		     207	D:\esp32-projects\.git\objects\ad\a625783a2d3c67dc3a2ae40908accce068a2ac100%  
+	    New File  		      57	D:\esp32-projects\.git\objects\ad\baf879d53a18b754449681ea220d182089c79c100%  
+	    New File  		    2738	D:\esp32-projects\.git\objects\ad\dd0ed3746ca939d83882f04cd380ceb2dbec5f100%  
+	    New File  		      54	D:\esp32-projects\.git\objects\ab\27e19fd39a89c97862e3ab3ab901ed26cf979d100%  
+	    New File  		     243	D:\esp32-projects\.git\objects\af\74a2e01a6f9204da5de16b8f5c01f8a4e122ba100%  
+	    New File  		     195	D:\esp32-projects\.git\objects\af\d28eda344b0bb6308cc25928e8ac57a5cb987b100%  
+	    New File  		  627916	D:\esp32-projects\.git\objects\af\fd4c271b41dfe79d1b5d8cde2d7c85c63cc44c100%  
+	    New File  		     376	D:\esp32-projects\.git\objects\b0\8179b67454b4c80c932ea4929738ebcafa722a100%  
+	    New File  		     375	D:\esp32-projects\.git\objects\b0\82dbb77e92269a8a36d878773c357be29f3437100%  
+	    New File  		     346	D:\esp32-projects\.git\objects\b1\07da462c50278c116ce153ad3d52ae95025230100%  
+	    New File  		      55	D:\esp32-projects\.git\objects\b1\5af9b85814fabf01f59e9073ec66b260338bfc100%  
+	    New File  		    1586	D:\esp32-projects\.git\objects\b1\b3caed5bcfdef84f1a3f27e9f7f22fc511d0d8100%  
+	    New File  		     173	D:\esp32-projects\.git\objects\b2\511053036ac5d502f4cdcd87f0c6cf9b6ad4eb100%  
+	    New File  		    2070	D:\esp32-projects\.git\objects\b2\765b71da1b331fea68e63f8e18f28dd8330418100%  
+	    New File  		     103	D:\esp32-projects\.git\objects\b2\7b3e2e4844ba4a4c4656858bcf4f1c9aacdd05100%  
+	    New File  		     169	D:\esp32-projects\.git\objects\b3\a18c22d62c61f5c17b6804fd951392e1ef8777100%  
+	    New File  		     169	D:\esp32-projects\.git\objects\b4\4fe79044ed128ca1d4e3d85877c16c8132edc9100%  
+	    New File  		     244	D:\esp32-projects\.git\objects\b4\6165cad5d1f07aca94747026655f3f39660e1f100%  
+	    New File  		      90	D:\esp32-projects\.git\objects\b4\f1a49b8663bcd9439a45858e331e9db2586347100%  
+	    New File  		     152	D:\esp32-projects\.git\objects\b4\fdfced0d9e1f1417318c49ac16161e4bf76aaf100%  
+	    New File  		     160	D:\esp32-projects\.git\objects\b7\31573cae4bc87f9b5c3be2f16e619bbf4366a6100%  
+	    New File  		     284	D:\esp32-projects\.git\objects\b5\1954141829153d8d6a7c32239c731795b2edbc100%  
+	    New File  		  163582	D:\esp32-projects\.git\objects\b5\9b3444965e9745d908a3adce2314c375ee744d100%  
+	    New File  		     169	D:\esp32-projects\.git\objects\b5\9c44e504ebf18e88aab23c8ccee1fc961e5b63100%  
+	    New File  		     376	D:\esp32-projects\.git\objects\b5\afc8c8c15d7e7208c89c26cd04d440c42fa9b9100%  
+	    New File  		   10952	D:\esp32-projects\.git\objects\b5\d4e7c1c34028be412d055f47ccf67908759d36100%  
+	    New File  		      55	D:\esp32-projects\.git\objects\b6\708ba67337871cfda67f4177778e6a7afe471d100%  
+	    New File  		     253	D:\esp32-projects\.git\objects\b6\dc456700ed1aa68555353c4db483d95d89143b100%  
+	    New File  		      56	D:\esp32-projects\.git\objects\b7\5eb92b17640f45b2dbc0692f893198577c6877100%  
+	    New File  		     789	D:\esp32-projects\.git\objects\b7\6db9bb212be6183762cb5c9fefcf88421ded39100%  
+	    New File  		     376	D:\esp32-projects\.git\objects\b7\8df5463de4c593ced696b6938c1fc65a5b68b9100%  
+	    New File  		     139	D:\esp32-projects\.git\objects\b7\9307383e7d6a91c770690a7c4841e52bc64a70100%  
+	    New File  		      88	D:\esp32-projects\.git\objects\b7\aa4d87c9e419b2dfdb73c6983d7d6d59082fbe100%  
+	    New File  		     579	D:\esp32-projects\.git\objects\b7\e37381c4ca2c7800540baf3cdc9aadf46b30df100%  
+	    New File  		     168	D:\esp32-projects\.git\objects\b8\46fe471f451ecc8f7e44b9d51c581c2d038226100%  
+	    New File  		  188178	D:\esp32-projects\.git\objects\b8\52383fb09cffb1aae3dc0c0c29fcc080a52742100%  
+	    New File  		     375	D:\esp32-projects\.git\objects\b8\889f694370367280d4ec6225be4e56113f7d78100%  
+	    New File  		      55	D:\esp32-projects\.git\objects\b8\b5df6d43970a329435ea6c9ddf086e240c96bb100%  
+	    New File  		    2252	D:\esp32-projects\.git\objects\ba\091922158793519cbb3e6bbb382087d5b94c50100%  
+	    New File  		   55316	D:\esp32-projects\.git\objects\ba\aee501b10794dd7715eeb2108c90c1e04974a7100%  
+	    New File  		     112	D:\esp32-projects\.git\objects\ba\b517097d699b4bd789cdab2076346815b9b54a100%  
+	    New File  		  192927	D:\esp32-projects\.git\objects\ba\cadf40f0a13ea980ddfec7dfae7423c6b8f62c100%  
+	    New File  		     169	D:\esp32-projects\.git\objects\ba\ff550a6448c5e0980663e97ffb17fd7a7a4e36100%  
+	    New File  		     190	D:\esp32-projects\.git\objects\b9\1b4a659b9dd80a70319d76e6d605c2590e6ecf100%  
+	    New File  		     375	D:\esp32-projects\.git\objects\b9\4173f278c3726f7232bacb82874eb013c6ed3e100%  
+	    New File  		  101420	D:\esp32-projects\.git\objects\b9\7eee91d38a15c3435ec47fb5d59dfdcde897ac100%  
+	    New File  		    2610	D:\esp32-projects\.git\objects\b9\a4fdb68d9195ff922337de930838a32d0b0d62100%  
+	    New File  		     375	D:\esp32-projects\.git\objects\b9\c122dfdadffea2b5d687a9b4483da62bbbe222100%  
+	    New File  		     165	D:\esp32-projects\.git\objects\bb\06fca5cd0e40577bbe1ce4e95b25decea95ee2100%  
+	    New File  		     118	D:\esp32-projects\.git\objects\bb\fe0ead282ba9d38fae007aa8f8a1b8358da9ff100%  
+	    New File  		     285	D:\esp32-projects\.git\objects\bc\a1857822b1a9b0e0e996bc911a9df0920845b2100%  
+	    New File  		    4074	D:\esp32-projects\.git\objects\bc\d56af1449759a328b8b869748ea55f6997b0cd100%  
+	    New File  		     170	D:\esp32-projects\.git\objects\bf\2bf44f4249cf588aea25df60c811cdfc0b080b100%  
+	    New File  		     820	D:\esp32-projects\.git\objects\bf\b8ab6b6cf6cf81a56bc763a62568abb6ab3178100%  
+	    New File  		     170	D:\esp32-projects\.git\objects\bf\d3139268f3861f5ff4233ca54d69c02883bd31100%  
+	    New File  		      51	D:\esp32-projects\.git\objects\bf\ed9a4884acdb21885457c6f063d8088c1eb848100%  
+	    New File  		    3446	D:\esp32-projects\.git\objects\c1\582772755184b32f7c5be3e65c95610cb32c02100%  
+	    New File  		      88	D:\esp32-projects\.git\objects\c1\acd4ad56dd79021bc54b7f2a121a9c50af841f100%  
+	    New File  		     375	D:\esp32-projects\.git\objects\be\21ba6419d9d33d54e427a24cab16745ca30b83100%  
+	    New File  		     164	D:\esp32-projects\.git\objects\be\2b7962b89680b6a4f65ec57b19311f89504a45100%  
+	    New File  		     375	D:\esp32-projects\.git\objects\be\6b3c4b59cbfaa687003e40b72b71b27e22919e100%  
+	    New File  		     821	D:\esp32-projects\.git\objects\bd\9cd04c844dbd33074c08485804915919a4438d100%  
+	    New File  		     169	D:\esp32-projects\.git\objects\c2\2a662832a02b780df930c54d762563dfd54d20100%  
+	    New File  		     170	D:\esp32-projects\.git\objects\c2\de9b69e92da4157066dee2845d5c0806d45f27100%  
+	    New File  		     375	D:\esp32-projects\.git\objects\c3\80ef2d529fd01ddd58c66105888636403e727d100%  
+	    New File  		      55	D:\esp32-projects\.git\objects\c3\d7fbe927aec7234867ccf486fbe1afffc9372f100%  
+	    New File  		     375	D:\esp32-projects\.git\objects\c4\4246bd59da19042dce2a2a85adc8d5285e606f100%  
+	    New File  		     120	D:\esp32-projects\.git\objects\c4\43f8716b8a526dffe3f896134831ff496f2b9a100%  
+	    New File  		    1477	D:\esp32-projects\.git\objects\c4\720bac4d7b02946b34bd7c584117cca42af01e100%  
+	    New File  		     284	D:\esp32-projects\.git\objects\c5\7248ade417bd5a5cad1e0ba34cb34d9191eed8100%  
+	    New File  		     117	D:\esp32-projects\.git\objects\c5\dd4e7942e1f2bd2a45ccdd0092aa3407a4de16100%  
+	    New File  		     828	D:\esp32-projects\.git\objects\c5\fc7b3f95201106a15ff58b7a393d85f25d197b100%  
+	    New File  		      55	D:\esp32-projects\.git\objects\c7\5b7a17754ea5245a748bbc07cef0ea101c8c7a100%  
+	    New File  		     317	D:\esp32-projects\.git\objects\c7\75b5c1811c691006183f19321a4f23293deada100%  
+	    New File  		     347	D:\esp32-projects\.git\objects\c6\827831680952263e424fcc376811d3505e177e100%  
+	    New File  		      56	D:\esp32-projects\.git\objects\c6\d4e8b4faa183930d08fb064ac90ebd5e27df38100%  
+	    New File  		     810	D:\esp32-projects\.git\objects\c6\f16de13138466b8a50d9ef04a7cdc410ac02de100%  
+	    New File  		     190	D:\esp32-projects\.git\objects\c8\2a38bbfe3e2326bd1578ce3567a165287c2fe8100%  
+	    New File  		      87	D:\esp32-projects\.git\objects\c8\2d9b865c09a9f062ca3373ed168f9d576c0c30100%  
+	    New File  		      88	D:\esp32-projects\.git\objects\c8\60deff190b89f65871a7fff8200e5c81032540100%  
+	    New File  		    3558	D:\esp32-projects\.git\objects\c8\70eea00721a9f899b62cbc17842e2823fec740100%  
+	    New File  		    1952	D:\esp32-projects\.git\objects\c8\d37bda26832b8e5a4274bd962505429fc24756100%  
+	    New File  		     182	D:\esp32-projects\.git\objects\c9\11cd711ee6fe86a5e94c758b561874a9f1a8c8100%  
+	    New File  		     181	D:\esp32-projects\.git\objects\c9\e3b96038c983497b1b34e8abd56750c4400eca100%  
+	    New File  		     501	D:\esp32-projects\.git\objects\c9\f0e149695bfaee1b3701a85bf26305868898bf100%  
+	    New File  		     196	D:\esp32-projects\.git\objects\ca\54d1b3e1dac6bcafc0cd755538bfbf377a09ff100%  
+	    New File  		     167	D:\esp32-projects\.git\objects\cc\560f5a7ac5114bdf84c2bb5dc93b793023c2db100%  
+	    New File  		     155	D:\esp32-projects\.git\objects\cc\56d76bf73e67f0ec056516f996bd8b8ca1453c100%  
+	    New File  		     179	D:\esp32-projects\.git\objects\cc\5f8978bd9279f066803a668e56274453990049100%  
+	    New File  		      55	D:\esp32-projects\.git\objects\cc\e59444e13b9f491eda592b748e26940f1b4d68100%  
+	    New File  		      87	D:\esp32-projects\.git\objects\cc\f6c93aea99fca9e9b3c094b305cc43e4ad2293100%  
+	    New File  		     479	D:\esp32-projects\.git\objects\cb\044c970706cabbda4097a0e38b6055f9bc74b9100%  
+	    New File  		     828	D:\esp32-projects\.git\objects\cb\60f114c4d5cbda703f21c295cf5f1b43c4be6c100%  
+	    New File  		      55	D:\esp32-projects\.git\objects\cb\d0fb641dbb23cee4895be383f6a3f078b15858100%  
+	    New File  		      88	D:\esp32-projects\.git\objects\cb\d52f6e5942019016c69d9142a0271999e6a8c1100%  
+	    New File  		     284	D:\esp32-projects\.git\objects\cb\d7e5004a4f5c61dc25071411379f27976110f7100%  
+	    New File  		     117	D:\esp32-projects\.git\objects\cd\00e12009ed51033f1665df9900d3471f7bb8a4100%  
+	    New File  		      88	D:\esp32-projects\.git\objects\cd\25af9c31cdab8cdde428940e03179d0d0dc69d100%  
+	    New File  		     885	D:\esp32-projects\.git\objects\cd\2e150d6e74dfdf65ce75fa9cf49418fd459511100%  
+	    New File  		    1452	D:\esp32-projects\.git\objects\cd\81b509ac6f5950dd4481203625ffe60a048a92100%  
+	    New File  		      55	D:\esp32-projects\.git\objects\cd\84ccf07996b67fccdc405ea10632b62b2314aa100%  
+	    New File  		     170	D:\esp32-projects\.git\objects\cd\8b2293270358c3667f4277610e08bfacb6b0ea100%  
+	    New File  		      88	D:\esp32-projects\.git\objects\ce\79311d1394a035820a906dad1922efa374d9bd100%  
+	    New File  		     375	D:\esp32-projects\.git\objects\ce\93007eda12d14ddbb2edb5c55f693465cecf9a100%  
+	    New File  		     161	D:\esp32-projects\.git\objects\d0\7c598cc07f6b2f69bbb30ebec3cb6253df4562100%  
+	    New File  		    3255	D:\esp32-projects\.git\objects\d0\818739f1c867a260eb3b043b385fb92beec1bd100%  
+	    New File  		      83	D:\esp32-projects\.git\objects\d0\d7b2a7f835db64c72013323a680ac1b21ad2e7100%  
+	    New File  		      55	D:\esp32-projects\.git\objects\d0\efd5d97b8b058dce738ac4487305fed69e67cf100%  
+	    New File  		      56	D:\esp32-projects\.git\objects\d1\3c4f804feeff268a24100da73773408a5dd40b100%  
+	    New File  		     169	D:\esp32-projects\.git\objects\d1\ddc2c4ab2cfd30b798caa2d1a4b645ed4098e9100%  
+	    New File  		      55	D:\esp32-projects\.git\objects\d3\058e6b65293423e77cc2d7f096f64ba37857de100%  
+	    New File  		     139	D:\esp32-projects\.git\objects\d3\310a23e50190e7daddfc4e7e87f4a38be320a9100%  
+	    New File  		     375	D:\esp32-projects\.git\objects\d3\6dc117588294bdfb445bbcd487761123bfd8db100%  
+	    New File  		    3503	D:\esp32-projects\.git\objects\d3\af1a5e8de011df1b48bba42808bc8ed1d3f5d9100%  
+	    New File  		     285	D:\esp32-projects\.git\objects\d2\2978be5b7b90984eee1797a60f39605aa060be100%  
+	    New File  		    1686	D:\esp32-projects\.git\objects\d2\5c393ed574d54058bb6c9c10126367a5001faf100%  
+	    New File  		    2992	D:\esp32-projects\.git\objects\d2\94fe45ca0adfe3eeca463b5d3beaba338b4d62100%  
+	    New File  		     222	D:\esp32-projects\.git\objects\d2\9eac5fa2962f38c76a0d20d5267c7f237ab26a100%  
+	    New File  		      54	D:\esp32-projects\.git\objects\d2\a21542220c32e0b838b746481b72ed0e427698100%  
+	    New File  		     727	D:\esp32-projects\.git\objects\d5\5d79f52bc649b161002a2b85a6de0f20479d91100%  
+	    New File  		     960	D:\esp32-projects\.git\objects\d5\a2aa927b6a600eed6221537a8a7b3959b650c1100%  
+	    New File  		      79	D:\esp32-projects\.git\objects\d5\faa743d4bc8a5b351b625ae88df2b6a2b89e5c100%  
+	    New File  		     829	D:\esp32-projects\.git\objects\d5\fcc4868d8049bc4a5cb9001ee66895950a2e07100%  
+	    New File  		     159	D:\esp32-projects\.git\objects\d6\422097621fd7c1b1ccc6daa670c46aed7ef5b7100%  
+	    New File  		    1406	D:\esp32-projects\.git\objects\d7\24a4bb646c57c91f1f17d126b8bcb3070bdf9a100%  
+	    New File  		      49	D:\esp32-projects\.git\objects\d7\40c27c63b6b3aad9df02a96ce64956dbe52151100%  
+	    New File  		      61	D:\esp32-projects\.git\objects\d7\616b93d64b0b2422a1615f0fc474fd52d74af3100%  
+	    New File  		     198	D:\esp32-projects\.git\objects\d7\6deb15697580fabdbb1c9204584f2eb8c18d5e100%  
+	    New File  		     545	D:\esp32-projects\.git\objects\d7\965d428db938cf95973a4b4cae7fb22a7362b8100%  
+	    New File  		     120	D:\esp32-projects\.git\objects\d7\b76c22099a5fbff6ea2c54b6bdcb50b312fe6c100%  
+	    New File  		     347	D:\esp32-projects\.git\objects\d7\cb53dbd486ab32a4180b3f492ce21c5e4b1235100%  
+	    New File  		     187	D:\esp32-projects\.git\objects\d9\437d659cf8ea04d84b34ddf47e5c816dee4901100%  
+	    New File  		     284	D:\esp32-projects\.git\objects\d9\5fb763b9eb8d8a02dde60003f78a5ef86db5b5100%  
+	    New File  		     120	D:\esp32-projects\.git\objects\d9\8d43d66d2e8e75d3080f9d58992fb380cb824b100%  
+	    New File  		     376	D:\esp32-projects\.git\objects\d9\b9adc321deb90ea19e6d77bc147197abe90f40100%  
+	    New File  		      48	D:\esp32-projects\.git\objects\d8\17dbde389b61a9e9253be5a63637d008d41852100%  
+	    New File  		    1441	D:\esp32-projects\.git\objects\d8\20a8c397c7e35ac8c55f2dfc49fe6fffa43edf100%  
+	    New File  		     119	D:\esp32-projects\.git\objects\d8\2e2af3ea5707efa5ec78d2cad08b59e09ec5ec100%  
+	    New File  		     152	D:\esp32-projects\.git\objects\d8\6ae4adcb831506d1ca9f0f2804c949bddb7e1d100%  
+	    New File  		     243	D:\esp32-projects\.git\objects\d8\81b28f941615eeea7697ea2f65df51f1f2e580100%  
+	    New File  		     323	D:\esp32-projects\.git\objects\da\7078d9a7ad990f02e167927ba3a418ebb74d9a100%  
+	    New File  		      89	D:\esp32-projects\.git\objects\da\acc5fb6c9539554e7045fb9df67185215d3ec9100%  
+	    New File  		     375	D:\esp32-projects\.git\objects\da\b0c7d2ae2d4f36a06c9a2ccccb20df00be7e79100%  
+	    New File  		     731	D:\esp32-projects\.git\objects\db\217702d5f4315d8b9ea2408b35ebee99996f3b100%  
+	    New File  		     222	D:\esp32-projects\.git\objects\db\5a27ab3dd8ccbdd58a22fca40c71a90fd4cfff100%  
+	    New File  		      88	D:\esp32-projects\.git\objects\db\5aa7e339f7548b5872521c154e7908476087cc100%  
+	    New File  		     375	D:\esp32-projects\.git\objects\db\8628290bc7ec3c020a2369fd12bbbc8aa2a25f100%  
+	    New File  		     169	D:\esp32-projects\.git\objects\db\a8ac70a8152411067b8f58e48b762aa426d793100%  
+	    New File  		    2790	D:\esp32-projects\.git\objects\dd\15ad6d3239112d3303f24cd4d77e3fe9dfce29100%  
+	    New File  		     212	D:\esp32-projects\.git\objects\dd\17b03e93a55fc0aa2014db9a5ff6b84ff50e82100%  
+	    New File  		     171	D:\esp32-projects\.git\objects\dd\23cc58625d82983b33cededd02e76b4da78862100%  
+	    New File  		      57	D:\esp32-projects\.git\objects\dd\248c95d03cd2a63d8c538f01173ee71ec52098100%  
+	    New File  		    4560	D:\esp32-projects\.git\objects\dd\3085bc265f621ceab7260e5e6bab071fd8f7b5100%  
+	    New File  		     168	D:\esp32-projects\.git\objects\dd\b0122675dc2d21966f42e11aa55b06171272a3100%  
+	    New File  		    2342	D:\esp32-projects\.git\objects\dd\e7a790b7f6d374673a85cf9a3ea1072495efde100%  
+	    New File  		     161	D:\esp32-projects\.git\objects\dc\ae8b138a6410e4ab08012da8d99f63087880a6100%  
+	    New File  		      56	D:\esp32-projects\.git\objects\dc\dc7be16292bbbdeccc1bc6549b13ee93ceca24100%  
+	    New File  		     905	D:\esp32-projects\.git\objects\de\147505048b943c82d7dc600562d94bcbeeef4e100%  
+	    New File  		    1264	D:\esp32-projects\.git\objects\de\3ce0d3287828e22d6194f43dec87b268c0fda3100%  
+	    New File  		      88	D:\esp32-projects\.git\objects\de\73d9e7d0a616bb359c17548dc3a0950d913b7e100%  
+	    New File  		     193	D:\esp32-projects\.git\objects\de\ee5a9ec64cce08068337c27eb56ef5029c6eba100%  
+	    New File  		     375	D:\esp32-projects\.git\objects\df\74f381ff1dffc56ddba6907ccb273f2b7b1711100%  
+	    New File  		     187	D:\esp32-projects\.git\objects\df\920e9f6a672a44c507d96f553379b0706db484100%  
+	    New File  		     268	D:\esp32-projects\.git\objects\df\bfa4ca9274cf2867ce0b8142dc804d29efa737100%  
+	    New File  		     284	D:\esp32-projects\.git\objects\df\c4a57d453d135ecf31b5ea8cc724672a4fbfac100%  
+	    New File  		     197	D:\esp32-projects\.git\objects\e0\357acb15be9480507456660919e6321cfe60d1100%  
+	    New File  		     169	D:\esp32-projects\.git\objects\e0\4dbee638fa86f0279e7d0b644e712d1be0c8b9100%  
+	    New File  		     121	D:\esp32-projects\.git\objects\e0\9aa6b215a7b5157700f4123a680daeb3649772100%  
+	    New File  		     375	D:\esp32-projects\.git\objects\e0\cb7996bfb814dc6133a2cec3814fb7c8cd6bd3100%  
+	    New File  		     375	D:\esp32-projects\.git\objects\e0\db487896c8c902ef39df66b48bd160042c9370100%  
+	    New File  		      55	D:\esp32-projects\.git\objects\e1\8018ecd65147886fec1b3ede85469c48d24376100%  
+	    New File  		    3789	D:\esp32-projects\.git\objects\e4\03947247b55a04ff46b33b9d42a7cefa85712c100%  
+	    New File  		     376	D:\esp32-projects\.git\objects\e4\1a42f27b84e4db66bc7b403b44cd04360210e1100%  
+	    New File  		    1055	D:\esp32-projects\.git\objects\e4\5ae80cad1ccb5d5647475e72cff09b6bbe6338100%  
+	    New File  		     167	D:\esp32-projects\.git\objects\e4\7a6edd9c39391fb9943498071fbd38d01ed954100%  
+	    New File  		     235	D:\esp32-projects\.git\objects\e2\23500501f9ea17ff88237d7b46e72181061939100%  
+	    New File  		     162	D:\esp32-projects\.git\objects\e2\2f710bde537e18d9a9337d884cfcdcf8bc27dd100%  
+	    New File  		     179	D:\esp32-projects\.git\objects\e2\3e8526dab4ce95918cf90764c947ccff38bd2c100%  
+	    New File  		     118	D:\esp32-projects\.git\objects\e2\bc4e7740a3e3bcea68a2a329088e7687197c44100%  
+	    New File  		    2247	D:\esp32-projects\.git\objects\e2\d03953c02ff392ce552c46fe7b795aa80e2d4b100%  
+	    New File  		    1105	D:\esp32-projects\.git\objects\e3\41488c106f655fad4bd6212d17ab6bdbb47387100%  
+	    New File  		     180	D:\esp32-projects\.git\objects\e3\43cf2b40f0988cb3ff516c585b27fc9fd98fe5100%  
+	    New File  		     376	D:\esp32-projects\.git\objects\e3\4c0c8c9fa3eb4466815ca1123f55ae4a66365b100%  
+	    New File  		      48	D:\esp32-projects\.git\objects\e3\77ecbf5f53abdd321acda627afc1727d7231af100%  
+	    New File  		     592	D:\esp32-projects\.git\objects\e3\a7f2b3cc0918f33b3a7abed4632baebc6768f2100%  
+	    New File  		     420	D:\esp32-projects\.git\objects\e3\d066205773c9365d90d99b30389b31d124e098100%  
+	    New File  		     375	D:\esp32-projects\.git\objects\e3\d23286800ec933b91c4e04fd67ecdc3f53ce9b100%  
+	    New File  		     243	D:\esp32-projects\.git\objects\e5\1ecf03107ff93b5b015b1524cd6118bac60e8d100%  
+	    New File  		     347	D:\esp32-projects\.git\objects\e5\622768894afd0bed5a758fbe78e6bc69fe132d100%  
+	    New File  		     252	D:\esp32-projects\.git\objects\e6\2a23aef837dadb03f32de2f3e0e9b427c3ab62100%  
+	    New File  		     285	D:\esp32-projects\.git\objects\e6\307707e25b77d5c0365a41ae5c41122bf86ec2100%  
+	    New File  		      15	D:\esp32-projects\.git\objects\e6\9de29bb2d1d6434b8b29ae775ad8c2e48c5391100%  
+	    New File  		     733	D:\esp32-projects\.git\objects\e6\a0bc3ef8d1e60fae4919a03c02b59644b886c0100%  
+	    New File  		     187	D:\esp32-projects\.git\objects\e7\5251c3257497707e10c9f3538000c0aa0fd7a5100%  
+	    New File  		     112	D:\esp32-projects\.git\objects\e7\62ba5cf616b20d817d2ba33183df1f8fc0fbc5100%  
+	    New File  		     573	D:\esp32-projects\.git\objects\e8\2c2cb548f71dffa2de5aece277bbe9ac4c6a5f100%  
+	    New File  		      88	D:\esp32-projects\.git\objects\e8\3ca4cbed3b80395afb23ec4beea983bbfaea78100%  
+	    New File  		    2662	D:\esp32-projects\.git\objects\e8\63bb534ea71f33755d34c32209b04e6790ddc6100%  
+	    New File  		    2612	D:\esp32-projects\.git\objects\e8\f2af90d235f746bcb24bea4fe21d0626d0a7d7100%  
+	    New File  		     180	D:\esp32-projects\.git\objects\e9\27958cb2122f1ab87eebec4955288bd242e70e100%  
+	    New File  		      55	D:\esp32-projects\.git\objects\e9\5a991ac7326847fd76ead7f4add28af051560f100%  
+	    New File  		    7829	D:\esp32-projects\.git\objects\ea\8a4f84c4c597a26199cf42782aa781b68d5261100%  
+	    New File  		     375	D:\esp32-projects\.git\objects\ea\f88d35b655c4c2bb2b676faec9c91d4973a225100%  
+	    New File  		     285	D:\esp32-projects\.git\objects\ed\226d15efada68afa953b4e8829b0a33901064b100%  
+	    New File  		     223	D:\esp32-projects\.git\objects\ed\64d025783cb7a9809105616ebf250114877746100%  
+	    New File  		      19	D:\esp32-projects\.git\objects\ed\97d539c095cf1413af30cc23dea272095b97dd100%  
+	    New File  		     193	D:\esp32-projects\.git\objects\ed\c5c71aed0e312384fe22ddd1195753649d6f86100%  
+	    New File  		      55	D:\esp32-projects\.git\objects\ec\3b19dcf9922c88be5172b4b39a9a8e67c2187d100%  
+	    New File  		     169	D:\esp32-projects\.git\objects\ec\49e52c7539116fcc6d3478644a9f2105469467100%  
+	    New File  		     213	D:\esp32-projects\.git\objects\ec\8639712aee5f8039fa76f1ee3de6b59503ac47100%  
+	    New File  		  468108	D:\esp32-projects\.git\objects\ec\b9f017653e9e7f18b6174dee6e89b2fdd26124100%  
+	    New File  		  158849	D:\esp32-projects\.git\objects\ee\4b828adfb9a5e4d50a3b7305fa6f9911a2e7d1100%  
+	    New File  		    2561	D:\esp32-projects\.git\objects\ee\d1b0753721e4376c25aff06f954e27fe6abc7d100%  
+	    New File  		     120	D:\esp32-projects\.git\objects\ef\4c2bfafe9772b85531dedf077c515199ce9194100%  
+	    New File  		  100825	D:\esp32-projects\.git\objects\ef\79e10a52205f49107396e81b9ebd5a7f4cf633100%  
+	    New File  		     179	D:\esp32-projects\.git\objects\ef\805d9673da0e3efd8bfadda5523fdb96b41ac6100%  
+	    New File  		     168	D:\esp32-projects\.git\objects\ef\e95f3f6cad82940bfb210dab811a6376249605100%  
+	    New File  		      48	D:\esp32-projects\.git\objects\f0\757091db56a10e99200a64eb69707ecdf8c55a100%  
+	    New File  		  155892	D:\esp32-projects\.git\objects\f0\d3c78830b88ec91d9cc76661ebbf3e542b117d100%  
+	    New File  		      57	D:\esp32-projects\.git\objects\f1\0da8026205cbbcf590e2f68af953ffb28df834100%  
+	    New File  		     375	D:\esp32-projects\.git\objects\f1\33bd49bd4e76df70d813816b006591aa2ddb38100%  
+	    New File  		     455	D:\esp32-projects\.git\objects\f1\57bd1c5e287c70a508a98a13f538491aa4dafc100%  
+	    New File  		     139	D:\esp32-projects\.git\objects\f1\9e294edc54b87ea50efcc5da34e8abe3611938100%  
+	    New File  		     117	D:\esp32-projects\.git\objects\f1\c628afd72b3cd3b495cff843bb4316a6216167100%  
+	    New File  		      55	D:\esp32-projects\.git\objects\f1\f9221e513c45804f2b50f21e1a06afaa0f2484100%  
+	    New File  		   1.0 m	D:\esp32-projects\.git\objects\f2\4078cf1cdd90691b4c5d9a78ece88118dcb84a100%  
+	    New File  		     140	D:\esp32-projects\.git\objects\f2\bcc36a002af98a78ed54e5436b2860c20401c4100%  
+	    New File  		     376	D:\esp32-projects\.git\objects\f2\e0c6609fad09651828c019bc0aec6678d6deec100%  
+	    New File  		     375	D:\esp32-projects\.git\objects\f2\f40f20a3cbdc4621258b85f49867c2db582e43100%  
+	    New File  		    1562	D:\esp32-projects\.git\objects\f3\2719392a5fa5031099509620a91062dc1bb67c100%  
+	    New File  		    2925	D:\esp32-projects\.git\objects\f5\8c0fd9a3fb685cf0b3d50079c6a4a944d6d5ba100%  
+	    New File  		     190	D:\esp32-projects\.git\objects\f5\f92ec2707dd6f73e11473732a1e834e24d9269100%  
+	    New File  		     376	D:\esp32-projects\.git\objects\f4\04510be4751dafc685f39f9579b0575c8c1c68100%  
+	    New File  		   13548	D:\esp32-projects\.git\objects\f4\1ec6fc3babd00baf9cdf210ad2d09c0edf374f100%  
+	    New File  		     170	D:\esp32-projects\.git\objects\f4\868d66bc62ff80673f56d945212d41571c3c5b100%  
+	    New File  		     161	D:\esp32-projects\.git\objects\f4\d1a7f4f59a50f1af0fec41453b60caa771d685100%  
+	    New File  		     285	D:\esp32-projects\.git\objects\f4\f716f4dfbc0deeeb0c653cadb04735cee12a36100%  
+	    New File  		     170	D:\esp32-projects\.git\objects\f7\2d32a079647e9ab8f42d4eb5caf9cac6ac2c58100%  
+	    New File  		      88	D:\esp32-projects\.git\objects\f7\5a3ca546703b0c85ba11ae692bd530b326d9f0100%  
+	    New File  		    2230	D:\esp32-projects\.git\objects\f7\eec90c68cc4c49197b47abaac00db452ef570b100%  
+	    New File  		     675	D:\esp32-projects\.git\objects\f6\941a6b1fa0e28f5050a3516516958d5d0d6569100%  
+	    New File  		     375	D:\esp32-projects\.git\objects\f6\9e0e9e95d94f547b387cd2fdaffa9ad1354565100%  
+	    New File  		     140	D:\esp32-projects\.git\objects\f6\ce16cd9b2511fcb00886fdb23b7789649703ea100%  
+	    New File  		     375	D:\esp32-projects\.git\objects\f8\4f1d539cb7dc608e2f9ad85de76b252a4938d1100%  
+	    New File  		      88	D:\esp32-projects\.git\objects\f9\c2a9bbc6a835b603ac31824c01eb79c0000590100%  
+	    New File  		      49	D:\esp32-projects\.git\objects\f9\dd203583ec0ab4fd3536623f6c3112afd56e88100%  
+	    New File  		      87	D:\esp32-projects\.git\objects\f9\f5fb3bf5f8cf8b47c10a15800fe2f0970926b9100%  
+	    New File  		     318	D:\esp32-projects\.git\objects\fa\b56527c836c96d324424dfec660194f41837b1100%  
+	    New File  		  348238	D:\esp32-projects\.git\objects\fc\df0266f5d16991961eddf67d0ac529b497701d100%  
+	    New File  		     194	D:\esp32-projects\.git\objects\fb\314ba2771532809e78c361605f3ee526fc6366100%  
+	    New File  		     310	D:\esp32-projects\.git\objects\fb\a854dc1c1de0c8b6e1a549aa85a80fc5a7ee81100%  
+	    New File  		     375	D:\esp32-projects\.git\objects\fb\c0ceb7ce6e8a80feff9c9fef3181171434b4e5100%  
+	    New File  		      88	D:\esp32-projects\.git\objects\fd\3dffa1c1675a37640f918b7a1014b0b85d47b1100%  
+	    New File  		     117	D:\esp32-projects\.git\objects\fd\4ba010d8d62a06e71c7483dc09cddee9a67ea2100%  
+	    New File  		      55	D:\esp32-projects\.git\objects\fe\1f35ad4f59953c6720674bacca70fa6f3070ab100%  
+	    New File  		      89	D:\esp32-projects\.git\objects\fe\3c11a9125fa41e0dbde64edd6ecaf43acefb5a100%  
+	    New File  		     198	D:\esp32-projects\.git\objects\ff\0abad4bcddf2854eb408119cbb590b71ec37df100%  
+	    New File  		     112	D:\esp32-projects\.git\objects\ff\23c8deca4c182afae00181d3539196a7424c72100%  
+	    New File  		    2545	D:\esp32-projects\.git\objects\ff\e7996fe5a6a64d5f3ac2ffe501d1be2d0e4e2a100%  
+	    New File  		   2.4 m	D:\esp32-projects\public\code\bruce\bruce113.bin100%  
+	    New File  		       0	D:\esp32-projects\public\code\nowy-szablon\nowy-szablon.ino100%  
+	    New File  		    9021	D:\esp32-projects\public\code\marauder\marauder.ino100%  
+	    New File  		   29236	D:\esp32-projects\public\code\pogoda\pogoda.ino100%  
+	    New File  		  112325	D:\esp32-projects\public\code\trener\trener.ino100%  
+	    New File  		   43122	D:\esp32-projects\public\code\waga\waga.ino100%  
+	    New File  		   42337	D:\esp32-projects\public\code\zegarmax\zegarmax.ino100%  
+	    New File  		    3516	D:\esp32-projects\src\content\projects\bruce.md100%  
+	    New File  		    2407	D:\esp32-projects\src\content\projects\marauder.md100%  
+	    New File  		    1347	D:\esp32-projects\src\content\projects\nowy-szablon.md-100%  
+	    New File  		    1788	D:\esp32-projects\src\content\projects\pogoda.md100%  
+	    New File  		    1141	D:\esp32-projects\src\content\projects\szablon-z pinami md-100%  
+	    New File  		    1838	D:\esp32-projects\src\content\projects\trener.md100%  
+	    New File  		    1136	D:\esp32-projects\src\content\projects\waga.md100%  
+	    New File  		    1624	D:\esp32-projects\src\content\projects\zegarmax.md100%  
+	    New File  		    9363	D:\esp32-projects\src\pages\projects\[slug].astro100%  
+	    New File  		   14401	D:\esp32-projects\.git\logs\refs\heads\main100%  
+	    New File  		    5602	D:\esp32-projects\.vercel\output\static\_astro\index.CY1-cF_w.css100%  
+	    New File  		    7495	D:\esp32-projects\.vercel\output\static\_astro\_slug_.CZ_wJRvP.css100%  
+	    New File  		   70600	D:\esp32-projects\.vercel\output\static\images\esp32-logo.jpg100%  
+	    New File  		  352029	D:\esp32-projects\.vercel\output\static\images\esp32-logo.png100%  
+	    New File  		      30	D:\esp32-projects\.git\refs\remotes\origin\HEAD100%  
+	    New File  		      41	D:\esp32-projects\.git\refs\remotes\origin\main100%  
+	    New File  		  134376	D:\esp32-projects\public\images\projects\bruce\main.jpg100%  
+	    New File  		  535812	D:\esp32-projects\public\images\projects\bruce\photo1.jpg100%  
+	    New File  		  172194	D:\esp32-projects\public\images\projects\bruce\photo2.jpg100%  
+	    New File  		   21464	D:\esp32-projects\public\images\projects\bruce\photo3.jpg100%  
+	    New File  		  447079	D:\esp32-projects\public\images\projects\bruce\photo4.jpg100%  
+	    New File  		   1.0 m	D:\esp32-projects\public\images\projects\bruce\photo5.jpg100%  
+	    New File  		   1.0 m	D:\esp32-projects\public\images\projects\bruce\photo6.jpg100%  
+	    New File  		   1.0 m	D:\esp32-projects\public\images\projects\bruce\photo7.jpg100%  
+	    New File  		  488413	D:\esp32-projects\public\images\projects\bruce\photo8.jpg100%  
+	    New File  		  194529	D:\esp32-projects\public\images\projects\marauder\main.jpg100%  
+	    New File  		  140872	D:\esp32-projects\public\images\projects\marauder\photo1.jpg100%  
+	    New File  		   2.1 m	D:\esp32-projects\public\images\projects\marauder\photo2.jpg100%  
+	    New File  		  170341	D:\esp32-projects\public\images\projects\marauder\photo3.png100%  
+	    New File  		  200149	D:\esp32-projects\public\images\projects\marauder\photo4.png100%  
+	    New File  		   4.1 m	D:\esp32-projects\public\images\projects\marauder\photo5.jpg100%  
+	    New File  		  427815	D:\esp32-projects\public\images\projects\pogoda\main.jpg100%  
+	    New File  		  476655	D:\esp32-projects\public\images\projects\pogoda\photo1.jpg100%  
+	    New File  		  116606	D:\esp32-projects\public\images\projects\trener\main.jpg100%  
+	    New File  		  161470	D:\esp32-projects\public\images\projects\trener\photo1.jpg100%  
+	    New File  		  356709	D:\esp32-projects\public\images\projects\trener\photo2.jpg100%  
+	    New File  		  156991	D:\esp32-projects\public\images\projects\trener\photo3.jpg100%  
+	    New File  		  162825	D:\esp32-projects\public\images\projects\trener\photo4.jpg100%  
+	    New File  		  525430	D:\esp32-projects\public\images\projects\zegarmax\main.jpg100%  
+	    New File  		   21778	D:\esp32-projects\public\images\projects\waga\main.jpg100%  
+	    New File  		  601576	D:\esp32-projects\public\images\projects\zegarmax\photo1.jpg100%  
+	    New File  		  543765	D:\esp32-projects\public\images\projects\zegarmax\photo2.jpg100%  
+	    New File  		 1029822	D:\esp32-projects\public\images\projects\waga\photo1.jpg100%  
+	    New File  		  646972	D:\esp32-projects\public\images\projects\zegarmax\photo3.jpg100%  
+	    New File  		  930878	D:\esp32-projects\public\images\projects\waga\photo2.jpg100%  
+	    New File  		  754016	D:\esp32-projects\public\images\projects\zegarmax\photo4.jpg100%  
+	    New File  		     143	D:\esp32-projects\.git\logs\refs\remotes\origin\HEAD100%  
+	    New File  		    9337	D:\esp32-projects\.git\logs\refs\remotes\origin\main100%  
+	    New File  		   2.4 m	D:\esp32-projects\.vercel\output\static\code\bruce\bruce113.bin100%  
+	    New File  		    9021	D:\esp32-projects\.vercel\output\static\code\marauder\marauder.ino100%  
+	    New File  		   17342	D:\esp32-projects\.vercel\output\static\projects\bruce\index.html100%  
+	    New File  		       0	D:\esp32-projects\.vercel\output\static\code\nowy-szablon\nowy-szablon.ino100%  
+	    New File  		   29236	D:\esp32-projects\.vercel\output\static\code\pogoda\pogoda.ino100%  
+	    New File  		  112325	D:\esp32-projects\.vercel\output\static\code\trener\trener.ino100%  
+	    New File  		   43122	D:\esp32-projects\.vercel\output\static\code\waga\waga.ino100%  
+	    New File  		   42337	D:\esp32-projects\.vercel\output\static\code\zegarmax\zegarmax.ino100%  
+	    New File  		   16855	D:\esp32-projects\.vercel\output\static\projects\marauder\index.html100%  
+	    New File  		   16303	D:\esp32-projects\.vercel\output\static\projects\pogoda\index.html100%  
+	    New File  		   16709	D:\esp32-projects\.vercel\output\static\projects\trener\index.html100%  
+	    New File  		   15088	D:\esp32-projects\.vercel\output\static\projects\waga\index.html100%  
+	    New File  		   14968	D:\esp32-projects\.vercel\output\static\projects\zegarmax\index.html100%  
+	    New File  		  134376	D:\esp32-projects\.vercel\output\static\images\projects\bruce\main.jpg100%  
+	    New File  		  535812	D:\esp32-projects\.vercel\output\static\images\projects\bruce\photo1.jpg100%  
+	    New File  		  172194	D:\esp32-projects\.vercel\output\static\images\projects\bruce\photo2.jpg100%  
+	    New File  		   21464	D:\esp32-projects\.vercel\output\static\images\projects\bruce\photo3.jpg100%  
+	    New File  		  447079	D:\esp32-projects\.vercel\output\static\images\projects\bruce\photo4.jpg100%  
+	    New File  		   1.0 m	D:\esp32-projects\.vercel\output\static\images\projects\bruce\photo5.jpg100%  
+	    New File  		   1.0 m	D:\esp32-projects\.vercel\output\static\images\projects\bruce\photo6.jpg100%  
+	    New File  		   1.0 m	D:\esp32-projects\.vercel\output\static\images\projects\bruce\photo7.jpg100%  
+	    New File  		  488413	D:\esp32-projects\.vercel\output\static\images\projects\bruce\photo8.jpg100%  
+	    New File  		  194529	D:\esp32-projects\.vercel\output\static\images\projects\marauder\main.jpg100%  
+	    New File  		  140872	D:\esp32-projects\.vercel\output\static\images\projects\marauder\photo1.jpg100%  
+	    New File  		   2.1 m	D:\esp32-projects\.vercel\output\static\images\projects\marauder\photo2.jpg100%  
+	    New File  		  170341	D:\esp32-projects\.vercel\output\static\images\projects\marauder\photo3.png100%  
+	    New File  		  200149	D:\esp32-projects\.vercel\output\static\images\projects\marauder\photo4.png100%  
+	    New File  		   4.1 m	D:\esp32-projects\.vercel\output\static\images\projects\marauder\photo5.jpg100%  
+	    New File  		  427815	D:\esp32-projects\.vercel\output\static\images\projects\pogoda\main.jpg100%  
+	    New File  		  476655	D:\esp32-projects\.vercel\output\static\images\projects\pogoda\photo1.jpg100%  
+	    New File  		  525430	D:\esp32-projects\.vercel\output\static\images\projects\zegarmax\main.jpg100%  
+	    New File  		  601576	D:\esp32-projects\.vercel\output\static\images\projects\zegarmax\photo1.jpg100%  
+	    New File  		  543765	D:\esp32-projects\.vercel\output\static\images\projects\zegarmax\photo2.jpg100%  
+	    New File  		  646972	D:\esp32-projects\.vercel\output\static\images\projects\zegarmax\photo3.jpg100%  
+	    New File  		  754016	D:\esp32-projects\.vercel\output\static\images\projects\zegarmax\photo4.jpg100%  
+	    New File  		  116606	D:\esp32-projects\.vercel\output\static\images\projects\trener\main.jpg100%  
+	    New File  		  161470	D:\esp32-projects\.vercel\output\static\images\projects\trener\photo1.jpg100%  
+	    New File  		  356709	D:\esp32-projects\.vercel\output\static\images\projects\trener\photo2.jpg100%  
+	    New File  		  156991	D:\esp32-projects\.vercel\output\static\images\projects\trener\photo3.jpg100%  
+	    New File  		  162825	D:\esp32-projects\.vercel\output\static\images\projects\trener\photo4.jpg100%  
+	    New File  		   21778	D:\esp32-projects\.vercel\output\static\images\projects\waga\main.jpg100%  
+	    New File  		 1029822	D:\esp32-projects\.vercel\output\static\images\projects\waga\photo1.jpg100%  
+	    New File  		  930878	D:\esp32-projects\.vercel\output\static\images\projects\waga\photo2.jpg100%  
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       316       313         3         0         0         0
+   Files :       916       916         0         0         0         0
+   Bytes :   63.16 m   63.16 m         0         0         0         0
+   Times :   0:00:02   0:00:00                       0:00:00   0:00:00
+
+
+   Speed :           188ÿ683ÿ954 Bytes/sec.
+   Speed :             10796,582 MegaBytes/min.
+   Ended : sobota, 3 stycznia 2026 10:47:43
+

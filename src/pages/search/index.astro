@@ -1,0 +1,720 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const projects = await getCollection('projects');
+const videos = await getCollection('videos');
+const links = await getCollection('links');
+
+// Przygotuj dane do wyszukiwania (jako JSON)
+const searchData = {
+  projects: projects.map(p => ({
+    slug: p.slug,
+    title: p.data.title,
+    description: p.data.description,
+    tags: p.data.tags || [],
+    difficulty: p.data.difficulty || '',
+    type: 'project'
+  })),
+  videos: videos.map(v => ({
+    slug: v.slug,
+    title: v.data.title,
+    description: v.data.description,
+    tags: v.data.tags || [],
+    type: 'video'
+  })),
+  links: links.map(l => ({
+    slug: l.slug,
+    title: l.data.title,
+    description: l.data.description,
+    tags: l.data.tags || [],
+    category: l.data.category,
+    url: l.data.url,
+    type: 'link'
+  }))
+};
+
+const getAssetPath = (path: string) => {
+  const base = import.meta.env.BASE_URL || '/';
+  const baseWithSlash = base.endsWith('/') ? base : `${base}/`;
+  return `${baseWithSlash}${path}`;
+};
+
+const allTags = [
+  ...new Set([
+    ...projects.flatMap(p => p.data.tags || []),
+    ...videos.flatMap(v => v.data.tags || []),
+    ...links.flatMap(l => l.data.tags || [])
+  ])
+];
+---
+
+<Layout title="Szukaj - Jaguda" description="Przeszukuj projekty, filmy i linki" showHeader={false}>
+  <div class="search-page">
+    <!-- HEADER -->
+    <div class="page-header">
+      <div class="header-icon">🔍</div>
+      <h1>Wyszukiwarka</h1>
+      <p>Znajdź projekty, filmy i przydatne linki</p>
+    </div>
+
+    <!-- SEARCH BOX -->
+    <div class="search-box-container">
+      <div class="search-box">
+        <span class="search-icon">🔎</span>
+        <input 
+          type="text" 
+          id="searchInput" 
+          placeholder="Wpisz czego szukasz... (np. ESP32, WiFi, LED)"
+          autocomplete="off"
+        />
+        <button id="clearSearch" class="clear-btn" style="display: none;">✕</button>
+      </div>
+      <div class="search-stats" id="searchStats">
+        Gotowy do wyszukiwania w <strong>{projects.length}</strong> projektach, 
+        <strong>{videos.length}</strong> filmach i <strong>{links.length}</strong> linkach
+      </div>
+    </div>
+
+    <!-- FILTRY -->
+    <div class="search-filters">
+      <div class="filter-group">
+        <label>📂 Typ:</label>
+        <div class="filter-buttons">
+          <button class="filter-btn active" data-type="all">
+            Wszystko
+          </button>
+          <button class="filter-btn" data-type="project">
+            ⚡ Projekty ({projects.length})
+          </button>
+          <button class="filter-btn" data-type="video">
+            🎥 Filmy ({videos.length})
+          </button>
+          <button class="filter-btn" data-type="link">
+            🔗 Linki ({links.length})
+          </button>
+        </div>
+      </div>
+
+      <div class="filter-group">
+        <label>🏷️ Popularne tagi:</label>
+        <div class="popular-tags" id="popularTags">
+          {allTags.slice(0, 10).map(tag => (
+            <button class="tag-pill" data-tag={tag}>
+              {tag}
+            </button>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <!-- WYNIKI -->
+    <div class="results-container" id="resultsContainer">
+      <!-- Początkowy stan - pokaż przykłady -->
+      <div class="search-suggestions">
+        <h3>💡 Spróbuj wyszukać:</h3>
+        <div class="suggestion-chips">
+          <button class="suggestion-chip" data-query="ESP32">ESP32</button>
+          <button class="suggestion-chip" data-query="WiFi">WiFi</button>
+          <button class="suggestion-chip" data-query="LED">LED</button>
+          <button class="suggestion-chip" data-query="Bluetooth">Bluetooth</button>
+          <button class="suggestion-chip" data-query="sensor">Czujniki</button>
+          <button class="suggestion-chip" data-query="tutorial">Tutorial</button>
+        </div>
+
+        <div class="recent-additions">
+          <h3>🆕 Ostatnio dodane:</h3>
+          <div class="recent-grid">
+            {[...projects, ...videos, ...links]
+              .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+              .slice(0, 6)
+              .map(item => {
+                const type = 'id' in item ? (item.collection === 'projects' ? 'project' : item.collection === 'videos' ? 'video' : 'link') : 'project';
+                const icon = type === 'project' ? '⚡' : type === 'video' ? '🎥' : '🔗';
+                const url = type === 'project' 
+                  ? getAssetPath(`projects/${item.slug}`) 
+                  : type === 'video' 
+                    ? getAssetPath(`videos`) 
+                    : getAssetPath(`links`);
+                
+                return (
+                  <a href={url} class="recent-item">
+                    <span class="recent-icon">{icon}</span>
+                    <div>
+                      <div class="recent-title">{item.data.title}</div>
+                      <div class="recent-type">{type === 'project' ? 'Projekt' : type === 'video' ? 'Film' : 'Link'}</div>
+                    </div>
+                  </a>
+                );
+              })}
+          </div>
+        </div>
+      </div>
+
+      <!-- Wyniki wyszukiwania (ukryte na start) -->
+      <div id="searchResults" style="display: none;"></div>
+      
+      <!-- Brak wyników -->
+      <div id="noResults" style="display: none;" class="no-results">
+        <div class="no-results-icon">🔍</div>
+        <h3>Nie znaleziono wyników</h3>
+        <p>Spróbuj użyć innych słów kluczowych lub tagów</p>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<script define:vars={{ searchData, getAssetPath }}>
+  const searchInput = document.getElementById('searchInput');
+  const clearBtn = document.getElementById('clearSearch');
+  const searchStats = document.getElementById('searchStats');
+  const resultsContainer = document.getElementById('resultsContainer');
+  const searchResults = document.getElementById('searchResults');
+  const noResults = document.getElementById('noResults');
+  const searchSuggestions = document.querySelector('.search-suggestions');
+  
+  let currentType = 'all';
+  let currentQuery = '';
+
+  // Przycisk wyczyść
+  searchInput?.addEventListener('input', (e) => {
+    const value = e.target.value;
+    if (clearBtn) {
+      clearBtn.style.display = value ? 'block' : 'none';
+    }
+    performSearch(value);
+  });
+
+  clearBtn?.addEventListener('click', () => {
+    if (searchInput) {
+      searchInput.value = '';
+      clearBtn.style.display = 'none';
+      performSearch('');
+      searchInput.focus();
+    }
+  });
+
+  // Filtrowanie po typie
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      currentType = btn.getAttribute('data-type') || 'all';
+      performSearch(currentQuery);
+    });
+  });
+
+  // Kliknięcie w tag
+  document.querySelectorAll('.tag-pill').forEach(pill => {
+    pill.addEventListener('click', () => {
+      const tag = pill.getAttribute('data-tag');
+      if (searchInput && tag) {
+        searchInput.value = tag;
+        performSearch(tag);
+      }
+    });
+  });
+
+  // Kliknięcie w sugestię
+  document.querySelectorAll('.suggestion-chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      const query = chip.getAttribute('data-query');
+      if (searchInput && query) {
+        searchInput.value = query;
+        clearBtn.style.display = 'block';
+        performSearch(query);
+      }
+    });
+  });
+
+  // Funkcja wyszukiwania
+  function performSearch(query) {
+    currentQuery = query.toLowerCase().trim();
+
+    if (!currentQuery) {
+      // Pokaż sugestie
+      if (searchSuggestions) searchSuggestions.style.display = 'block';
+      if (searchResults) searchResults.style.display = 'none';
+      if (noResults) noResults.style.display = 'none';
+      return;
+    }
+
+    // Ukryj sugestie
+    if (searchSuggestions) searchSuggestions.style.display = 'none';
+
+    // Przeszukuj wszystkie dane
+    let allItems = [];
+    
+    if (currentType === 'all' || currentType === 'project') {
+      allItems = allItems.concat(searchData.projects);
+    }
+    if (currentType === 'all' || currentType === 'video') {
+      allItems = allItems.concat(searchData.videos);
+    }
+    if (currentType === 'all' || currentType === 'link') {
+      allItems = allItems.concat(searchData.links);
+    }
+
+    // Filtruj
+    const results = allItems.filter(item => {
+      const titleMatch = item.title.toLowerCase().includes(currentQuery);
+      const descMatch = item.description.toLowerCase().includes(currentQuery);
+      const tagsMatch = item.tags.some(tag => tag.toLowerCase().includes(currentQuery));
+      const difficultyMatch = item.difficulty && item.difficulty.toLowerCase().includes(currentQuery);
+      const categoryMatch = item.category && item.category.toLowerCase().includes(currentQuery);
+      
+      return titleMatch || descMatch || tagsMatch || difficultyMatch || categoryMatch;
+    });
+
+    // Wyświetl wyniki
+    displayResults(results);
+  }
+
+  function displayResults(results) {
+    if (results.length === 0) {
+      if (searchResults) searchResults.style.display = 'none';
+      if (noResults) noResults.style.display = 'block';
+      if (searchStats) searchStats.innerHTML = 'Brak wyników dla "<strong>' + currentQuery + '</strong>"';
+      return;
+    }
+
+    if (noResults) noResults.style.display = 'none';
+    if (searchResults) {
+      searchResults.style.display = 'block';
+      
+      const plural = results.length === 1 ? 'wynik' : results.length < 5 ? 'wyniki' : 'wyników';
+      if (searchStats) {
+        searchStats.innerHTML = `Znaleziono <strong>${results.length}</strong> ${plural} dla "<strong>${currentQuery}</strong>"`;
+      }
+
+      // Renderuj wyniki
+      searchResults.innerHTML = results.map(item => {
+        const icon = item.type === 'project' ? '⚡' : item.type === 'video' ? '🎥' : '🔗';
+        const typeLabel = item.type === 'project' ? 'Projekt' : item.type === 'video' ? 'Film' : 'Link';
+        const typeColor = item.type === 'project' ? 'var(--primary)' : item.type === 'video' ? '#FF0000' : 'var(--secondary)';
+        
+        let url = '#';
+        if (item.type === 'project') {
+          url = `${getAssetPath('')}projects/${item.slug}`;
+        } else if (item.type === 'video') {
+          url = `${getAssetPath('')}videos`;
+        } else if (item.type === 'link') {
+          url = item.url;
+        }
+
+        const isExternal = item.type === 'link';
+        const target = isExternal ? '_blank' : '_self';
+        const rel = isExternal ? 'noopener noreferrer' : '';
+
+        return `
+          <a href="${url}" class="result-card" target="${target}" ${rel ? `rel="${rel}"` : ''}>
+            <div class="result-header">
+              <span class="result-type" style="background: ${typeColor}">
+                ${icon} ${typeLabel}
+              </span>
+              ${item.difficulty ? `<span class="result-difficulty">${item.difficulty}</span>` : ''}
+              ${item.category ? `<span class="result-category">${item.category}</span>` : ''}
+            </div>
+            <h3 class="result-title">${highlightMatch(item.title, currentQuery)}</h3>
+            <p class="result-description">${highlightMatch(item.description, currentQuery)}</p>
+            ${item.tags.length > 0 ? `
+              <div class="result-tags">
+                ${item.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+              </div>
+            ` : ''}
+            <div class="result-arrow">→</div>
+          </a>
+        `;
+      }).join('');
+    }
+  }
+
+  function highlightMatch(text, query) {
+    if (!query) return text;
+    const regex = new RegExp(`(${query})`, 'gi');
+    return text.replace(regex, '<mark>$1</mark>');
+  }
+</script>
+
+<style>
+  .search-page {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 20px;
+  }
+
+  .page-header {
+    text-align: center;
+    margin-bottom: 50px;
+    animation: fadeInUp 0.6s ease-out;
+  }
+
+  .header-icon {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .page-header h1 {
+    font-size: 2.5rem;
+    font-weight: 900;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 10px;
+  }
+
+  .page-header p {
+    font-size: 1.1rem;
+    color: var(--text-light);
+  }
+
+  .search-box-container {
+    margin-bottom: 40px;
+    animation: fadeInUp 0.7s ease-out;
+  }
+
+  .search-box {
+    position: relative;
+    margin-bottom: 15px;
+  }
+
+  .search-icon {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.5rem;
+    color: var(--text-muted);
+  }
+
+  #searchInput {
+    width: 100%;
+    padding: 18px 60px 18px 60px;
+    font-size: 1.1rem;
+    border: 2px solid var(--border);
+    border-radius: 50px;
+    background: var(--bg-card);
+    color: var(--text);
+    transition: all 0.3s ease;
+    font-family: inherit;
+  }
+
+  #searchInput:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px var(--border-glow);
+  }
+
+  .clear-btn {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--text-muted);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+  }
+
+  .clear-btn:hover {
+    background: var(--accent);
+    transform: translateY(-50%) scale(1.1);
+  }
+
+  .search-stats {
+    text-align: center;
+    color: var(--text-light);
+    font-size: 0.95rem;
+  }
+
+  .search-filters {
+    background: var(--bg-card);
+    padding: 25px;
+    border-radius: 15px;
+    border: 1px solid var(--border);
+    margin-bottom: 40px;
+    animation: fadeInUp 0.8s ease-out;
+  }
+
+  .filter-group {
+    margin-bottom: 20px;
+  }
+
+  .filter-group:last-child {
+    margin-bottom: 0;
+  }
+
+  .filter-group label {
+    display: block;
+    color: var(--primary);
+    font-weight: 700;
+    margin-bottom: 12px;
+    font-size: 1rem;
+  }
+
+  .filter-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .filter-btn {
+    background: var(--bg-secondary);
+    color: var(--text-light);
+    border: 2px solid var(--border);
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .filter-btn:hover {
+    transform: translateY(-2px);
+    border-color: var(--primary);
+  }
+
+  .filter-btn.active {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+  }
+
+  .popular-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .tag-pill {
+    background: linear-gradient(135deg, rgba(0, 217, 255, 0.2), rgba(189, 0, 255, 0.2));
+    color: var(--primary);
+    border: 1px solid var(--primary);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .tag-pill:hover {
+    background: var(--primary);
+    color: white;
+    transform: scale(1.05);
+  }
+
+  .search-suggestions {
+    animation: fadeInUp 0.9s ease-out;
+  }
+
+  .search-suggestions h3 {
+    color: var(--primary);
+    margin-bottom: 20px;
+    font-size: 1.3rem;
+  }
+
+  .suggestion-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 50px;
+  }
+
+  .suggestion-chip {
+    background: var(--bg-card);
+    color: var(--text);
+    border: 2px solid var(--border);
+    padding: 12px 24px;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .suggestion-chip:hover {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px var(--border-glow);
+  }
+
+  .recent-additions {
+    margin-top: 40px;
+  }
+
+  .recent-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 15px;
+  }
+
+  .recent-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--bg-card);
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .recent-item:hover {
+    border-color: var(--primary);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px var(--border-glow);
+  }
+
+  .recent-icon {
+    font-size: 2rem;
+  }
+
+  .recent-title {
+    color: var(--text);
+    font-weight: 600;
+    font-size: 0.95rem;
+  }
+
+  .recent-type {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+  }
+
+  #searchResults {
+    display: grid;
+    gap: 20px;
+  }
+
+  .result-card {
+    background: var(--bg-card);
+    padding: 25px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+    animation: fadeInUp 0.5s ease-out;
+  }
+
+  .result-card:hover {
+    border-color: var(--primary);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px var(--border-glow);
+  }
+
+  .result-header {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+  }
+
+  .result-type,
+  .result-difficulty,
+  .result-category {
+    padding: 5px 12px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: white;
+  }
+
+  .result-title {
+    color: var(--text);
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    font-weight: 700;
+  }
+
+  .result-description {
+    color: var(--text-light);
+    line-height: 1.6;
+    margin-bottom: 15px;
+  }
+
+  .result-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .result-arrow {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    font-size: 1.5rem;
+    color: var(--primary);
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: all 0.3s ease;
+  }
+
+  .result-card:hover .result-arrow {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  mark {
+    background: var(--primary);
+    color: white;
+    padding: 2px 4px;
+    border-radius: 3px;
+  }
+
+  .no-results {
+    text-align: center;
+    padding: 80px 20px;
+    background: var(--bg-card);
+    border-radius: 15px;
+    border: 1px solid var(--border);
+  }
+
+  .no-results-icon {
+    font-size: 5rem;
+    margin-bottom: 20px;
+    opacity: 0.5;
+  }
+
+  .no-results h3 {
+    color: var(--text-light);
+    margin-bottom: 10px;
+  }
+
+  .no-results p {
+    color: var(--text-muted);
+  }
+
+  @media (max-width: 768px) {
+    #searchInput {
+      font-size: 1rem;
+      padding: 15px 50px 15px 50px;
+    }
+
+    .page-header h1 {
+      font-size: 2rem;
+    }
+
+    .recent-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .suggestion-chips {
+      justify-content: center;
+    }
+  }
+</style>

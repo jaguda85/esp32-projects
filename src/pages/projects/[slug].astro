@@ -155,6 +155,33 @@ const homeUrl = getHomeUrl();
     )}
   </article>
 
+  <!-- KOMENTARZE GISCUS -->
+  <div class="comments-section">
+    <h2 style="color: var(--primary); margin-bottom: 20px; text-align: center;">
+      💬 Komentarze
+    </h2>
+    <div class="giscus-container">
+      <script 
+        src="https://giscus.app/client.js"
+        data-repo="jaguda85/esp32-projects"
+        data-repo-id="R_kgDOQxp5wg"
+        data-category="Comments"
+        data-category-id="DIC_kwDOQxp5ws4C0hgC"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="dark"
+        data-lang="pl"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+      </script>
+    </div>
+  </div>
+</Layout>
+
   <div id="lightbox" class="lightbox">
     <span class="lightbox-close">&times;</span>
     <img class="lightbox-content" id="lightbox-image" alt="Powiększone zdjęcie">
@@ -359,4 +386,28 @@ const homeUrl = getHomeUrl();
       text-align: center;
     }
   }
+
+  /* KOMENTARZE */
+  .comments-section {
+    max-width: 900px;
+    margin: 60px auto;
+    padding: 30px;
+    background: var(--bg-card);
+    border-radius: 15px;
+    border: 1px solid var(--border);
+  }
+
+  .giscus-container {
+    margin-top: 20px;
+  }
+
+  /* Auto theme switching */
+  [data-theme="light"] .comments-section :global(.giscus-frame) {
+    color-scheme: light;
+  }
+
+  [data-theme="dark"] .comments-section :global(.giscus-frame) {
+    color-scheme: dark;
+  }
+
 </style>

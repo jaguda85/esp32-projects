@@ -1,0 +1,48 @@
+---
+interface Props {
+  videoId: string;
+  title: string;
+}
+
+const { videoId, title } = Astro.props;
+---
+
+<div class="youtube-embed">
+  <iframe
+    src={`https://www.youtube.com/embed/${videoId}`}
+    title={title}
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen
+    loading="lazy"
+  ></iframe>
+</div>
+
+<style>
+  .youtube-embed {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px var(--border-glow);
+    background: var(--bg-secondary);
+    border: 2px solid var(--border);
+    transition: all 0.3s ease;
+  }
+
+  .youtube-embed:hover {
+    border-color: var(--primary);
+    box-shadow: 0 12px 40px var(--border-glow);
+    transform: scale(1.01);
+  }
+
+  .youtube-embed iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+  }
+</style>

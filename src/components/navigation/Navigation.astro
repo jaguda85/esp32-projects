@@ -1,0 +1,315 @@
+---
+const currentPath = Astro.url.pathname;
+
+const getAssetPath = (path: string) => {
+  const base = import.meta.env.BASE_URL || '/';
+  const baseWithSlash = base.endsWith('/') ? base : `${base}/`;
+  return `${baseWithSlash}${path}`;
+};
+
+const isActive = (path: string) => {
+  if (path === '' || path === '/') {
+    return currentPath === getAssetPath('') || currentPath === getAssetPath('/');
+  }
+  return currentPath.startsWith(getAssetPath(path));
+};
+
+const navItems = [
+  { name: 'PROJEKTY', path: 'projects', icon: '⚡' },
+  { name: 'O MNIE', path: 'about', icon: '👤' },
+  { name: 'WIDEO', path: 'videos', icon: '🎥' },
+  { name: 'LINKI', path: 'links', icon: '🔗' },
+  { name: 'SZUKAJ', path: 'search', icon: '🔍' },
+];
+---
+
+<nav class="main-nav">
+  <div class="nav-container">
+    <a href={getAssetPath('')} class="nav-logo">
+      <img 
+        src={getAssetPath('images/jaguda-logo1.png')}
+        alt="Jaguda" 
+        class="nav-logo-img"
+      />
+      <span class="nav-logo-text">JAGUDA</span>
+    </a>
+
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <ul class="nav-menu" id="navMenu">
+      {navItems.map((item) => (
+        <li class="nav-item">
+          <a 
+            href={getAssetPath(item.path)}
+            class={`nav-link ${isActive(item.path) ? 'active' : ''}`}
+          >
+            <span class="nav-icon">{item.icon}</span>
+            <span>{item.name}</span>
+          </a>
+        </li>
+      ))}
+      <li class="nav-item">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <span class="theme-icon sun">☀️</span>
+          <span class="theme-icon moon">🌙</span>
+        </button>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<script>
+  // Mobile menu toggle
+  const navToggle = document.getElementById('navToggle');
+  const navMenu = document.getElementById('navMenu');
+
+  navToggle?.addEventListener('click', () => {
+    navMenu?.classList.toggle('active');
+    navToggle?.classList.toggle('active');
+  });
+
+  // Theme toggle
+  const themeToggle = document.getElementById('themeToggle');
+  const html = document.documentElement;
+
+  // Sprawdź zapisany motyw lub użyj ciemnego jako domyślnego
+  const savedTheme = localStorage.getItem('theme') || 'dark';
+  html.setAttribute('data-theme', savedTheme);
+
+  themeToggle?.addEventListener('click', () => {
+    const currentTheme = html.getAttribute('data-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    
+    html.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+  });
+</script>
+
+<style>
+  .main-nav {
+    background: var(--nav-bg);
+    border-bottom: 2px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+  }
+
+  .nav-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .nav-logo:hover {
+    transform: translateY(-2px);
+  }
+
+  .nav-logo-img {
+    width: 45px;
+    height: 45px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 10px var(--primary));
+  }
+
+  .nav-logo-text {
+    font-size: 1.5rem;
+    font-weight: 900;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .nav-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+  }
+
+  .nav-toggle span {
+    width: 25px;
+    height: 3px;
+    background: var(--primary);
+    border-radius: 3px;
+    transition: all 0.3s ease;
+  }
+
+  .nav-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(8px, 8px);
+  }
+
+  .nav-toggle.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .nav-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+  }
+
+  .nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 5px;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+  }
+
+  .nav-item {
+    margin: 0;
+  }
+
+  .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    text-decoration: none;
+    color: var(--text-light);
+    font-weight: 600;
+    font-size: 0.9rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    position: relative;
+  }
+
+  .nav-link::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    transform: translateX(-50%);
+    transition: width 0.3s ease;
+  }
+
+  .nav-link:hover::before {
+    width: 80%;
+  }
+
+  .nav-link:hover {
+    color: var(--primary);
+    background: rgba(0, 217, 255, 0.1);
+  }
+
+  .nav-link.active {
+    color: var(--primary);
+    background: rgba(0, 217, 255, 0.15);
+  }
+
+  .nav-link.active::before {
+    width: 80%;
+  }
+
+  .nav-icon {
+    font-size: 1.2rem;
+  }
+
+  .theme-toggle {
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    border-radius: 50px;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .theme-toggle:hover {
+    border-color: var(--primary);
+    box-shadow: 0 0 20px rgba(0, 217, 255, 0.3);
+  }
+
+  .theme-icon {
+    font-size: 1.5rem;
+    position: absolute;
+    transition: all 0.3s ease;
+  }
+
+  .theme-icon.sun {
+    opacity: 0;
+    transform: rotate(180deg) scale(0);
+  }
+
+  .theme-icon.moon {
+    opacity: 1;
+    transform: rotate(0) scale(1);
+  }
+
+  [data-theme="light"] .theme-icon.sun {
+    opacity: 1;
+    transform: rotate(0) scale(1);
+  }
+
+  [data-theme="light"] .theme-icon.moon {
+    opacity: 0;
+    transform: rotate(-180deg) scale(0);
+  }
+
+  @media (max-width: 768px) {
+    .nav-toggle {
+      display: flex;
+    }
+
+    .nav-menu {
+      position: fixed;
+      top: 70px;
+      left: 0;
+      right: 0;
+      background: var(--nav-bg);
+      flex-direction: column;
+      gap: 0;
+      padding: 20px;
+      border-bottom: 2px solid var(--border);
+      transform: translateY(-100%);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(20px);
+    }
+
+    .nav-menu.active {
+      transform: translateY(0);
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .nav-link {
+      width: 100%;
+      padding: 15px;
+      justify-content: center;
+    }
+
+    .theme-toggle {
+      margin-top: 10px;
+    }
+  }
+</style>
