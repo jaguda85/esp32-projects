@@ -14,14 +14,14 @@
   --dark-secondary: #1c2938;
   
   /* Główne tło - CIEMNE */
-  --bg-main: #1a1f2e;
-  --bg-secondary: #242b3d;
-  --light: #1a1f2e;
+  --bg-main: #a53204;
+  --bg-secondary: #066204;
+  --light: #0906b4;
   
   /* Tekst - jasny na ciemnym */
-  --text: #5986c0;
+  --text: #93b2db;
   --text-light: #7a8ba2;
-  --text-muted: #176de5;
+  --text-muted: #1e375a;
   
   /* Bordy i separatory */
   --border: #334155;
