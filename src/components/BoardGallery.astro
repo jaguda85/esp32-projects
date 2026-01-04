@@ -1,0 +1,81 @@
+---
+interface Props {
+  boardType: 'esp32s6' | 'c3supermini' | 'bw16';
+}
+
+const { boardType } = Astro.props;
+
+const galleries = {
+  esp32s6: {
+    title: 'ESP32-S6',
+    images: ['esps6-pic1.png', 'esps6-pic2.png']
+  },
+  c3supermini: {
+    title: 'ESP32-C3 Super Mini',
+    images: ['c3-pic1.png', 'c3-pic2.png', 'c3-pic3.png', 'c3-pic4.png']
+  },
+  bw16: {
+    title: 'BW16 RTL8720DN',
+    images: ['bw16-pic1.png', 'bw16-pic2.png', 'bw16-pic3.png']
+  }
+};
+
+const config = galleries[boardType];
+---
+
+<div class="board-gallery">
+  <h3>📸 Zdjęcia płytki {config.title}</h3>
+  <div class="gallery-grid">
+    {config.images.map((img) => (
+      <div class="gallery-item">
+        <img src={`/images/${img}`} alt={`${config.title} - ${img}`} loading="lazy" />
+      </div>
+    ))}
+  </div>
+</div>
+
+<style>
+  .board-gallery {
+    margin: 25px 0;
+    padding: 20px;
+    background: var(--card-bg);
+    border-radius: 10px;
+    border: 2px solid var(--border);
+  }
+
+  .board-gallery h3 {
+    color: var(--primary);
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+  }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+  }
+
+  .gallery-item {
+    border-radius: 8px;
+    overflow: hidden;
+    border: 2px solid var(--border);
+    transition: transform 0.3s ease;
+  }
+
+  .gallery-item:hover {
+    transform: scale(1.05);
+    border-color: var(--primary);
+  }
+
+  .gallery-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  @media (max-width: 768px) {
+    .gallery-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
