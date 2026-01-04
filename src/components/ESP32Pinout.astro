@@ -7,9 +7,10 @@ interface PinConnection {
 interface Props {
   leftPins?: PinConnection[];
   rightPins?: PinConnection[];
+  boardType?: 'esp32' | 'esp32s6' | 'c3supermini' | 'bw16';
 }
 
-const { leftPins = [], rightPins = [] } = Astro.props;
+const { leftPins = [], rightPins = [], boardType = 'esp32' } = Astro.props;
 
 // Funkcja pomocnicza do znalezienia połączenia dla pinu
 const getConnection = (pins: PinConnection[], pinName: string) => {
@@ -17,32 +18,69 @@ const getConnection = (pins: PinConnection[], pinName: string) => {
   return found ? found.connection : '';
 };
 
-// Definicja pinów ESP32 - NOWA KOLEJNOŚĆ
-const leftSidePins = [
-  '3V3', 'EN', '36 (VP)', '39 (VN)', '34', '35', '32', '33', '25', '26',
-  '27', '14', '12', 'GND', '13', '2', '3', 'CMD', '5V'
-];
+// Definicje pinów dla różnych płytek
+const boardConfigs = {
+  esp32: {
+    name: 'ESP32',
+    subtitle: 'DevKit v1',
+    icon: '📡',
+    leftPins: [
+      '3V3', 'EN', '36 (VP)', '39 (VN)', '34', '35', '32', '33', '25', '26',
+      '27', '14', '12', 'GND', '13', '2', '3', 'CMD', '5V'
+    ],
+    rightPins: [
+      'GND', '23', '22', 'TX', 'RX', '21', 'GND', '19', '18', '5',
+      '17', '16', '4', '0', '2', '15', 'SD0', 'SD1', 'CLK'
+    ]
+  },
+  esp32s6: {
+    name: 'ESP32-S6',
+    subtitle: '38 PIN',
+    icon: '📡',
+    leftPins: [
+      '3.3V', '3.3V', 'RST', '4', '5', '6', '7', '15', '16', '17', '18', '8',
+      '3', '46', '9', '10', '11', '12', '13', '14', '5V', 'GND'
+    ],
+    rightPins: [
+      'GND', 'TX', 'RX', '1', '2', '42', '41', '40', '39', '38', '37', '36',
+      '35', '0', '45', '48', '47', '21', '20', '19', 'GND', 'GND'
+    ]
+  },
+  c3supermini: {
+    name: 'ESP32-C3',
+    subtitle: 'Super Mini',
+    icon: '🔷',
+    leftPins: ['5', '6', '7', '8', '9', '10', '20', '21'],
+    rightPins: ['5V', 'GND', '3V3', '4', '3', '2', '1', '0']
+  },
+  bw16: {
+    name: 'BW16',
+    subtitle: 'RTL8720DN',
+    icon: '📻',
+    leftPins: ['GND', 'PA30', 'PA27', 'PA25', 'PA26', 'PA8', 'PA7', 'EN', 'GND', '3V3', '5V'],
+    rightPins: ['GND', 'PA15', 'PA14', 'PA13', 'PA12', 'PA3', 'PA2', 'PA1', 'GND', '3V3', '5V']
+  }
+};
 
-const rightSidePins = [
-  'GND', '23', '22', 'TX', 'RX', '21', 'GND', '19', '18', '5',
-  '17', '16', '4', '0', '2', '15', 'SD0', 'SD1', 'CLK'
-];
+const config = boardConfigs[boardType];
+const leftSidePins = config.leftPins;
+const rightSidePins = config.rightPins;
 ---
 
 <div class="esp32-pinout">
-  <h3>🔌 Schemat połączeń ESP32</h3>
+  <h3>🔌 Schemat połączeń {config.name}</h3>
   
   <div class="pinout-container">
     <!-- Lewa strona -->
     <div class="pins-left">
-      {leftSidePins.map((pin, index) => (
+      {leftSidePins.map((pin) => (
         <div class="pin-row">
           <div class="pin-connection left">
             {getConnection(leftPins, pin.split(' ')[0]) || 
              getConnection(leftPins, pin.replace(/\s*\(.*?\)\s*/g, '')) || 
              '—'}
           </div>
-          <div class={`pin-label ${pin.includes('GND') ? 'ground' : pin.includes('3V3') || pin.includes('5V') ? 'power' : ''}`}>
+          <div class={`pin-label ${pin.includes('GND') ? 'ground' : pin.includes('3V3') || pin.includes('3.3V') || pin.includes('5V') ? 'power' : ''}`}>
             {pin}
           </div>
           <div class="pin-circle"></div>
@@ -52,17 +90,17 @@ const rightSidePins = [
 
     <!-- Środek - chip -->
     <div class="chip">
-      <div class="chip-label">ESP32</div>
-      <div class="chip-sublabel">DevKit v1</div>
-      <div class="chip-icon">📡</div>
+      <div class="chip-label">{config.name}</div>
+      <div class="chip-sublabel">{config.subtitle}</div>
+      <div class="chip-icon">{config.icon}</div>
     </div>
 
     <!-- Prawa strona -->
     <div class="pins-right">
-      {rightSidePins.map((pin, index) => (
+      {rightSidePins.map((pin) => (
         <div class="pin-row">
           <div class="pin-circle"></div>
-          <div class={`pin-label ${pin.includes('GND') ? 'ground' : pin.includes('3V3') || pin.includes('5V') ? 'power' : ''}`}>
+          <div class={`pin-label ${pin.includes('GND') ? 'ground' : pin.includes('3V3') || pin.includes('3.3V') || pin.includes('5V') ? 'power' : ''}`}>
             {pin}
           </div>
           <div class="pin-connection right">
