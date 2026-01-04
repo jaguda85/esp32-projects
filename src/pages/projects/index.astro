@@ -26,6 +26,41 @@ const getAssetPath = (path: string) => {
   const baseWithSlash = base.endsWith('/') ? base : `${base}/`;
   return `${baseWithSlash}${path}`;
 };
+
+// Zlicz projekty dla każdej płytki
+const boardCounts = {
+  esp32: projects.filter(p => (p.data.boardType || 'esp32') === 'esp32').length,
+  esp32s6: projects.filter(p => p.data.boardType === 'esp32s6').length,
+  c3supermini: projects.filter(p => p.data.boardType === 'c3supermini').length,
+  bw16: projects.filter(p => p.data.boardType === 'bw16').length,
+};
+
+const boards = [
+  {
+    id: 'esp32',
+    name: 'ESP32 DevKit',
+    image: getAssetPath('images/esp32.png'),
+    count: boardCounts.esp32
+  },
+  {
+    id: 'esp32s6',
+    name: 'ESP32-S6',
+    image: getAssetPath('images/espS6.png'),
+    count: boardCounts.esp32s6
+  },
+  {
+    id: 'c3supermini',
+    name: 'ESP32-C3 SuperMini',
+    image: getAssetPath('images/espC3.png'),
+    count: boardCounts.c3supermini
+  },
+  {
+    id: 'bw16',
+    name: 'BW16 RTL8720DN',
+    image: getAssetPath('images/bw16.png'),
+    count: boardCounts.bw16
+  }
+];
 ---
 
 <Layout title="Projekty ESP32" showHeader={true}>
@@ -71,18 +106,52 @@ const getAssetPath = (path: string) => {
   <!-- SEPARATOR -->
   <div style="height: 2px; background: linear-gradient(90deg, transparent, var(--primary), transparent); margin: 50px 0;"></div>
 
+  <!-- SELEKTOR PŁYTEK -->
+  <div class="board-selector-section">
+    <h2 style="text-align: center; color: var(--primary); margin-bottom: 30px; font-size: 1.8rem;">
+      🔌 Wybierz płytkę
+    </h2>
+    
+    <div class="board-grid">
+      <button class="board-card active" data-board="all">
+        <div class="board-image-container">
+          <span style="font-size: 4rem;">🎯</span>
+        </div>
+        <h3>Wszystkie</h3>
+        <span class="board-count">{projects.length} projektów</span>
+      </button>
+      
+      {boards.map((board) => (
+        <button class="board-card" data-board={board.id}>
+          <div class="board-image-container">
+            <img src={board.image} alt={board.name} />
+          </div>
+          <h3>{board.name}</h3>
+          <span class="board-count">{board.count} projektów</span>
+        </button>
+      ))}
+    </div>
+  </div>
+
+  <!-- SEPARATOR -->
+  <div style="height: 2px; background: linear-gradient(90deg, transparent, var(--secondary), transparent); margin: 50px 0;"></div>
+
   <!-- NAGŁÓWEK PROJEKTÓW -->
   <h1 style="text-align: center; background: linear-gradient(135deg, var(--primary), var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 10px; font-weight: 800; font-size: 2rem;">
     ⚡ Moje Projekty ⚡
   </h1>
-  <p style="text-align: center; color: var(--text-light); margin-bottom: 40px; font-size: 1rem;">
+  <p id="filter-info" style="text-align: center; color: var(--text-light); margin-bottom: 40px; font-size: 1rem;">
     Elektronika • IoT • ESP32
   </p>
   
   <!-- SIATKA PROJEKTÓW -->
   <div class="project-grid">
     {projects.map((project) => (
-      <a href={getProjectUrl(project.slug)} class="project-card">
+      <a 
+        href={getProjectUrl(project.slug)} 
+        class="project-card"
+        data-board-type={project.data.boardType || 'esp32'}
+      >
         <img 
           src={project.data.mainImage} 
           alt={project.data.title}
@@ -121,3 +190,216 @@ const getAssetPath = (path: string) => {
     </div>
   )}
 </Layout>
+
+<script>
+  const boardCards = document.querySelectorAll('.board-card');
+  const projectCards = document.querySelectorAll('.project-card');
+  const filterInfo = document.getElementById('filter-info');
+
+  const boardNames: Record<string, string> = {
+    all: 'Wszystkie projekty',
+    esp32: 'Projekty z ESP32 DevKit',
+    esp32s6: 'Projekty z ESP32-S6',
+    c3supermini: 'Projekty z ESP32-C3 SuperMini',
+    bw16: 'Projekty z BW16 RTL8720DN'
+  };
+
+  boardCards.forEach(card => {
+    card.addEventListener('click', () => {
+      const selectedBoard = card.getAttribute('data-board');
+      
+      // Usuń active ze wszystkich
+      boardCards.forEach(c => c.classList.remove('active'));
+      
+      // Dodaj active do klikniętej
+      card.classList.add('active');
+      
+      // Filtruj projekty
+      let visibleCount = 0;
+      projectCards.forEach(project => {
+        const projectBoard = project.getAttribute('data-board-type') || 'esp32';
+        
+        if (selectedBoard === 'all' || projectBoard === selectedBoard) {
+          project.style.display = '';
+          visibleCount++;
+          // Animacja pojawienia się
+          setTimeout(() => {
+            project.classList.add('fade-in');
+          }, 10);
+        } else {
+          project.style.display = 'none';
+          project.classList.remove('fade-in');
+        }
+      });
+      
+      // Zaktualizuj tekst informacyjny
+      if (filterInfo && selectedBoard) {
+        const boardName = boardNames[selectedBoard] || 'Projekty';
+        filterInfo.textContent = `${boardName} • ${visibleCount} ${visibleCount === 1 ? 'projekt' : 'projektów'}`;
+      }
+      
+      // Scroll do projektów
+      const projectGrid = document.querySelector('.project-grid');
+      if (projectGrid && selectedBoard !== 'all') {
+        setTimeout(() => {
+          projectGrid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 100);
+      }
+    });
+  });
+</script>
+
+<style>
+  /* SELEKTOR PŁYTEK */
+  .board-selector-section {
+    margin: 40px 0 50px;
+    padding: 30px;
+    background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+    border-radius: 15px;
+    border: 2px solid var(--border);
+  }
+
+  .board-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .board-card {
+    background: var(--card-bg);
+    border: 3px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .board-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(74, 158, 255, 0.1), transparent);
+    transition: left 0.5s ease;
+  }
+
+  .board-card:hover::before {
+    left: 100%;
+  }
+
+  .board-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--primary);
+    box-shadow: 0 8px 24px rgba(74, 158, 255, 0.3);
+  }
+
+  .board-card.active {
+    border-color: var(--primary);
+    background: linear-gradient(135deg, rgba(74, 158, 255, 0.15), rgba(52, 211, 153, 0.1));
+    box-shadow: 0 0 30px rgba(74, 158, 255, 0.4);
+  }
+
+  .board-card.active::after {
+    content: '✓';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: var(--primary);
+    color: var(--dark);
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.1rem;
+  }
+
+  .board-image-container {
+    width: 100%;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+    background: var(--dark-secondary);
+    border-radius: 8px;
+    padding: 15px;
+  }
+
+  .board-image-container img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+  }
+
+  .board-card h3 {
+    color: var(--text);
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+
+  .board-count {
+    color: var(--text-light);
+    font-size: 0.9rem;
+    display: block;
+  }
+
+  .board-card.active .board-count {
+    color: var(--primary);
+    font-weight: 600;
+  }
+
+  /* ANIMACJA PROJEKTÓW */
+  .project-card {
+    opacity: 0;
+    transform: scale(0.9);
+    animation: fadeInScale 0.4s ease forwards;
+  }
+
+  .project-card.fade-in {
+    animation: fadeInScale 0.4s ease forwards;
+  }
+
+  @keyframes fadeInScale {
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .board-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+    }
+
+    .board-image-container {
+      height: 120px;
+    }
+
+    .board-card h3 {
+      font-size: 0.95rem;
+    }
+
+    .board-count {
+      font-size: 0.8rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .board-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
