@@ -15,6 +15,7 @@ export async function getStaticPaths() {
 
 const { project } = Astro.props;
 const { Content } = await project.render();
+const boardType = project.data.boardType || 'esp32'; // DODANE
 
 const formatDate = (date: Date) => {
   return new Date(date).toLocaleDateString('pl-PL', {
@@ -70,8 +71,14 @@ const homeUrl = getHomeUrl();
       class="project-main-image"
     />
     
+    <!-- Galeria dla nowych płytek - DODANE -->
+    {boardType !== 'esp32' && (
+      <BoardGallery boardType={boardType} />
+    )}
+    
     {(project.data.leftPins || project.data.rightPins) && (
       <ESP32Pinout 
+        boardType={boardType}
         leftPins={project.data.leftPins} 
         rightPins={project.data.rightPins} 
       />
@@ -181,7 +188,6 @@ const homeUrl = getHomeUrl();
       </script>
     </div>
   </div>
-</Layout>
 
   <div id="lightbox" class="lightbox">
     <span class="lightbox-close">&times;</span>
@@ -410,5 +416,4 @@ const homeUrl = getHomeUrl();
   [data-theme="dark"] .comments-section :global(.giscus-frame) {
     color-scheme: dark;
   }
-
 </style>
