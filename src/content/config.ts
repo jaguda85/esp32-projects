@@ -12,6 +12,7 @@ const projectsCollection = defineCollection({
     tags: z.array(z.string()).optional(),
     components: z.array(z.string()).optional(),
     difficulty: z.enum(['Łatwy', 'Średni', 'Trudny']).optional(),
+    boardType: z.enum(['esp32', 'esp32s6', 'c3supermini', 'bw16']).default('esp32'), // NOWE POLE
     leftPins: z.array(z.object({
       pin: z.string(),
       connection: z.string(),
