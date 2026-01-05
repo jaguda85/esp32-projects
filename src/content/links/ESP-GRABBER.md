@@ -2,7 +2,7 @@
 title: "ESP GRABBER"
 description: "Wielopasmowe narzędzie sygnałowe RF dla ESP32 + CC1101"
 url: "https://github.com/MarauTech/ESP-GRABER?tab=readme-ov-file"
-category: "Projekty"
+category: "Projekt"
 date: 2025-01-08
 tags: ["Projekt", "Dokumentacja", "Narzędzie"]
 ---
