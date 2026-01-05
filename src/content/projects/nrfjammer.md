@@ -2,6 +2,7 @@
 title: "Cypher jammer mini"
 description: "Kompaktowy projekt IoT"
 mainImage: "/esp32-projects/images/projects/nrfjammer/main.jpg"
+images: "/esp32-projects/images/projects/nrfjammer/nrfjammer1.jpg"
 date: 2025-01-20
 tags: ["ESP32-C3", "Compact"]
 difficulty: "Łatwy"

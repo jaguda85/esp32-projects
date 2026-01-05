@@ -10,9 +10,8 @@ tags: ["ESP32", "Dokumentacja", "ESP-IDF"]
 ## Opis
 
 ESP-GRABER to wszechstronne narzędzie do pracy z częstotliwościami radiowymi w pasmach 315 / 433 / 868 / 915 MHz, oparte na mikrokontrolerze ESP32 z modułem RF CC1101 i wyświetlaczem OLED.
-
 Oprogramowanie sprzętowe umożliwia odczytywanie, powtarzanie, analizowanie, przechowywanie i — przy zachowaniu ostrożności — zakłócanie sygnałów RF. Jest przeznaczony wyłącznie do celów edukacyjnych i testowych.
 
 ## Co znajdziesz:
 
-- ZABAWĘ
+- ZABAWe
