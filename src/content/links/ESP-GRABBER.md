@@ -4,7 +4,7 @@ description: "Wielopasmowe narzędzie sygnałowe RF dla ESP32 + CC1101"
 url: "https://github.com/MarauTech/ESP-GRABER?tab=readme-ov-file"
 category: "Projekty"
 date: 2025-01-08
-tags: ["ESP32", "Dokumentacja", "ESP-IDF"]
+tags: ["Projekt", "Dokumentacja", "Narzędzie"]
 ---
 
 ## Opis

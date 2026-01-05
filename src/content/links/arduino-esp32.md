@@ -4,7 +4,7 @@ description: "Oficjalny core Arduino dla ESP32"
 url: "https://github.com/espressif/arduino-esp32"
 category: "Biblioteka"
 date: 2025-01-10
-tags: ["ESP32", "Arduino", "Core"]
+tags: ["Projekt", "Inne"]
 ---
 
 ## Opis

@@ -4,7 +4,7 @@ description: "Setki tutoriali ESP32 i Arduino"
 url: "https://randomnerdtutorials.com/getting-started-with-esp32/"
 category: "Tutorial"
 date: 2025-01-05
-tags: ["ESP32", "Tutorial", "Arduino", "IoT"]
+tags: ["Tutorial", "Inne"]
 ---
 
 ## Opis

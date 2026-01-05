@@ -28,7 +28,7 @@ const config = galleries[boardType];
   <div class="gallery-grid">
     {config.images.map((img) => (
       <div class="gallery-item">
-        <img src={`/esp32-projects/images/${img}`} alt={`${config.title} - ${img}`} loading="lazy" />
+        <img src={`images/${img}`} alt={`${config.title} - ${img}`} loading="lazy" />
       </div>
     ))}
   </div>

@@ -5,7 +5,7 @@ url: "https://github.com/justcallmekoko/ESP32Marauder"
 category: "Projekt"
 image: "/images/links/marauder-thumb.jpg"
 date: 2025-01-15
-tags: ["ESP32", "WiFi", "Bluetooth", "Security", "Pentesting"]
+tags: ["Inne"]
 ---
 
 ## Opis

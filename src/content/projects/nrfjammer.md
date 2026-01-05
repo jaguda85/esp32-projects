@@ -39,4 +39,37 @@ rightPins:
 
 ## Opis projektu
 
-Szczegółowy opis...
+Projekt zegara z datą i pogodą. Posiada AP z www gdzie można dokonać zmiany wielu parametrów. Wymaga połącznia wifi i API na 'openweather.com'. 
+Koniecznie uzupełnij je w kodzie.
+
+## Schemat połączeń
+
+
+  
+
+## Jak to działa
+Znajdź na początku kodu i uzupełnij poniższe parametry:
+// Konfiguracja WiFi - Access Point
+const char* ap_ssid = "TU WPISZ NAZWĘ AP";
+const char* ap_password = "TU WPISZ HASŁO DO AP(CO NAJ MNIEJ 6 ZNAKÓW)";
+
+// Konfiguracja WiFi - połączenie z internetem
+const char* sta_ssid = "TU WPISZ NAZWĘ TWOJEGO WIFI";
+const char* sta_password = "TU HASŁO DO TWOJEGO WIFI";
+
+// Konfiguracja OpenWeatherMap
+const char* weatherApiKey = "TU WPISZ KOD API Z OPENWEATHER.COM";
+const char* weatherCity = "TU WPISZ SWOJE MIASTO";1
+const char* weatherCountry = "PL";
+
+API założysz za darmo na stronie openweather.com
+
+
+
+## Kod programu
+
+Pobierz plik: [zegarmax.ino](/esp32-projects/code/zegarmax/zegarmax.ino)
+
+
+
+## Możliwe rozszerzenia           
