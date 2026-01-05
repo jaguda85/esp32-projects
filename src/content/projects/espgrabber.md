@@ -8,6 +8,7 @@ images:
 date: 2025-01-20
 tags: ["ESP32", "Tag2"]
 difficulty: "Średni"
+boardType: "esp32"
 components:
   - "ESP32"
   - "EKRAN OLED 0.96 I2C"
@@ -47,7 +48,7 @@ rightPins:
     connection: "CC1101 5"
   - pin: "5"
     connection: "CC1101 4"
-  - pim: "2"
+  - pin: "2"
     connection: "CC1101 3"
 ---
 
