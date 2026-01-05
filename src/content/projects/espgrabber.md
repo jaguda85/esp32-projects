@@ -14,7 +14,7 @@ components:
   - "CC1101 RF transceiver"
   - "4 przyciski"
 
-# PINY - LEWA STRONA (od góry: 3V3, EN, 36, 39, 34, 35, 32, 33, 25, 26, 27, 14, 12, GND, 13, 2, 3, CMD, 5V)
+# PINY - LEWA STRONA (od góry: 3V3, EN, 36, 39, 34, 35, 32, 33, 25, 26, 27, 14, 12, GND, 13, 3, CMD, 5V)
 leftPins:
   - pin: "3V3"
     connection: "Zasilanie 3.3V"
