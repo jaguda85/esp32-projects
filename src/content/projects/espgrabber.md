@@ -3,7 +3,7 @@ title: "ESP GRABBER"
 description: "Odbiera i wysyła sygnały pilotów"
 mainImage: "/esp32-projects/images/projects/espgrabber/main.png"
 images:
-  - "/esp32-projects/images/projects/espgeabber/photo1.png"
+  - "/esp32-projects/images/projects/espgrabber/photo1.png"
   - "/esp32-projects/images/projects/espgrabber/photo2.png"
 date: 2025-01-20
 tags: ["ESP32", "Tag2"]
