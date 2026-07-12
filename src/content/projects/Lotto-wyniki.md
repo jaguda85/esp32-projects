@@ -5,7 +5,7 @@ mainImage: "/esp32-projects/images/projects/Wyniki-lotto/lotto1.jpg"
 images:
   - "/esp32-projects/images/projects/Wyniki-lotto/lotto2.jpg"
   - "/esp32-projects/images/projects/Wyniki-lotto/lotto3.jpg"
-  - "/esp32-projects/images/projects/Wyniki-lotto/lotto4.jpg
+  - "/esp32-projects/images/projects/Wyniki-lotto/lotto4.jpg"
 date: 2026-07-12
 tags: ["ESP32", "OpenAPI", "Lotto"]
 difficulty: "Średni"
