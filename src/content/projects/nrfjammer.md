@@ -71,7 +71,7 @@ API założysz za darmo na stronie openweather.com
 
 ## Kod programu
 
-Pobierz plik: [zegarmax.ino](/esp32-projects/code/zegarmax/zegarmax.ino)
+Pobierz plik: [cypher-jammer-mini.ino](/esp32-projects/code/nrfjammer/cypher-jammer-mini.ino)
 
 
 
