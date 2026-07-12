@@ -1,49 +1,56 @@
 ---
-title: "Tytuł projektu"
-description: "Krótki opis projektu w 1-2 zdaniach"
-mainImage: "/esp32-projects/images/projects/nazwa-projektu/main.jpg"
+title: "Lotto-wyniki"
+description: "Pokazuje wyniki losowań LOTTO"
+mainImage: "/esp32-projects/images/projects/Wyniki-lotto/lotto1.jpg"
 images:
-  - "/esp32-projects/images/projects/nazwa-projektu/photo1.jpg"
-  - "/esp32-projects/images/projects/nazwa-projektu/photo2.jpg"
-date: 2025-01-31
-tags: ["ESP32", "WiFi", "LED"]
+  - "/esp32-projects/images/projects/Wyniki-lotto/lotto2.jpg"
+  - "/esp32-projects/images/projects/Wyniki-lotto/lotto3.jpg"
+  - "/esp32-projects/images/projects/Wyniki-lotto/lotto4.jpg
+date: 2026-07-12
+tags: ["ESP32", "OpenAPI", "Lotto"]
 difficulty: "Średni"
 components:
   - "ESP32 DevKit v1"
-  - "LED RGB"
-  - "Rezystor 220Ω"
-  - "Przewody połączeniowe"
+  - "TFT 2.8'' ILI9341"
+  - "6 przycisków"
+  - "Przewody"
 libraries:
-  - name: "WiFi"
-    author: "Arduino"
-  - name: "FastLED"
-    author: "Daniel Garcia"
-    link: "https://github.com/FastLED/FastLED"
+  - name: "TFT_eSPI"
+    author: ""
 leftPins:
   - pin: "3V3"
     connection: "Zasilanie LED"
   - pin: "25"
-    connection: "LED Data Pin"
+    connection: "PRZYCISK WSTECZ"
+  - pin: "26"
+    connection: "PRZYCISK OK"
+  - pin: "27"
+    connection: "PRZYCISK DÓL"
+  - pin: "12"
+    connection: "PRZYCISK LEWO"
+  - pin: "13"
+    connection: "PRZYCISK PRAWO"
+  - pin: "14"
+    connection: "PRZYCISK GÓRA"
   - pin: "GND"
     connection: "Masa"
 rightPins:
   - pin: "GND"
     connection: "Masa wspólna"
-  - pin: "22"
-    connection: "I2C SCL"
-arduinoFilename: "projekt.ino"
-arduinoCode: |
-  // Twój kod Arduino tutaj
-  
-  void setup() {
-    Serial.begin(115200);
-    pinMode(LED_PIN, OUTPUT);
-  }
-  
-  void loop() {
-    // główna pętla
-    delay(1000);
-  }
+  - pin: "23"
+    connection: "TFT_MOSI"
+  - pin: "19"
+    connection: "TFT_MISO"
+  - pin: "18"
+    connection: "TFT_SCLK"
+  - pin: "4"
+    connection: "TFT_RST"
+  - pin: "2"
+    connection: "TFT_DC"
+  - pin: "15"
+    connection: "TFT_CS"
+arduinoFilename: "lotto_TRY_05a.ino"
+
 ---
 
 ## Opis projektu
